@@ -1,0 +1,118 @@
+---
+const primary = [
+  {
+    name: 'ใช้งานปกติ',
+    slug: 'ใช้งานปกติ',
+    desc: 'สภาพดี ฟังก์ชันครบ — ส่งรูปประเมินได้ชัด',
+  },
+  {
+    name: 'จอแตก',
+    slug: 'จอแตก',
+    desc: 'แจ้งรอยร้าว ทัช และขอบเขตจุดเสีย',
+  },
+  {
+    name: 'แบตเสื่อม',
+    slug: 'แบตเสื่อม',
+    desc: 'แบตหมดไว ชาร์จไม่เข้า หรือ Battery Health ต่ำ',
+  },
+  {
+    name: 'เปิดไม่ติด',
+    slug: 'เปิดไม่ติด',
+    desc: 'จอดำ ค้างโลโก้ หรือชาร์จไม่เข้า',
+  },
+  {
+    name: 'Face ID เสีย',
+    slug: 'face-id-เสีย',
+    desc: 'สแกนไม่ได้ — แจ้งหลังซ่อมหรือน้ำเข้า',
+  },
+  {
+    name: 'ติดรหัส',
+    slug: 'ติดรหัส',
+    desc: 'ต้องตรวจสอบความเป็นเจ้าของก่อนประเมิน — ไม่สนับสนุนการปลดล็อกผิดกฎหมาย — ควรออกจากบัญชีและปิด Find My ก่อนขาย',
+    chip: true,
+  },
+  {
+    name: 'ติด iCloud',
+    slug: 'ติด-icloud',
+    desc: 'ต้องตรวจสอบความเป็นเจ้าของก่อนประเมิน — ไม่สนับสนุนการเลี่ยงระบบความปลอดภัย — ควรออกจากบัญชีและปิด Find My ก่อนขาย',
+    chip: true,
+  },
+];
+
+const dualLinks = {
+  name: 'เครื่องศูนย์ไทย / เครื่องนอก',
+  desc: 'แจ้งโมเดลและแหล่งซื้อให้ชัด — มีผลต่อการประเมิน',
+  a: { label: 'เครื่องศูนย์ไทย', href: '/รับซื้อไอโฟน/เครื่องศูนย์ไทย/' },
+  b: { label: 'เครื่องนอก', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+};
+
+const secondary = [
+  { name: 'กล้องเสีย', href: '/รับซื้อไอโฟน/กล้องเสีย/' },
+  { name: 'ฝาหลังแตก', href: '/รับซื้อไอโฟน/ฝาหลังแตก/' },
+  { name: 'จอเป็นเส้น / จอดำ', href: '/รับซื้อไอโฟน/จอเป็นเส้น/' },
+];
+---
+
+<section id="iphone-conditions" class="scroll-mt-28 bg-black py-20 text-off-white sm:scroll-mt-32" aria-labelledby="conditions-heading">
+  <div class="mx-auto max-w-[1180px] px-4">
+    <h2 id="conditions-heading" class="text-2xl font-bold tracking-tight text-off-white">รับซื้อไอโฟนสภาพไหนบ้าง</h2>
+    <p class="mt-2 max-w-prose text-sm leading-relaxed text-muted-light">
+      ไม่แน่ใจว่าเข้าข่ายไหน ส่งรูปและอาการทาง LINE ได้เลย
+    </p>
+
+    <div class="mt-10 grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:items-stretch">
+      {
+        primary.map((c) => (
+          <a
+            href={`/รับซื้อไอโฟน/${c.slug}/`}
+            class="group relative flex h-full min-h-[188px] flex-col rounded-2xl border border-white/[0.08] bg-dark-card p-5 transition-all duration-300 hover:border-gold-border/50 hover:shadow-[0_0_36px_rgba(212,175,55,0.12)]"
+          >
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gold-border/60 text-gold-soft" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+                <path d="M5 12h14M12 5v14" stroke-linecap="round" />
+              </svg>
+            </span>
+            <div class="mt-3 flex items-start justify-between gap-2">
+              <p class="text-base font-semibold text-off-white">{c.name}</p>
+              {c.chip ? (
+                <span class="shrink-0 rounded border border-gold-border/45 bg-glass-white px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-gold-soft">
+                  ตรวจเจ้าของก่อน
+                </span>
+              ) : null}
+            </div>
+            <p class="mt-2 flex-1 text-xs leading-relaxed text-muted-light">{c.desc}</p>
+            <span class="mt-3 text-xs font-semibold text-gold-soft group-hover:underline">ดูรายละเอียด</span>
+          </a>
+        ))
+      }
+
+      <div class="flex h-full min-h-[188px] flex-col rounded-2xl border border-white/[0.08] bg-dark-card p-5">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gold-border/60 text-gold-soft" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
+            <path d="M5 12h14M12 5v14" stroke-linecap="round" />
+          </svg>
+        </span>
+        <p class="mt-3 text-base font-semibold text-off-white">{dualLinks.name}</p>
+        <p class="mt-2 flex-1 text-xs leading-relaxed text-muted-light">{dualLinks.desc}</p>
+        <div class="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold">
+          <a class="text-gold-soft hover:underline" href={dualLinks.a.href}>
+            {dualLinks.a.label}
+          </a>
+          <span class="text-gold-border/50" aria-hidden="true">·</span>
+          <a class="text-gold-soft hover:underline" href={dualLinks.b.href}>
+            {dualLinks.b.label}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-8 text-sm text-muted-light">
+      เพิ่มเติม:
+      <a class="font-semibold text-gold-soft hover:underline" href={secondary[0].href}>{secondary[0].name}</a>
+      <span class="mx-2 text-gold-border/40" aria-hidden="true">·</span>
+      <a class="font-semibold text-gold-soft hover:underline" href={secondary[1].href}>{secondary[1].name}</a>
+      <span class="mx-2 text-gold-border/40" aria-hidden="true">·</span>
+      <a class="font-semibold text-gold-soft hover:underline" href={secondary[2].href}>{secondary[2].name}</a>
+    </p>
+  </div>
+</section>

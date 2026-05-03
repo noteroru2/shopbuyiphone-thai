@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import SeoCTA from '../components/SeoCTA.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { absoluteUrl } from '../lib/seo';
+
+const title = 'ไม่พบหน้าที่ต้องการ | ร้านรับซื้อไอโฟน.com';
+const description = 'ขออภัย ไม่พบหน้าที่คุณต้องการ ลองกลับไปหน้าแรกหรือเลือกบริการที่เกี่ยวข้อง';
+const canonical = absoluteUrl('/404.html');
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} noindex={true}>
+  <div class="bg-section-warm text-text-dark pb-16">
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-10">
+      <h1 class="text-3xl font-extrabold tracking-tight text-text-dark sm:text-4xl">ไม่พบหน้าที่ต้องการ</h1>
+      <p class="mt-4 text-base leading-relaxed text-text-muted">
+        ขอโทษครับ ลิงก์นี้อาจถูกย้ายหรือพิมพ์ผิด คุณสามารถกลับไปหน้าแรกหรือเลือกหน้าที่เกี่ยวข้องด้านล่างได้
+      </p>
+      <div class="mt-6 flex flex-col gap-4">
+        <a class="inline-flex items-center justify-center rounded-2xl bg-charcoal px-5 py-3 text-sm font-extrabold text-off-white hover:bg-black sm:inline-flex sm:w-fit" href="/">
+          กลับหน้าแรก
+        </a>
+        <CTAButtons primaryText="แอดไลน์ @webuy ส่งรูปประเมินราคา" secondaryText="โทร" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks
+    links={[
+      { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/', description: 'บริการหลักสำหรับเครื่องใช้งานปกติ/เครื่องเก่า' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/', description: 'ส่งรูป + รุ่น/ความจุ เพื่อประเมินราคาเบื้องต้นฟรี' },
+      { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/', description: 'รับซื้อ iPhone มือสอง หลายรุ่น ประเมินผ่านไลน์ @webuy' },
+      { label: 'บทความ', href: '/blog/', description: 'คู่มือเตรียมเครื่องก่อนขาย' },
+    ]}
+  />
+
+  <SeoCTA />
+  </div>
+</BaseLayout>
+

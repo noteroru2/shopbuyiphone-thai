@@ -1,0 +1,31 @@
+---
+export type RelatedLink = { label: string; href: string; description?: string };
+
+interface Props {
+  title?: string;
+  links: RelatedLink[];
+}
+
+const { title = 'ลิงก์ที่เกี่ยวข้อง', links } = Astro.props;
+---
+
+<section class="mx-auto w-full max-w-[1180px] px-4 py-10" aria-labelledby="related-links-heading">
+  <div class="rounded-2xl border border-gold-border/20 bg-white/90 p-6 shadow-sm sm:p-8">
+    <h2 id="related-links-heading" class="border-l-2 border-gold pl-4 text-lg font-bold tracking-tight text-text-dark sm:text-xl">
+      {title}
+    </h2>
+    <div class="mt-6 flex flex-wrap gap-2">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            title={l.description}
+            class="group inline-flex max-w-full items-center rounded-full border border-gold-border/35 bg-section-warm px-4 py-2 text-sm font-semibold text-gold-deep transition hover:border-gold-border hover:bg-white hover:text-gold hover:shadow-sm"
+          >
+            <span class="group-hover:underline">{l.label}</span>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

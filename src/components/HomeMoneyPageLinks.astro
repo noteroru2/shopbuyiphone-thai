@@ -1,0 +1,52 @@
+---
+/** ลิงก์ภายในหลักสำหรับ money page หน้าแรก — ตามแผน SEO */
+const links = [
+  { href: '/รับซื้อไอโฟน/', label: 'ฮับรับซื้อไอโฟน' },
+  { href: '/รับซื้อไอโฟนมือสอง/', label: 'รับซื้อไอโฟนมือสอง' },
+  { href: '/รับซื้อ-iphone/', label: 'รับซื้อ iPhone' },
+  { href: '/ขายไอโฟน/', label: 'ขายไอโฟน' },
+  { href: '/เช็คราคาไอโฟน/', label: 'เช็คราคาไอโฟน' },
+  { href: '/ตีราคาไอโฟน/', label: 'ตีราคาไอโฟน' },
+  { href: '/รับซื้อไอโฟน/iphone-17/', label: 'รับซื้อ iPhone 17' },
+  { href: '/รับซื้อไอโฟน/iphone-16/', label: 'รับซื้อ iPhone 16' },
+  { href: '/รับซื้อไอโฟน/iphone-15/', label: 'รับซื้อ iPhone 15' },
+  { href: '/รับซื้อไอโฟน/iphone-14/', label: 'รับซื้อ iPhone 14' },
+  { href: '/รับซื้อไอโฟน/iphone-13/', label: 'รับซื้อ iPhone 13' },
+  { href: '/รับซื้อไอโฟน/iphone-12/', label: 'รับซื้อ iPhone 12' },
+  { href: '/รับซื้อไอโฟน/iphone-11/', label: 'รับซื้อ iPhone 11' },
+  { href: '/รับซื้อไอโฟน/iphone-se/', label: 'รับซื้อ iPhone SE' },
+  { href: '/รับซื้อไอโฟน/จอแตก/', label: 'รับซื้อไอโฟนจอแตก' },
+  { href: '/รับซื้อไอโฟน/แบตเสื่อม/', label: 'รับซื้อไอโฟนแบตเสื่อม' },
+  { href: '/รับซื้อไอโฟน/เปิดไม่ติด/', label: 'รับซื้อไอโฟนเปิดไม่ติด' },
+  { href: '/รับซื้อไอโฟน/ติด-icloud/', label: 'รับซื้อไอโฟนติด iCloud' },
+  { href: '/รับซื้อไอโฟน/กรุงเทพ/', label: 'รับซื้อไอโฟนกรุงเทพ' },
+  { href: '/รับซื้อไอโฟน/ปริมณฑล/', label: 'รับซื้อไอโฟนปริมณฑล' },
+  { href: '/รับซื้อไอโฟน/ภาคอีสาน/', label: 'รับซื้อไอโฟนภาคอีสาน' },
+  { href: '/พื้นที่ให้บริการ/', label: 'พื้นที่ให้บริการ' },
+  { href: '/คำถามที่พบบ่อย/', label: 'คำถามที่พบบ่อย' },
+  { href: '/blog/', label: 'บทความ' },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-12" aria-labelledby="money-links-heading">
+  <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+    <h2 id="money-links-heading" class="text-lg font-extrabold tracking-tight text-text-dark sm:text-xl">
+      หน้าสำคัญสำหรับรับซื้อไอโฟน · iPhone · เช็คราคา
+    </h2>
+    <p class="mt-2 max-w-3xl text-sm leading-relaxed text-text-muted">
+      เลือกหัวข้อที่ตรงกับเคสของคุณ แล้วแอดไลน์ <strong class="text-text-dark">@webuy</strong> ส่งรูปประเมินราคา หรือโทร <strong class="text-text-dark">0642579353</strong>
+    </p>
+    <div class="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark shadow-sm transition-colors hover:border-gold/40 hover:bg-gold-bg"
+          >
+            {l.label}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

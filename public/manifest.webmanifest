@@ -1,0 +1,15 @@
+{
+  "name": "ร้านรับซื้อไอโฟน.com",
+  "short_name": "รับซื้อไอโฟน",
+  "description": "รับซื้อไอโฟน รับซื้อ iPhone มือสอง ส่งรูปเช็คราคาไอโฟนฟรีผ่าน LINE @webuy",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#0A0A0A",
+  "lang": "th",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" },
+    { "src": "/images/logo-webuy-gold-w.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

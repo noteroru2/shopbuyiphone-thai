@@ -1,0 +1,29 @@
+---
+/**
+ * เนื้อหา markdown/prose บนพื้น cream/white — โทน Black Gold
+ */
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'prose prose-stone max-w-none rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8 lg:p-10',
+    'prose-headings:scroll-mt-28 prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-text-dark',
+    'prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:mt-8 prose-h3:mb-3',
+    'prose-p:text-base prose-p:leading-relaxed prose-p:text-text-muted prose-p:my-4',
+    'prose-li:my-1 prose-li:text-text-muted prose-ul:my-4 prose-ol:my-4',
+    'prose-strong:text-text-dark prose-strong:font-semibold',
+    'prose-a:font-semibold prose-a:text-gold-deep prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-gold',
+    'prose-hr:my-10 prose-hr:border-gold-border/20',
+    'prose-blockquote:border-l-gold prose-blockquote:text-text-muted prose-blockquote:not-italic',
+    'prose-code:rounded prose-code:bg-section-warm prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:text-text-dark prose-code:before:content-none prose-code:after:content-none',
+    'prose-pre:rounded-2xl prose-pre:border prose-pre:border-gold-border/25 prose-pre:bg-section-warm',
+    className,
+  ]}
+>
+  <slot />
+</div>

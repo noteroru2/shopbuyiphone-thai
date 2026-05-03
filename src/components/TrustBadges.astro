@@ -1,0 +1,62 @@
+---
+const items = [
+  {
+    title: 'ประเมินฟรี',
+    desc: 'ส่งรูปและรายละเอียดเบื้องต้น ไม่มีค่าใช้จ่าย',
+    icon: 'm',
+  },
+  {
+    title: 'ส่งรูปผ่าน LINE',
+    desc: 'แอดไลน์ @webuy ส่งรูปได้ทันที ไม่ต้องกรอกฟอร์ม',
+    icon: 'l',
+  },
+  {
+    title: 'รับซื้อหลายรุ่น',
+    desc: 'ตั้งแต่ iPhone 17 ถึง iPhone SE ตามตลาดมือสอง',
+    icon: 'p',
+  },
+  {
+    title: 'จ่ายเงินไว',
+    desc: 'ตกลงราคาแล้วโอนหรือจ่ายตามที่นัดหมาย',
+    icon: 'c',
+  },
+] as const;
+---
+
+<section class="border-y border-gold-border/20 bg-charcoal" aria-label="ความน่าเชื่อถือ">
+  <div class="mx-auto grid max-w-[1180px] divide-y divide-gold-border/15 sm:grid-cols-2 sm:divide-x sm:divide-y-0 lg:grid-cols-4 lg:divide-x">
+    {
+      items.map((it) => (
+        <div class="flex gap-3.5 px-5 py-5 sm:px-6 sm:py-5">
+          <span
+            class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gold-border/55 text-gold-soft"
+            aria-hidden="true"
+          >
+            {it.icon === 'm' ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-linecap="round" />
+              </svg>
+            ) : it.icon === 'l' ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M4 12h16M12 4v16" stroke-linecap="round" />
+              </svg>
+            ) : it.icon === 'p' ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect x="7" y="2" width="10" height="20" rx="2" stroke-linejoin="round" />
+                <path d="M11 18h2" stroke-linecap="round" />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            )}
+          </span>
+          <div class="min-w-0">
+            <p class="text-sm font-semibold text-off-white">{it.title}</p>
+            <p class="mt-1 text-xs leading-snug text-muted-light">{it.desc}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

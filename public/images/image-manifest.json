@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "file": "/images/hero-webuy-campaign.webp",
+      "alt": "รับซื้อไอโฟน @webuy ประเมินตามรุ่นและสภาพจริง แอดไลน์ @webuy โทร 0642579353"
+    },
+    {
+      "file": "/images/hero-iphone-buying.svg",
+      "alt": "รับซื้อไอโฟน ประเมินตามสภาพจริง จ่ายเงินสดทันที @webuy ร้านรับซื้อ iPhone มืออาชีพ"
+    },
+    {
+      "file": "/images/iphone-check-price.svg",
+      "alt": "พร้อมขายไอโฟน ส่งรูปเช็คราคาฟรีผ่านไลน์ @webuy ร้านรับซื้อไอโฟน โทร 0642579353"
+    },
+    {
+      "file": "/images/iphone-check-price.svg",
+      "alt": "เช็คราคาไอโฟนจากรูปและข้อมูลรุ่น"
+    },
+    {
+      "file": "/images/iphone-condition.svg",
+      "alt": "ประเมินสภาพ iPhone ตามรูปจริง"
+    },
+    {
+      "file": "/images/iphone-models.svg",
+      "alt": "รุ่น iPhone ที่เปิดรับประเมิน"
+    }
+  ]
+}

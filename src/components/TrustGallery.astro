@@ -1,0 +1,58 @@
+---
+const items = [
+  {
+    srcLg: '/images/iphone-check-price.svg',
+    srcSm: '/images/iphone-check-price.svg',
+    alt: 'การส่งรูป iPhone เพื่อเช็คราคาไอโฟนก่อนตัดสินใจขาย',
+    title: 'ส่งรูปประเมินก่อน',
+    desc: 'ลดความคลาดเคลื่อนด้วยรูปหลายมุม',
+  },
+  {
+    srcLg: '/images/iphone-condition.svg',
+    srcSm: '/images/iphone-condition.svg',
+    alt: 'ตรวจสภาพ iPhone ตามข้อมูลที่ลูกค้าแจ้ง',
+    title: 'ยึดข้อมูลจริง',
+    desc: 'อธิบายเงื่อนไขก่อนตกลง',
+  },
+  {
+    srcLg: '/images/iphone-models.svg',
+    srcSm: '/images/iphone-models.svg',
+    alt: 'บริการรับซื้อ iPhone หลายรุ่น',
+    title: 'หลายรุ่น',
+    desc: 'ครอบคลุมรุ่นที่ยังมีตลาดมือสอง',
+  },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-12">
+  <div class="flex items-end justify-between gap-4">
+    <div>
+      <h2 class="text-xl font-bold text-text-dark">ความน่าเชื่อถือที่มองเห็นได้</h2>
+      <p class="mt-2 text-sm text-text-muted">ภาพประกอบบริการและขั้นตอนการรับซื้อ</p>
+    </div>
+    <a class="text-sm font-semibold text-text-muted hover:text-text-dark" href="/เกี่ยวกับเรา/">ดูข้อมูลร้าน</a>
+  </div>
+
+  <div class="mt-6 grid gap-4 md:grid-cols-3">
+    {items.map((it) => (
+      <figure class="rounded-2xl border border-gold-border/25 bg-white/90 p-3 shadow-sm">
+        <picture>
+          <source srcset={it.srcLg} media="(min-width: 768px)" />
+          <img
+            src={it.srcSm}
+            alt={it.alt}
+            loading="lazy"
+            decoding="async"
+            width="640"
+            height="640"
+            class="aspect-square w-full rounded-xl object-cover"
+          />
+        </picture>
+        <figcaption class="mt-3 px-1">
+          <p class="text-sm font-semibold text-text-dark">{it.title}</p>
+          <p class="mt-1 text-sm text-text-muted">{it.desc}</p>
+        </figcaption>
+      </figure>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,80 @@
+---
+import { SITE } from '../config/site';
+
+interface Props {
+  title?: string;
+}
+
+const { title = 'ขายไอโฟนง่าย ๆ ใน 4 ขั้นตอน' } = Astro.props;
+
+const steps = [
+  { title: `แอดไลน์ ${SITE.lineHandle}`, desc: 'เพิ่มเพื่อนเพื่อส่งรูปและข้อมูลเครื่อง' },
+  { title: 'ส่งรูป iPhone', desc: '3–5 รูป หน้าจอ About และตัวเครื่องหลายมุม' },
+  { title: 'รับราคาประเมิน', desc: 'ทีมงานประเมินเบื้องต้นจากรูปและตลาดมือสอง' },
+  { title: 'ตกลงขายและรับเงิน', desc: 'นัดรับหรือส่งเครื่องหลังตรวจสภาพจริง' },
+];
+---
+
+<section class="bg-graphite py-16 text-off-white sm:py-20" aria-labelledby="process-heading">
+  <div class="mx-auto max-w-[1080px] px-4">
+    <h2 id="process-heading" class="text-center text-2xl font-bold tracking-tight text-off-white sm:text-left">
+      {title}
+    </h2>
+    <p class="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-muted-light sm:mx-0 sm:text-left">
+      ส่งรูปและข้อมูลคร่าว ๆ ทาง LINE {SITE.lineHandle} — ทีมงานช่วยประเมินก่อนตัดสินใจ
+    </p>
+
+    <div class="relative mt-14 hidden lg:block">
+      <div aria-hidden="true" class="absolute left-0 right-0 top-[22px] h-px bg-gradient-to-r from-transparent via-gold-border/30 to-transparent"></div>
+      <ol class="relative grid grid-cols-4 gap-8">
+        {
+          steps.map((s, idx) => (
+            <li class="text-center">
+              <div
+                class="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-gold-border/80 bg-gold-bg text-sm font-bold text-gold-deep shadow-[0_0_20px_rgba(212,175,55,0.12)]"
+                aria-hidden="true"
+              >
+                {idx + 1}
+              </div>
+              <p class="mt-4 text-sm font-semibold text-off-white">{s.title}</p>
+              <p class="mt-1.5 text-xs leading-relaxed text-muted-light">{s.desc}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+
+    <ol class="relative mt-10 space-y-0 lg:hidden">
+      {
+        steps.map((s, idx) => (
+          <li class="relative flex gap-4 pb-10 last:pb-0">
+            <div class="flex flex-col items-center">
+              <div
+                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold-border bg-gold-bg text-sm font-bold text-gold-deep"
+                aria-hidden="true"
+              >
+                {idx + 1}
+              </div>
+              {idx < steps.length - 1 ? <div class="mt-2 w-px flex-1 bg-gradient-to-b from-gold-border/35 to-transparent" aria-hidden="true" /> : null}
+            </div>
+            <div class="min-w-0 pt-0.5">
+              <p class="text-sm font-semibold text-off-white">{s.title}</p>
+              <p class="mt-1 text-xs leading-relaxed text-muted-light">{s.desc}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+    <p class="mt-12 text-center text-sm lg:text-left">
+      <a
+        class="font-semibold text-gold-soft underline decoration-gold-border underline-offset-4 transition hover:text-gold"
+        href={SITE.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        แอดไลน์ {SITE.lineHandle} เพื่อเริ่มประเมินราคา
+      </a>
+    </p>
+  </div>
+</section>

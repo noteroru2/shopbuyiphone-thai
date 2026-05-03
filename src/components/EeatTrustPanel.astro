@@ -1,0 +1,96 @@
+---
+/**
+ * แผงความน่าเชื่อถือ (E-E-A-T) สำหรับหน้า money / hub — ใช้ซ้ำได้ เนื้อหาโปร่งใส ไม่สร้างความเข้าใจผิด
+ */
+import { SITE } from '../config/site';
+
+interface Props {
+  /** หัวข้อย่อยจากหน้า เช่น "รับซื้อ iPhone" เพื่อให้บริบทชัด */
+  contextLabel?: string;
+}
+
+const { contextLabel } = Astro.props;
+---
+
+<section
+  class="not-prose mx-auto mt-10 max-w-6xl rounded-3xl border border-gold-border/30 bg-charcoal px-5 py-8 text-off-white shadow-[0_12px_40px_rgba(0,0,0,0.2)] sm:px-8"
+  aria-labelledby="eeat-trust-heading"
+>
+  <h2 id="eeat-trust-heading" class="text-lg font-extrabold tracking-tight text-gold-soft sm:text-xl">
+    ความน่าเชื่อถือ ขอบเขตบริการ และความปลอดภัยของข้อมูล
+    {contextLabel ? <span class="block text-sm font-normal text-muted-light">({contextLabel})</span> : null}
+  </h2>
+
+  <div class="mt-5 space-y-4 text-sm leading-relaxed text-muted-light">
+    <p>
+      เนื้อหาในหน้านี้จัดทำเพื่อช่วยให้คุณเข้าใจกระบวนการ <strong class="text-off-white">รับซื้อ / ประเมิน / เตรียมขาย</strong>{' '}
+      iPhone มือสองอย่างเป็นระบบ โดยยึดข้อเท็จจริงของตลาดมือสองและความปลอดภัยของผู้ขายเป็นหลัก
+      เราไม่ใช่ตัวแทนของ Apple และไม่ใช่ศูนย์บริการของ Apple — หากต้องการขั้นตอนทางการจากผู้ผลิต (เช่น การล้างเครื่อง การออกจาก Apple ID หรือ Find My) ให้อ่านคู่มือจาก Apple โดยตรงที่{' '}
+      <a
+        class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white"
+        href="https://support.apple.com/guide/iphone/sell-or-give-away-iphone-iphc06785513/ios"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        support.apple.com (ขายหรือมอบ iPhone)
+      </a>
+    </p>
+
+    <p>
+      <strong class="text-off-white">ตัวตนทางธุรกิจ:</strong> เว็บไซต์ <strong class="text-off-white">{SITE.name}</strong> เป็นช่องทางบริการออนไลน์ของทีมรับซื้อภายใต้แบรนด์เดียวกับหน้าร้านจริงชื่อ <strong class="text-off-white">{SITE.physicalStoreName}</strong>{' '}
+      คุณสามารถตรวจสอบที่ตั้งและกิจกรรมของร้านผ่าน{' '}
+      <a
+        class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white"
+        href={SITE.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Google Maps
+      </a>
+      {' '}ควบคู่กับช่องทางสังคมออนไลน์ที่ระบุด้านล่าง
+    </p>
+
+    <p>
+      <strong class="text-off-white">วิธีตรวจสอบว่าคุยกับช่องทางจริง:</strong> ช่องทางหลักคือ LINE Official <strong class="text-off-white">{SITE.lineHandle}</strong> และโทร <strong class="text-off-white">{SITE.telephone}</strong>{' '}
+      นอกจากนี้ยังมีเพจ Facebook และ TikTok ของร้านในเครือที่เชื่อมจากเว็บไซต์นี้ — หากมีข้อสงสัยเรื่องตัวตน แนะนำยืนยันผ่านการโทรหรือการเปิดแผนที่ไปยังหน้าร้านก่อนทำธุรกรรมที่มีความเสี่ยง
+    </p>
+
+    <p>
+      <strong class="text-off-white">ขอบเขตการประเมินราคา:</strong> ราคาบนหน้าเว็บไม่ได้แสดงเป็นตัวเลขตายตัว เพราะต้องอิงรุ่น ความจุ สภาพจริง และตลาดมือสองในช่วงนั้น
+      การประเมินจากรูปเป็น <strong class="text-off-white">กรอบเบื้องต้น</strong> ที่จะใกล้เคียงเมื่อข้อมูลตรงและครบ ราคาสุดท้ายอาจปรับเมื่อตรวจเครื่องจริงหากมีรายละเอียดที่ไม่ปรากฏในรูป — เราพยายามอธิบายเหตุผลของกรอบราคาให้ชัดเพื่อให้คุณตัดสินใจได้อย่างมีข้อมูล
+    </p>
+
+    <p>
+      <strong class="text-off-white">ความปลอดภัยและจริยธรรม:</strong> เราไม่สนับสนุนการขายเครื่องที่ไม่สามารถพิสูจน์ความเป็นเจ้าของได้อย่างเหมาะสม หรือการเลี่ยงระบบความปลอดภัยของบัญชีผู้ใช้
+      การล้างข้อมูลและการออกจากบัญชีก่อนส่งมอบเป็นแนวทางที่ควรทำเพื่อความปลอดภัยของคุณ — อ่านเพิ่มได้ที่หน้า{' '}
+      <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/นโยบายความเป็นส่วนตัว/">
+        นโยบายความเป็นส่วนตัว
+      </a>
+      {' '}และหน้า{' '}
+      <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/เกี่ยวกับเรา/">
+        เกี่ยวกับเรา
+      </a>
+    </p>
+
+    <ul class="list-none space-y-2 border-t border-gold-border/20 pt-4 text-xs sm:text-sm">
+      <li>
+        <span class="text-gold-soft">Facebook:</span>{' '}
+        <a class="text-off-white underline underline-offset-2 hover:text-gold-soft" href={SITE.sameAs.facebook} target="_blank" rel="noopener noreferrer">
+          {SITE.sameAs.facebook}
+        </a>
+      </li>
+      <li>
+        <span class="text-gold-soft">TikTok:</span>{' '}
+        <a class="text-off-white underline underline-offset-2 hover:text-gold-soft" href={SITE.sameAs.tiktok} target="_blank" rel="noopener noreferrer">
+          {SITE.sameAs.tiktok}
+        </a>
+      </li>
+      <li>
+        <span class="text-gold-soft">LINE:</span>{' '}
+        <a class="text-off-white underline underline-offset-2 hover:text-gold-soft" href={SITE.lineUrl} target="_blank" rel="noopener noreferrer">
+          {SITE.lineUrl}
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

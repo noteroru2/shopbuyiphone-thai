@@ -1,0 +1,190 @@
+﻿---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
+import SeoCTA from '../../components/SeoCTA.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import HubBuyIphoneMain from '../../components/HubBuyIphoneMain.astro';
+import AnswerBox from '../../components/AnswerBox.astro';
+import CTAButtons from '../../components/CTAButtons.astro';
+import { absoluteUrl, breadcrumbListSchema, faqPageSchema, serviceSchema } from '../../lib/seo';
+import { SITE } from '../../config/site';
+
+const title = 'รับซื้อไอโฟนทุกรุ่น ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com';
+const description =
+  'รวมบริการรับซื้อไอโฟน รับซื้อ iPhone 17 iPhone 16 และรุ่นอื่น มือสอง เครื่องศูนย์ไทย เครื่องนอก จอแตก แบตเสื่อม เปิดไม่ติดบางกรณี ส่งรูปเช็คราคาไอโฟนฟรีผ่านไลน์ @webuy หรือโทร 0642579353';
+const canonical = absoluteUrl('/รับซื้อไอโฟน/');
+
+const breadcrumbs = [
+  { name: 'หน้าแรก', url: absoluteUrl('/') },
+  { name: 'รับซื้อไอโฟน', url: canonical },
+];
+
+const faqs = [
+  {
+    question: 'รับซื้อไอโฟนทุกรุ่นไหม?',
+    answer:
+      'รับประเมินหลายรุ่นที่ยังมีตลาดมือสองครับ โดยแยกเส้นทางตามซีรีส์ เช่น iPhone 17, iPhone 16, iPhone 11–15, iPhone SE และกลุ่ม Pro / Pro Max แนะนำส่งรูปหน้าจอ About พร้อมความจุผ่าน LINE @webuy เพื่อให้ทีมงานช่วยดูเบื้องต้น',
+  },
+  {
+    question: 'รับซื้อ iPhone 16 และ iPhone 17 ไหม?',
+    answer:
+      'รับซื้อและประเมินเบื้องต้นได้ตามรุ่น ความจุ สภาพเครื่อง Battery Health และอุปกรณ์ที่มี ลูกค้าสามารถแอดไลน์ @webuy ส่งรูปและรายละเอียดมาเช็คราคาก่อนได้',
+  },
+  {
+    question: 'รับซื้อ iPhone เครื่องศูนย์ไทยและเครื่องนอกไหม?',
+    answer:
+      'รับประเมินทั้งสองแบบครับ โดยโมเดลและตลาดมือสองไม่เหมือนกัน แนะนำแจ้งตั้งแต่ต้นและแนบรูปใต้เครื่องถ้าทำได้ เพื่อให้ประเมินใกล้เคียงขึ้น',
+  },
+  {
+    question: 'เช็คราคาไอโฟนฟรีไหม?',
+    answer:
+      'ประเมินเบื้องต้นจากรูปและข้อมูลที่ส่งมาไม่มีค่าใช้จ่ายครับ ไม่มีข้อผูกมัดก่อนตัดสินใจขาย แนะนำส่งรูปหลายมุมและแจ้งอาการตรง ๆ',
+  },
+  {
+    question: 'ไอโฟนจอแตกขายได้ไหม?',
+    answer:
+      'หลายกรณีรับประเมินได้ครับ ขึ้นกับรุ่น ความจุ ทัชหน้าจอ รอยร้าว และส่วนอื่นของเครื่อง แนะนำส่งรูปจอชัด ๆ พร้อมรุ่นและความจุทาง LINE @webuy',
+  },
+  {
+    question: 'ไอโฟนแบตเสื่อมขายได้ไหม?',
+    answer:
+      'ขายได้ในหลายกรณีครับ โดย Battery Health และอาการชาร์จมีผลต่อการประเมิน แนะนำแคปหน้าจอสุขภาพแบตถ้าเข้าเมนูได้ หรืออธิบายอาการแบตให้ชัดเจน',
+  },
+  {
+    question: 'ไอโฟนติด iCloud รับซื้อไหม?',
+    answer:
+      'กรณีที่เกี่ยวกับบัญชีผู้ใช้และการค้นหาเครื่อง ต้องตรวจสอบความเป็นเจ้าของและเงื่อนไขก่อนประเมิน และต้องดำเนินการตามขั้นตอนที่ถูกต้องก่อนโอนกรรมสิทธิ์ แนะนำสอบถามทีมงานพร้อมแจ้งข้อมูลเครื่องอย่างตรงไปตรงมา',
+  },
+  {
+    question: 'ก่อนขายไอโฟนต้องออกจาก Apple ID ไหม?',
+    answer:
+      'ควรออกจากบัญชีผู้ใช้ ปิด Find My และล้างข้อมูลก่อนขายเพื่อความปลอดภัยและให้โอนเครื่องได้ตามเงื่อนไข หากไม่แน่ใจขั้นตอน สอบถามทีมงานได้ครับ',
+  },
+  {
+    question: 'ติดต่อประเมินราคาทางไหน?',
+    answer:
+      'ช่องทางหลักคือแอด LINE @webuy แล้วส่งรูปพร้อมรุ่น ความจุ และสภาพ หรือโทร 0642579353 ในช่วงเวลาที่สะดวก',
+  },
+];
+
+const schemas = [
+  breadcrumbListSchema(breadcrumbs),
+  serviceSchema({
+    name: 'รับซื้อไอโฟนทุกรุ่น',
+    url: canonical,
+    description,
+  }),
+  faqPageSchema(faqs),
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schemas={schemas}>
+  <div class="bg-section-warm text-text-dark">
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <h1 class="text-3xl font-extrabold tracking-tight text-text-dark sm:text-4xl">รับซื้อไอโฟนทุกรุ่น ประเมินราคาฟรี</h1>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      หน้านี้เป็นศูนย์กลางของบริการ <strong>รับซื้อไอโฟน</strong> และ <strong>รับซื้อ iPhone</strong> มือสองบนเว็บไซต์นี้
+      เริ่มจากการส่งรูปพร้อมรุ่น ความจุ และสภาพผ่าน LINE <strong>{SITE.lineHandle}</strong> เพื่อเช็คราคาไอโฟนเบื้องต้นฟรี
+      หรือโทร <strong>{SITE.phone}</strong> หากสะดวกคุยทางโทรศัพท์
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      รองรับทั้งเครื่องใช้งานปกติ เครื่องมีอาการตามที่แจ้ง และเครื่องศูนย์ไทย/เครื่องนอก โดยประเมินจากข้อมูลจริง ไม่แสดงราคาตายตัวบนหน้าเว็บ
+    </p>
+    <div class="mt-6">
+      <CTAButtons primaryText="แอดไลน์ @webuy ส่งรูปประเมินราคา" secondaryText="โทร" />
+    </div>
+  </section>
+
+  <AnswerBox
+    question="รับซื้อไอโฟนรุ่นไหนบ้าง?"
+    answer="รับประเมิน iPhone หลายรุ่น เช่น iPhone 17, iPhone 16, iPhone 15, iPhone 14, iPhone 13, iPhone 12, iPhone 11 และ iPhone SE โดยดูจากรุ่น ความจุ Battery Health และสภาพจริง — แอดไลน์ @webuy ส่งรูปเพื่อเช็คราคาเบื้องต้นฟรี"
+    ctaText="หน้าแรก — รุ่นที่รับซื้อ"
+    ctaHref="/#iphone-models"
+  />
+
+  <HubBuyIphoneMain />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ขั้นตอนสั้น ๆ</h2>
+      <ol class="mt-4 space-y-2 text-sm text-text-muted">
+        <li><strong>1)</strong> แอดไลน์ @webuy ส่งรูปประเมินราคา พร้อมรุ่น ความจุ และอาการ</li>
+        <li><strong>2)</strong> ตกลงเงื่อนไขและวิธีนัดรับหรือส่งเครื่อง</li>
+        <li><strong>3)</strong> รับเงินสดหรือโอนเมื่อตรวจเครื่องตามข้อมูลที่ส่งไว้</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">เทมเพลตข้อความ (คัดลอกไปใช้ได้)</h2>
+      <div class="mt-4 rounded-2xl border border-gold-border/25 bg-section-warm p-4 text-sm leading-relaxed text-text-dark">
+        ขอเช็คราคาไอโฟนครับ<br />
+        รุ่น ______ ความจุ ______ GB<br />
+        เครื่องศูนย์ไทย / เครื่องนอก: ______<br />
+        สภาพ: ______ (จอ แบต Face ID กล้อง ฝาหลัง)<br />
+        ติดรหัสหน้าจอ / ติดบัญชีผู้ใช้: ใช่หรือไม่ ______<br />
+        อุปกรณ์: ______<br />
+        อยู่โซน ______
+      </div>
+      <div class="mt-5">
+        <SeoCTA
+          heading="เริ่มส่งรูปประเมินราคา"
+          description={`แอดไลน์ ${SITE.lineHandle} ส่งรูป iPhone รุ่น ความจุ และสภาพ เพื่อเช็คราคาไอโฟนเบื้องต้นฟรี`}
+        />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks
+    title="บริการหลัก"
+    links={[
+      { label: 'หน้าแรก', href: '/', description: 'รับซื้อไอโฟน — money page หลัก' },
+      { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/', description: 'ภาพรวมบริการมือสอง' },
+      { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/', description: 'คำค้นภาษาอังกฤษ' },
+      { label: 'ขายไอโฟน', href: '/ขายไอโฟน/', description: 'เตรียมเครื่องและปิดดีล' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/', description: 'ส่งข้อมูลให้ครบ' },
+      { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/', description: 'ปัจจัยที่ปรับกรอบราคา' },
+      { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/', description: 'โซนและแนวทางนัด' },
+      { label: 'คำถามที่พบบ่อย', href: '/คำถามที่พบบ่อย/', description: 'FAQ รวม' },
+      { label: 'บทความ', href: '/blog/', description: 'คู่มือและ AEO' },
+    ]}
+  />
+
+  <RelatedLinks
+    title="รุ่นยอดนิยม"
+    links={[
+      { label: 'iPhone 17', href: '/รับซื้อไอโฟน/iphone-17/', description: 'รุ่นใหม่ — ส่งรูปประเมินตามสภาพจริง' },
+      { label: 'iPhone 16', href: '/รับซื้อไอโฟน/iphone-16/', description: 'รุ่นยอดนิยมในมือสอง' },
+      { label: 'iPhone 15', href: '/รับซื้อไอโฟน/iphone-15/', description: 'รุ่นล่าสุดในไลน์หลัก' },
+      { label: 'iPhone 14', href: '/รับซื้อไอโฟน/iphone-14/', description: 'ตลาดมือสองคล่อง' },
+      { label: 'iPhone 13', href: '/รับซื้อไอโฟน/iphone-13/', description: 'ยังมีดีมานดี' },
+      { label: 'iPhone 12', href: '/รับซื้อไอโฟน/iphone-12/', description: 'รุ่นยอดนิยม' },
+      { label: 'iPhone 11', href: '/รับซื้อไอโฟน/iphone-11/', description: 'ราคาเข้าถึงง่าย' },
+      { label: 'iPhone SE', href: '/รับซื้อไอโฟน/iphone-se/', description: 'SE 2 / SE 3' },
+      { label: 'Pro / Pro Max', href: '/รับซื้อไอโฟน/pro-max/', description: 'กลุ่มเรือธง' },
+    ]}
+  />
+
+  <RelatedLinks
+    title="สภาพ / พื้นที่"
+    links={[
+      { label: 'จอแตก', href: '/รับซื้อไอโฟน/จอแตก/', description: 'ส่งรูปตำหนิจอ' },
+      { label: 'แบตเสื่อม', href: '/รับซื้อไอโฟน/แบตเสื่อม/', description: 'แจ้งสุขภาพแบต' },
+      { label: 'เปิดไม่ติด', href: '/รับซื้อไอโฟน/เปิดไม่ติด/', description: 'แนบวิดีโอสั้น' },
+      { label: 'ติด iCloud', href: '/รับซื้อไอโฟน/ติด-icloud/', description: 'เงื่อนไขเจ้าของเครื่อง' },
+      { label: 'ติดรหัส', href: '/รับซื้อไอโฟน/ติดรหัส/', description: 'ปลดล็อกก่อนส่งมอบ' },
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/', description: 'ประเมินตามรุ่น' },
+      { label: 'กรุงเทพ', href: '/รับซื้อไอโฟน/กรุงเทพ/', description: 'โซนกรุงเทพฯ' },
+      { label: 'ภาคอีสาน', href: '/รับซื้อไอโฟน/ภาคอีสาน/', description: 'ภาคอีสานรวม' },
+      { label: 'อุบลราชธานี', href: '/รับซื้อไอโฟน/อุบลราชธานี/', description: 'พื้นที่ตัวอย่าง' },
+      { label: 'ขอนแก่น', href: '/รับซื้อไอโฟน/ขอนแก่น/', description: 'พื้นที่ตัวอย่าง' },
+    ]}
+  />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10 pb-16">
+    <SeoCTA />
+    <FAQ title="คำถามที่พบบ่อยเกี่ยวกับการรับซื้อไอโฟน" faqs={faqs} />
+  </section>
+  </div>
+</BaseLayout>

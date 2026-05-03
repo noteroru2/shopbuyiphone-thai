@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Black Gold Premium — flagship mobile shop */
+  --color-black: #050505;
+  --color-near-black: #0a0a0a;
+  --color-charcoal: #111111;
+  --color-graphite: #18181b;
+  --color-dark-card: #1b1b1f;
+  --color-warm-cream: #f5f1e8;
+  --color-soft-cream: #faf7ef;
+  --color-slate-muted: #cbd5e1;
+  --color-dark-slate: #0a0a0a;
+  --color-soft-white: #f5f1e8;
+  --color-surface-soft: #eceae4;
+  --color-light-gray: #e5e3dd;
+  --color-gray-border: rgba(212, 175, 55, 0.22);
+  --color-gray-medium: #64748b;
+  --color-text-dark: #0f172a;
+  --color-text-muted: #64748b;
+  --color-off-white: #f8fafc;
+  --color-muted-light: #cbd5e1;
+  --color-gold: #d4af37;
+  --color-gold-soft: #f3d27a;
+  --color-gold-deep: #a97c24;
+  --color-premium-gold: #c9a45c;
+  --color-gold-bg: rgba(212, 175, 55, 0.12);
+  --color-gold-border: rgba(212, 175, 55, 0.45);
+  --color-gold-glow: rgba(212, 175, 55, 0.22);
+  --color-glass-white: rgba(255, 255, 255, 0.08);
+  --color-glass-border: rgba(255, 255, 255, 0.14);
+  --color-line-green: #06c755;
+  --color-line-green-dark: #05a948;
+}
+
+@layer base {
+  :root {
+    --color-line: 6 199 85;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: "Prompt", system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      "Noto Sans Thai", "Noto Sans", sans-serif;
+    text-rendering: optimizeLegibility;
+    background-color: var(--color-near-black);
+    color: var(--color-off-white);
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #e8d5a0 0%, #c9a45c 48%, #9a7020 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-section-warm {
+    background-color: var(--color-warm-cream);
+  }
+
+  .bg-section-cream {
+    background-color: var(--color-soft-cream);
+  }
+
+  .bg-hero-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+}

@@ -1,0 +1,48 @@
+---
+import type { BreadcrumbItem } from '../lib/seo';
+
+interface Props {
+  items: BreadcrumbItem[];
+  /** light = พื้นสว่าง (cream/white) */
+  variant?: 'dark' | 'light';
+}
+
+const { items, variant = 'dark' } = Astro.props;
+const isLight = variant === 'light';
+---
+
+<nav aria-label="Breadcrumb" class="mx-auto w-full max-w-6xl px-4 pt-4">
+  <ol
+    class:list={[
+      'flex flex-wrap items-center gap-x-2 gap-y-1 text-sm',
+      isLight ? 'text-text-muted' : 'text-muted-light',
+    ]}
+  >
+    {items.map((item, idx) => (
+      <li class="flex items-center gap-x-2">
+        {idx > 0 && (
+          <span aria-hidden="true" class:list={[isLight ? 'text-gold-border/60' : 'text-gray-medium']}>
+            /
+          </span>
+        )}
+        {idx === items.length - 1 ? (
+          <span aria-current="page" class:list={['font-medium', isLight ? 'text-text-dark' : 'text-off-white']}>
+            {item.name}
+          </span>
+        ) : (
+          <a
+            class:list={[
+              'underline-offset-4 transition hover:underline',
+              isLight
+                ? 'text-gold-deep hover:text-gold hover:decoration-gold-border'
+                : 'text-muted-light hover:text-gold-soft',
+            ]}
+            href={item.url}
+          >
+            {item.name}
+          </a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

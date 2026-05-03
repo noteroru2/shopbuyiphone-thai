@@ -1,0 +1,41 @@
+﻿---
+const items = [
+  { title: 'iPhone ใช้งานปกติ', desc: 'สภาพดี ฟังก์ชันครบ ประเมินไวจากรูป', href: '/รับซื้อไอโฟน/ใช้งานปกติ/' },
+  { title: 'iPhone รุ่น Pro / Pro Max', desc: 'กลุ่มรุ่นเรือธง ดูสภาพจอ กล้อง และแบต', href: '/รับซื้อไอโฟน/pro-max/' },
+  { title: 'iPhone จอแตก', desc: 'แจ้งทัชและตำแหน่งรอยให้ชัด', href: '/รับซื้อไอโฟน/จอแตก/' },
+  { title: 'iPhone แบตเสื่อม', desc: 'แบตหมดไว ชาร์จไม่เข้า หรือแจ้งเตือนสุขภาพแบต', href: '/รับซื้อไอโฟน/แบตเสื่อม/' },
+  { title: 'iPhone SE', desc: 'รุ่นกะทัดรัด แจ้งรุ่นย่อยและความจุ', href: '/รับซื้อไอโฟน/iphone-se/' },
+  { title: 'เครื่องศูนย์ไทย', desc: 'โมเดลไทย ตรวจสอบข้อมูลง่ายขึ้น', href: '/รับซื้อไอโฟน/เครื่องศูนย์ไทย/' },
+  { title: 'เครื่องนอก', desc: 'แจ้งโมเดลและการใช้งานซิมให้ครบ', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+  { title: 'ติดบัญชีผู้ใช้', desc: 'ต้องออกจากบัญชีได้ก่อนโอนกรรมสิทธิ์', href: '/รับซื้อไอโฟน/ติด-icloud/' },
+  { title: 'เปิดไม่ติด', desc: 'ส่งวิดีโอสั้นช่วยให้ประเมินใกล้เคียงขึ้น', href: '/รับซื้อไอโฟน/เปิดไม่ติด/' },
+  { title: 'ฝาหลังแตก', desc: 'กระทบความสวยงามและอาจกระทบชิ้นส่วนภายใน', href: '/รับซื้อไอโฟน/ฝาหลังแตก/' },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-12">
+  <div class="rounded-3xl border border-gold-border/25 bg-gradient-to-br from-white via-section-warm to-white p-6 shadow-sm sm:p-8">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-xl font-extrabold text-text-dark">กลุ่มเครื่องที่สอบถามบ่อย</h2>
+        <p class="mt-2 text-sm text-text-muted">เลือกหัวข้อใกล้เคียงกับเครื่องของคุณ แล้วอ่านรายละเอียดได้ทันที</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      {items.map((it) => (
+        <a
+          href={it.href}
+          class="group flex h-full flex-col rounded-2xl border border-gold-border/25 bg-white/90 p-5 shadow-sm transition-all hover:-translate-y-0.5 hover:border-gold-border/40 hover:shadow-md"
+          aria-label={`ดูรายละเอียด ${it.title}`}
+        >
+          <p class="text-base font-extrabold text-text-dark">{it.title}</p>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">{it.desc}</p>
+          <p class="mt-auto pt-4 text-xs font-semibold text-text-muted group-hover:text-text-dark">
+            ดูรายละเอียด <span aria-hidden="true">→</span>
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

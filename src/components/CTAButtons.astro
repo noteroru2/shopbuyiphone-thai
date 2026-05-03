@@ -1,0 +1,86 @@
+---
+import { SITE } from '../lib/seo';
+
+interface Props {
+  primaryText?: string;
+  primaryHref?: string;
+  secondaryText?: string;
+  secondaryHref?: string;
+  tertiaryText?: string;
+  tertiaryHref?: string;
+  /** ลิงก์รองแบบตัวเล็ก (Hero) */
+  tertiaryCompact?: boolean;
+  /** dark = บนพื้นดำ (Hero / Final CTA), light = บนพื้นอ่อน */
+  tone?: 'light' | 'dark';
+  /** lg = ปุ่ม LINE ใหญ่ขึ้น */
+  size?: 'default' | 'lg';
+  /** ปุ่มโทรเล็กกว่า — ใช้คู่กับ size lg (Final CTA) */
+  secondaryCompact?: boolean;
+}
+
+const {
+  primaryText = `แอดไลน์ ${SITE.lineHandle} ส่งรูปประเมินราคา`,
+  primaryHref = SITE.lineUrl,
+  secondaryText = `โทร`,
+  secondaryHref = `tel:${SITE.telephone}`,
+  tertiaryText,
+  tertiaryHref,
+  tertiaryCompact = false,
+  tone = 'light',
+  size = 'default',
+  secondaryCompact = false,
+} = Astro.props;
+
+const isDark = tone === 'dark';
+const isLg = size === 'lg';
+const phoneSecondary = secondaryCompact && isLg;
+---
+
+<div class:list={['flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center', isLg && 'sm:gap-4']}>
+  <a
+    class:list={[
+      'inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl bg-line-green font-semibold text-white transition focus-visible:outline-none',
+      'hover:bg-line-green-dark',
+      isLg ? 'px-8 py-4 text-base shadow-[0_10px_40px_rgba(6,199,85,0.22)] sm:min-h-[58px] sm:px-10 sm:text-lg' : 'px-6 py-3.5 text-base',
+    ]}
+    href={primaryHref}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="แอด LINE ส่งรูปประเมินราคา"
+  >
+    {primaryText}
+  </a>
+  <a
+    class:list={[
+      'inline-flex items-center justify-center rounded-xl border font-medium transition focus-visible:outline-none',
+      phoneSecondary
+        ? 'min-h-[44px] border-gold-border/70 bg-transparent px-4 py-2.5 text-xs text-gold-soft hover:bg-glass-white sm:min-h-[46px] sm:px-5 sm:text-sm'
+        : 'min-h-[52px] px-6 py-3.5',
+      !phoneSecondary && isDark
+        ? 'border-gold-border bg-transparent text-off-white hover:bg-glass-white'
+        : null,
+      !phoneSecondary && !isDark ? 'border-gray-border bg-white text-text-dark hover:border-gold-border' : null,
+      !phoneSecondary && isLg ? 'text-sm sm:min-h-[50px] sm:px-7 sm:text-base' : null,
+      !phoneSecondary && !isLg ? 'text-base' : null,
+    ]}
+    href={secondaryHref}
+  >
+    {secondaryText} {SITE.telephone}
+  </a>
+  {
+    tertiaryText && tertiaryHref ? (
+      <a
+        class:list={[
+          'inline-flex items-center justify-center px-1 py-2 font-medium underline underline-offset-4 transition',
+          tertiaryCompact ? 'text-xs sm:text-sm' : 'text-sm',
+          isDark
+            ? 'text-gold-soft decoration-gold-border/60 hover:text-gold'
+            : 'text-gold-deep decoration-gold-border hover:text-gold',
+        ]}
+        href={tertiaryHref}
+      >
+        {tertiaryText}
+      </a>
+    ) : null
+  }
+</div>

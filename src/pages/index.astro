@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import ModelGrid from '../components/ModelGrid.astro';
+import ConditionGrid from '../components/ConditionGrid.astro';
+import PriceFactors from '../components/PriceFactors.astro';
+import HomeEditorialSeoSection from '../components/HomeEditorialSeoSection.astro';
+import HomeMoneyOverviewPillar from '../components/HomeMoneyOverviewPillar.astro';
+import HomeBlogGuides from '../components/HomeBlogGuides.astro';
+import HomeHubLinks from '../components/HomeHubLinks.astro';
+import PremiumLineCtaSection from '../components/PremiumLineCtaSection.astro';
+import LineCtaStrip from '../components/LineCtaStrip.astro';
+import HomeGeoSection from '../components/HomeGeoSection.astro';
+import HomeMoneyPageLinks from '../components/HomeMoneyPageLinks.astro';
+import HomeAeoAnswerBlocks from '../components/HomeAeoAnswerBlocks.astro';
+import FAQ from '../components/FAQ.astro';
+import ServiceAreasSection from '../components/ServiceAreasSection.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import FinalCtaBanner from '../components/FinalCtaBanner.astro';
+import { SITE } from '../config/site';
+import { faqPageSchema } from '../lib/seo';
+import { homeQuickAeo, homeExtendedFaq } from '../data/home-faqs';
+
+const title = 'รับซื้อไอโฟน ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com';
+const description = SITE.description;
+---
+<BaseLayout title={title} description={description} schemas={[faqPageSchema(homeExtendedFaq)]}>
+  <Hero
+    subtitle="รับซื้อไอโฟน · รับซื้อ iPhone มือสอง — เช็คราคาไอโฟนและประเมินฟรีผ่านไลน์ @webuy หรือโทร 0642579353"
+    imageSrc="/images/hero-webuy-campaign.png"
+    imageWebpSrc="/images/hero-webuy-campaign.webp"
+    imageAlt="รับซื้อไอโฟน @webuy ประเมินตามรุ่นและสภาพจริง แอดไลน์ @webuy หรือโทร 0642579353"
+    imageFit="cover"
+    imageObjectPosition="78% center"
+  />
+  <TrustBadges />
+  <ProcessSteps />
+  <ModelGrid />
+  <LineCtaStrip label="เลือกรุ่นแล้ว?" />
+  <ConditionGrid />
+  <PriceFactors />
+  <LineCtaStrip label="พร้อมส่งรูปประเมิน?" />
+  <HomeEditorialSeoSection />
+  <HomeMoneyOverviewPillar />
+  <HomeBlogGuides />
+  <HomeHubLinks />
+  <PremiumLineCtaSection />
+  <HomeGeoSection />
+  <HomeMoneyPageLinks />
+  <HomeAeoAnswerBlocks items={homeQuickAeo} />
+  <FAQ faqs={homeExtendedFaq} title="คำถามเพิ่มเติม" lead="ขยายคำตอบจากการ์ดด้านบน — รับซื้อไอโฟนและประเมินราคาผ่านไลน์ @webuy" />
+  <ServiceAreasSection />
+
+  <FinalCtaBanner subtitle="แจ้งรุ่น ความจุ และสภาพเครื่อง — ทีมงานตอบตามคิว">
+    <CTAButtons
+      tone="dark"
+      size="lg"
+      secondaryCompact
+      primaryText={`แอดไลน์ ${SITE.lineHandle} ส่งรูปประเมินราคา`}
+      primaryHref={SITE.lineUrl}
+      secondaryText="โทร"
+      secondaryHref={`tel:${SITE.telephone}`}
+    />
+  </FinalCtaBanner>
+
+  <section class="mx-auto w-full max-w-[1080px] px-4 pb-8 pt-4" aria-labelledby="partner-it-heading">
+    <div class="rounded-2xl border border-gold-border/35 bg-charcoal px-6 py-6 sm:px-8">
+      <h2 id="partner-it-heading" class="text-base font-semibold text-gold-soft">บริการรับซื้อสินค้าไอทีอื่นในเครือ</h2>
+      <p class="mt-2 max-w-3xl text-sm leading-relaxed text-muted-light">
+        หากมีอุปกรณ์อื่นนอกจาก iPhone เช่น แท็บเล็ต คอมพิวเตอร์พกพา หรือกล้อง ดูเว็บไซต์ในเครือได้ที่{' '}
+        <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/เว็บไซต์ในเครือ/">
+          เว็บไซต์ในเครือทั้งหมด
+        </a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,458 @@
+﻿---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import PriceFactors from '../components/PriceFactors.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import AnswerBox from '../components/AnswerBox.astro';
+import MoneyUsedIphonePillar from '../components/pillars/money-used-iphone-pillar.mdx';
+import EeatTrustPanel from '../components/EeatTrustPanel.astro';
+import { absoluteUrl } from '../lib/seo';
+
+const title = 'รับซื้อไอโฟนมือสอง ทุกรุ่น ประเมินตามสภาพจริง | ร้านรับซื้อไอโฟน.com';
+const description =
+  'รับซื้อไอโฟนมือสอง รับซื้อ iPhone มือสองหลายรุ่น เครื่องศูนย์ไทย เครื่องนอก จอแตก แบตเสื่อม เปิดไม่ติดบางกรณี ส่งรูปเช็คราคาไอโฟนฟรีผ่านไลน์ @webuy หรือโทร 0642579353';
+const canonical = absoluteUrl('/รับซื้อไอโฟนมือสอง/');
+
+const breadcrumbs = [
+  { name: 'หน้าแรก', url: absoluteUrl('/') },
+  { name: 'รับซื้อไอโฟนมือสอง', url: canonical },
+];
+
+const faqs = [
+  {
+    question: 'รับซื้อไอโฟนมือสองรุ่นไหนบ้าง',
+    answer:
+      'รับหลายรุ่น เช่น iPhone 17, iPhone 16, iPhone 11–15 รวมถึง Pro / Pro Max, iPhone SE, iPhone XS / XR โดยประเมินจากรุ่น ความจุ สภาพ และอุปกรณ์ที่มี ส่งรูปมาได้เลย',
+  },
+  {
+    question: 'รับซื้อไอโฟนมือสองเครื่องเสียไหม',
+    answer:
+      'รับได้ในหลายกรณีครับ เช่น เปิดไม่ติด จอแตกหรือจอเป็นเส้น แบตเสื่อม Face ID หรือกล้องมีปัญหา แนะนำส่งรูปและวิดีโอสั้น ๆ อธิบายอาการให้ครบเพื่อประเมินตรงขึ้น',
+  },
+  {
+    question: 'ถ้าเครื่องมีรอย/แบตเสื่อม ราคาจะตกเยอะไหม',
+    answer:
+      'ขึ้นกับรุ่นและสภาพรวมครับ รอยเล็กน้อยหรือแบตเสื่อมยังรับซื้อได้ โดยเราจะประเมินตามการใช้งานจริงและต้นทุนซ่อม (ถ้าจำเป็น)',
+  },
+  {
+    question: 'อยากเช็คราคาไอโฟนก่อนขายทำได้ไหม',
+    answer:
+      'ได้ครับ ส่งรูป 3–5 รูป + รุ่น/ความจุ + อุปกรณ์ที่มี ผ่าน LINE เราจะช่วยเช็คราคาและประเมินเบื้องต้นให้ฟรีก่อนคุณตัดสินใจ',
+  },
+  {
+    question: 'อยากได้ราคาดีควรเตรียมอะไร',
+    answer:
+      'แนะนำถ่ายรูปชัด ๆ (หน้าจอ About/ตัวเครื่อง/กล้อง/พอร์ตชาร์จ) แจ้งรุ่น ความจุ และอาการให้ครบ ถ้ามีกล่อง/สายชาร์จ/ใบเสร็จจะช่วยให้ประเมินได้แม่นยำขึ้น',
+  },
+  {
+    question: 'รับซื้อถึงที่ไหม หรือส่งเครื่องได้ไหม',
+    answer:
+      'แล้วแต่พื้นที่และเงื่อนไขครับ บางโซนสามารถนัดเจอ/นัดรับได้ หรือส่งเครื่องผ่านขนส่งได้ โดยเราจะแนะนำขั้นตอนและวิธีแพ็กเพื่อความปลอดภัย',
+  },
+  {
+    question: 'ต้องล้างข้อมูลก่อนขายไหม',
+    answer:
+      'แนะนำให้สำรองข้อมูลและล้างเครื่องก่อนขายเสมอเพื่อความปลอดภัย หากไม่สะดวก เราช่วยแนะนำขั้นตอน reset/ล้างข้อมูลอย่างปลอดภัยได้',
+  },
+];
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  breadcrumbs={breadcrumbs}
+  serviceName="รับซื้อไอโฟนมือสอง"
+  faqs={faqs}
+>
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <h1 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">
+      รับซื้อไอโฟนมือสอง ทุกรุ่น ประเมินตามสภาพจริง
+    </h1>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      ถ้าคุณกำลังมองหาที่ <strong>รับซื้อไอโฟนมือสอง</strong> ที่ให้ราคาสมเหตุสมผล ติดต่อสะดวก และจ่ายเงินไว
+      “ร้านรับซื้อไอโฟน.com” ถูกออกแบบมาเพื่อให้การขายเป็นเรื่องง่ายที่สุด ไม่ว่าจะเป็น iPhone ใช้งานปกติ
+      เครื่องเก่าหรือตกรุ่น หรือเครื่องมีอาการบางอย่าง เช่น แบตเสื่อม จอมีรอย หรือ Face ID กับกล้องมีปัญหา
+      เราช่วยประเมินให้ตั้งแต่ต้นโดยยึดตามรุ่น ความจุ สภาพ และราคาตลาดมือสอง ณ ช่วงนั้น
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      วิธีที่เร็วที่สุดคือ <strong>ส่งรูปประเมินราคา</strong> ผ่าน LINE โดยถ่ายรูปตัวเครื่องรอบด้าน หน้าจอที่เปิดติด
+      และรูปหน้าจอ About (หรือพิมพ์รุ่นและความจุ) พร้อมแจ้งอุปกรณ์ที่มี เช่น สายชาร์จ กล่อง หรือใบเสร็จ (ถ้ามี).
+      เมื่อเราประเมินเบื้องต้นแล้ว คุณสามารถเลือกนัดรับเครื่อง/ส่งเครื่องตามความสะดวก และรับเงินทันทีเมื่อรับเครื่อง
+      เพื่อความสบายใจของทั้งสองฝ่าย
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      หน้านี้เหมาะสำหรับคนที่ตั้งใจ “ขายให้จบ” โดยไม่ต้องโพสต์ขายเองหลายที่: เราจะช่วยคัดข้อมูลสำคัญที่มีผลต่อราคา เช่น
+      รุ่น ความจุ ปีโดยประมาณ สภาพจอและกรอบ แบตเตอรี่ Face ID และกล้อง รวมถึงอุปกรณ์ที่มี เพราะสิ่งเหล่านี้มีผลต่อราคาตลาดมือสอง
+      และความเร็วในการปิดงานอย่างมาก โดยเฉพาะรุ่นที่ตลาดยังถามหา เช่น iPhone รุ่นใหม่ในตระกูลเดียวกัน
+    </p>
+
+    <AnswerBox
+      question="รับซื้อไอโฟนมือสองเริ่มยังไงให้ได้กรอบราคาเร็ว?"
+      answer="ส่งรูปตัวเครื่องหลายมุม แจ้งรุ่น ความจุ เครื่องศูนย์ไทยหรือเครื่องนอก และอาการตรง ๆ ผ่านไลน์ @webuy เพื่อประเมินเบื้องต้น จากนั้นสอบถามวิธีนัดรับหรือส่งเครื่องตามที่ตกลงกัน"
+      ctaText="ไปหน้าเช็คราคาไอโฟน"
+      ctaHref="/เช็คราคาไอโฟน/"
+    />
+
+    <div class="mt-8 rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">รับซื้อไอโฟนมือสอง ประเมินจากสภาพจริง (ไม่เดาสุ่ม)</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        หลายคนกังวลว่าไปขายแล้วจะ “โดนกดราคา” หรือ “ถูกเปลี่ยนเงื่อนไขหน้างาน” ความจริงแล้วการประเมินราคาiPhoneมือสองที่แฟร์
+        ต้องเริ่มจากข้อมูลที่ชัด และอธิบายเหตุผลของราคาได้ ร้านจะดูทั้งรุ่น ความจุ และสภาพรวม เพื่อให้ใกล้เคียงราคาตลาดมือสอง ณ ช่วงนั้น
+        ไม่ใช่ดูแค่ยี่ห้ออย่างเดียว
+      </p>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ถ้าคุณอยากให้ประเมินไวและใกล้เคียงจริง ให้ส่งข้อมูล 3 ส่วน: (1) รูปสภาพเครื่อง (2) รุ่นและความจุ (3) สภาพ/อาการและอุปกรณ์ที่มี
+        แค่ข้อมูลครบตั้งแต่ต้น ก็ช่วยลดการถามซ้ำและทำให้คุยกันง่ายขึ้นมาก
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-4 lg:grid-cols-3">
+      <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6">
+        <h2 class="text-lg font-bold text-text-dark">ปัจจัยที่มีผลต่อราคา (สรุปเข้าใจง่าย)</h2>
+        <ul class="mt-3 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+          <li><strong>รุ่นและความจุ</strong>: รุ่นที่ตลาดยังถามหามักคุยเร็ว</li>
+          <li><strong>ปีโดยประมาณ</strong> (ถ้าทราบ)</li>
+          <li><strong>สภาพหน้าจอ</strong>: มีเส้น จุดดำ ร้าว หรือทัชไม่ตรงหรือไม่</li>
+          <li><strong>สุขภาพแบต</strong>: แบตหมดไว ต้องชาร์จบ่อย หรือแบตบวม (ควรแจ้ง)</li>
+          <li><strong>กรอบเครื่องและฝาหลัง</strong>: รอยบุบ ฝาหลังแตก มีผลต่อการใช้งานจริง</li>
+          <li><strong>อุปกรณ์</strong>: สายชาร์จและหัวแปลงมีผลต่อความครบของชุดขาย</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-2">
+        <h2 class="text-lg font-bold text-text-dark">ส่งข้อมูลให้ครบ แล้วประเมินไวขึ้น (คัดลอกไปใช้ได้)</h2>
+        <p class="mt-2 text-sm leading-relaxed text-text-muted">
+          ส่งข้อมูลแบบสั้น ๆ แต่ครบ จะช่วยให้เราเช็คราคาและประเมินได้ใกล้เคียงขึ้น:
+        </p>
+        <ul class="mt-3 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+          <li><strong>รุ่นและความจุ</strong>: หรือแนบรูปหน้าจอ About</li>
+          <li><strong>เครื่องศูนย์ไทยหรือเครื่องนอก</strong></li>
+          <li><strong>สภาพ</strong>: ใช้งานปกติ / มีรอย / แบตเสื่อม / จอมีเส้นหรือแตก / เปิดไม่ติด (เลือกที่ตรง)</li>
+          <li><strong>อุปกรณ์</strong>: มีสายชาร์จไหม มีกล่องไหม (ถ้ามีบอกเพิ่มได้)</li>
+          <li><strong>รูป 3–5 รูป</strong>: หน้าจอ About / ด้านข้างและฝาหลัง / กล้อง / มุมที่มีรอย / สายชาร์จ</li>
+        </ul>
+        <p class="mt-3 text-sm leading-relaxed text-text-muted">
+          อ่านคู่มือแบบทำตามได้ที่
+          <a class="underline" href="/blog/ส่งรูปประเมินราคาไอโฟนผ่านไลน์/">ส่งรูปประเมินราคาไอโฟนผ่าน LINE</a>
+          และ <a class="underline" href="/blog/เช็คราคาไอโฟนก่อนขาย/">เช็คราคาไอโฟนก่อนขาย</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">รับซื้อไอโฟนมือสอง “เครื่องเสียบางอาการ” ได้ไหม</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ได้ครับ หลายเคสยังประเมินได้ตามสภาพจริง แม้เครื่องจะมีอาการบางอย่าง เช่น แบตเสื่อม จอมีเส้น จอร้าว Face ID หรือกล้องมีปัญหา
+        หรือแม้แต่เปิดไม่ติดบางกรณี สิ่งสำคัญคือ “บอกอาการให้ชัด” และมีรูป/วิดีโอประกอบตามสมควร เพื่อให้ประเมินใกล้เคียงขึ้น
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/รับซื้อไอโฟน/เปิดไม่ติด/">เปิดไม่ติด</a>
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/รับซื้อไอโฟน/จอแตก/">จอแตก</a>
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/รับซื้อไอโฟน/แบตเสื่อม/">แบตเสื่อม</a>
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/blog/รับซื้อไอโฟนจอแตกแบตเสื่อม/">อ่านคู่มืออาการ</a>
+      </div>
+      <p class="mt-3 text-sm leading-relaxed text-text-muted">
+        ถ้าเป็น iPhone รุ่น Pro / Pro Max แนะนำส่งรูปกล้องทุกตัวและขอบจอให้ชัด
+        <a class="underline" href="/รับซื้อไอโฟน/pro-max/">ดูหน้ารับซื้อ iPhone Pro / Pro Max</a>
+      </p>
+    </div>
+
+    <div class="mt-8 rounded-3xl border border-gold-border/25 bg-section-warm p-6 sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">เตรียมเครื่องก่อนขาย (เพื่อความปลอดภัยข้อมูล)</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ก่อนส่งมอบจริง แนะนำสำรองข้อมูลและล้างข้อมูลก่อนขายเพื่อความปลอดภัย โดยเฉพาะบัญชีที่ผูกกับเครื่อง
+        ควรออก Apple ID และปิด Find My ให้เรียบร้อย เพื่อไม่ให้ติดล็อกบัญชี
+      </p>
+      <p class="mt-3 text-sm leading-relaxed text-text-muted">
+        อ่านแบบละเอียดได้ที่ <a class="underline" href="/blog/ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร/">ก่อนขายไอโฟน ล้างข้อมูลและออกจากบัญชี</a>
+      </p>
+    </div>
+
+    <div class="mt-6 rounded-3xl border border-gold-border/25 bg-section-warm p-6">
+      <h2 class="text-lg font-bold text-text-dark">เริ่มต้นง่าย ๆ ใน 1 นาที</h2>
+      <p class="mt-2 text-sm text-text-muted">
+        ส่งรูป + รุ่น + ความจุ + อาการ (ถ้ามี) แล้วรอประเมินเบื้องต้นจากร้าน
+      </p>
+      <div class="mt-4">
+        <CTAButtons />
+      </div>
+      <p class="mt-3 text-xs text-gray-medium">
+        ลิงก์สำคัญ: <a class="underline" href="/">หน้าแรก</a> • <a class="underline" href="/เช็คราคาไอโฟน/">เช็คราคา</a> •{' '}
+        <a class="underline" href="/รับซื้อ-iphone/">รับซื้อ iPhone</a>
+      </p>
+    </div>
+
+    <div class="mt-8 rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">คำตอบสั้น (AEO): รับซื้อไอโฟนมือสอง ต้องส่งอะไรบ้าง</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ถ้าคุณอยากให้ประเมินไว ให้ส่ง 3 อย่างนี้ก่อน: <strong>รูปสภาพเครื่อง</strong>, <strong>รุ่นและความจุ</strong>, และ <strong>สภาพ/อาการ</strong>.
+        รูปสภาพช่วยให้เห็นรอยและจุดสำคัญ รุ่นและความจุช่วยให้เทียบราคาตลาดมือสองได้ และสภาพ/อาการช่วยให้ประเมินความเสี่ยงได้ใกล้เคียงขึ้น
+      </p>
+      <ul class="mt-4 list-disc pl-5 text-base leading-relaxed text-text-muted">
+        <li>รูป 3–5 รูป: หน้าจอ About, ด้านข้างและฝาหลัง, กล้อง, มุมที่มีรอย, สายชาร์จ</li>
+        <li>แจ้งเครื่องศูนย์ไทยหรือเครื่องนอก และอุปกรณ์ที่มี</li>
+        <li>สภาพ: ใช้งานปกติ / มีรอย / แบตเสื่อม / จอมีเส้นหรือแตก / เปิดไม่ติด (เลือกที่ตรง)</li>
+      </ul>
+      <p class="mt-3 text-sm leading-relaxed text-text-muted">
+        อ่านคู่มือเพิ่มเติมได้ที่
+        <a class="underline" href="/blog/ส่งรูปประเมินราคาไอโฟนผ่านไลน์/">ส่งรูปประเมินราคาไอโฟนผ่าน LINE</a>
+        และ <a class="underline" href="/blog/เช็คราคาไอโฟนก่อนขาย/">เช็คราคาไอโฟนก่อนขาย</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="grid gap-4 lg:grid-cols-3">
+      <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm">
+        <h2 class="text-lg font-bold text-text-dark">ข้อดี/จุดเด่น</h2>
+        <ul class="mt-3 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+          <li>ประเมินเบื้องต้นฟรีจากรูปเครื่อง ลดการเสียเวลาเดินทาง</li>
+          <li>แจ้งเงื่อนไขชัดเจนก่อนตกลงขาย ไม่เล่นราคา</li>
+          <li>จ่ายเงินสด/โอนทันทีหลังตกลงราคา</li>
+          <li>รับหลายรุ่น หลายสภาพ รวมถึงเครื่องเสียบางอาการ</li>
+        </ul>
+      </div>
+      <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-2">
+        <h2 class="text-lg font-bold text-text-dark">สิ่งที่ควรเตรียมก่อนขาย (ช่วยให้ได้ราคาตรงขึ้น)</h2>
+        <div class="mt-3 grid gap-3 sm:grid-cols-2">
+          <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+            <p class="text-sm font-semibold text-text-dark">ข้อมูลเครื่อง</p>
+            <p class="mt-1 text-sm text-text-muted">รุ่น ความจุ เครื่องศูนย์ไทยหรือเครื่องนอก และอาการที่พบ</p>
+          </div>
+          <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+            <p class="text-sm font-semibold text-text-dark">รูปที่ควรถ่าย</p>
+            <p class="mt-1 text-sm text-text-muted">หน้าจอ About, ด้านข้างและฝาหลัง, กล้อง, อุปกรณ์ที่มี</p>
+          </div>
+          <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+            <p class="text-sm font-semibold text-text-dark">อุปกรณ์</p>
+            <p class="mt-1 text-sm text-text-muted">ที่ชาร์จ/กล่อง/ใบเสร็จ (ถ้ามี) ช่วยเพิ่มความมั่นใจและประเมินได้แม่นขึ้น</p>
+          </div>
+          <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+            <p class="text-sm font-semibold text-text-dark">ความปลอดภัยข้อมูล</p>
+            <p class="mt-1 text-sm text-text-muted">สำรองข้อมูลและล้างเครื่องก่อนขาย (ถ้าต้องการ เราช่วยแนะนำได้)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-lg font-bold text-text-dark">หน้าที่เกี่ยวข้องกับรับซื้อไอโฟนมือสอง</h2>
+      <div class="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
+        <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg hover:border-gold/40" href="/รับซื้อไอโฟน/">ฮับรับซื้อไอโฟน</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ขายเอง vs ขายให้ร้านรับซื้อ (เลือกแบบไหนคุ้มกว่า)</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ถ้าคุณลังเลว่าจะขายเองดีไหม ให้ดู 3 อย่าง: เวลา ความเสี่ยง และความชัดเจนของเงื่อนไข
+      </p>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-5">
+          <h3 class="text-base font-bold text-text-dark">ขายเอง</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+            <li>มีโอกาสได้ราคาสูงกว่า แต่ต้องใช้เวลาและตอบแชทเยอะ</li>
+            <li>ต้องรับความเสี่ยงเรื่องนัดเจอและการหลอกลวง</li>
+            <li>ถ้าข้อมูลไม่ครบ จะคุยวนและขายช้า</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-5">
+          <h3 class="text-base font-bold text-text-dark">ขายให้ร้านรับซื้อ</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+            <li>เหมาะกับคนอยาก “จบไว” และอยากคุยเงื่อนไขให้ชัดก่อน</li>
+            <li>ประเมินจากรูปได้ก่อน ลดการเสียเวลาเดินทาง</li>
+            <li>ตกลงแล้วจ่ายเงินสด/โอนทันทีเมื่อรับเครื่องตามตกลง</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        ถ้าคุณอยากอ่านแบบละเอียด ดูบทความ
+        <a class="underline" href="/blog/เช็คราคาไอโฟนก่อนขาย/">เช็คราคาไอโฟนก่อนขาย</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ตัวอย่าง “ชุดข้อมูล” ที่ทำให้ประเมินไว (คัดลอกได้)</h2>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4 text-sm leading-relaxed text-text-dark">
+          ขอเช็คราคาไอโฟนมือสองครับ
+          <br />รุ่น ______ ความจุ ______ GB
+          <br />เครื่องศูนย์ไทย / เครื่องนอก: ______
+          <br />สภาพ: ใช้งานปกติ / มีรอยเล็กน้อย
+          <br />อุปกรณ์: มีที่ชาร์จ
+          <br />อยู่โซน ______
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4 text-sm leading-relaxed text-text-dark">
+          ขอประเมินiPhoneตามสภาพครับ
+          <br />รุ่น ______ (แนบรูปใต้เครื่อง)
+          <br />อาการ: ______ (เปิดไม่ติด/จอแตก/แบตเสื่อม)
+          <br />มีที่ชาร์จครับ (แนบรูป)
+          <br />แนบวิดีโออาการ 5–10 วินาที (ถ้ามี)
+          <br />อยู่โซน ______
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        ถ้าคุณส่งข้อมูลครบตั้งแต่ต้น เราจะประเมินได้ไวขึ้นมาก และลดการถามซ้ำหลายรอบ
+      </p>
+      <div class="mt-5">
+        <CTAButtons />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ความปลอดภัยข้อมูลก่อนส่งมอบ</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        ก่อนส่งมอบจริง แนะนำสำรองข้อมูลและล้างข้อมูลก่อนขายเสมอ เพื่อความปลอดภัยของบัญชีและไฟล์ส่วนตัว โดยเฉพาะถ้าคุณเคยล็อกอินบัญชีงาน
+        หรือบัญชีธนาคารไว้ในเครื่อง
+      </p>
+      <p class="mt-3 text-sm leading-relaxed text-text-muted">
+        อ่านต่อ: <a class="underline" href="/blog/ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร/">ก่อนขายไอโฟน ล้างข้อมูลและออกจากบัญชี</a>
+      </p>
+      <p class="mt-3 text-xs text-gray-medium">
+        ทิป: เวลาส่งรูปประเมิน หลีกเลี่ยงการถ่ายภาพที่มีอีเมลหรือข้อมูลส่วนตัวติดมามากเกินไป ถ้ากังวลสามารถปิดท้าย Serial ได้บางส่วน
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">FAQ เพิ่มเติม (รับซื้อไอโฟนมือสอง)</h2>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+          <h3 class="text-base font-bold text-text-dark">เช็คราคาแล้วไม่ขายได้ไหม</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            ได้ครับ การประเมินเป็นบริการฟรีเพื่อให้คุณตัดสินใจก่อน ไม่มีข้อผูกมัด
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+          <h3 class="text-base font-bold text-text-dark">ไม่มีที่ชาร์จยังขายได้ไหม</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            ขายได้ครับ แต่แนะนำแจ้งตรง ๆ เพื่อให้ประเมินตามสภาพจริง และถ้ามีที่ชาร์จจะช่วยให้ทดสอบได้ครบและคุยง่ายกว่า
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+          <h3 class="text-base font-bold text-text-dark">เครื่องแบตเสื่อมหรือจอมีปัญหา ควรแจ้งอะไร</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            แจ้งเปอร์เซ็นต์แบตหรืออาการชาร์จ และถ่ายรูปจอในหลายแสง จะช่วยให้ประเมินใกล้เคียงขึ้น
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-section-warm p-4">
+          <h3 class="text-base font-bold text-text-dark">ถ้าจะขายไวที่สุดควรทำอะไร 3 อย่าง</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            ส่งรูปให้ชัด บอกรุ่นและความจุให้ครบ และแจ้งสภาพ/อาการตามจริง เท่านี้ก็ช่วยให้ประเมินและนัดหมายได้ไวขึ้นมาก
+          </p>
+        </div>
+      </div>
+      <div class="mt-5">
+        <CTAButtons />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ถ้าจะส่งเครื่องทางขนส่ง ต้องเตรียมอะไร (ให้ปลอดภัยและลดความเข้าใจผิด)</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        หลายคนอยู่นอกพื้นที่นัดเจอ หรืออยากประหยัดเวลา จึงเลือกส่งเครื่องผ่านขนส่งได้ สิ่งสำคัญคือ “แพ็กให้แน่นและมีหลักฐาน”
+        เพื่อความสบายใจทั้งสองฝ่าย และช่วยยืนยันสภาพเครื่องก่อนส่ง
+      </p>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-5">
+          <h3 class="text-base font-bold text-text-dark">เช็กลิสต์แพ็กของ (สั้น ๆ แต่ครบ)</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+            <li>ปิดเครื่องให้สนิท ถอดสายชาร์จและอุปกรณ์เสริมที่ไม่ตั้งใจขาย</li>
+            <li>รองกันกระแทกบริเวณมุมเครื่องและฝาจอ</li>
+            <li>แยกที่ชาร์จใส่ซองกันกระแทก ไม่ให้กดทับตัวเครื่อง</li>
+            <li>ใส่กล่องแข็ง 2 ชั้นถ้าเป็นไปได้ และปิดเทปให้แน่น</li>
+            <li>เลือกขนส่งที่มี tracking และเก็บเลขพัสดุไว้</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-5">
+          <h3 class="text-base font-bold text-text-dark">หลักฐานที่แนะนำ (กันปัญหา)</h3>
+          <ul class="mt-2 list-disc pl-5 text-sm leading-relaxed text-text-muted">
+            <li>ถ่ายวิดีโอสั้น ๆ ก่อนแพ็ก (เห็นสภาพเครื่องและหน้าจอ)</li>
+            <li>ถ่ายรูปสติ๊กเกอร์รุ่นใต้เครื่อง และรูปที่ชาร์จ</li>
+            <li>ถ่ายวิดีโอตอนแพ็กเสร็จ (เห็นการกันกระแทก)</li>
+            <li>ถ่ายรูปใบเสร็จ/เลขพัสดุ</li>
+          </ul>
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        ถ้าคุณอยากให้เราช่วยแนะนำวิธีส่ง/นัดที่เหมาะที่สุด ส่งโลเคชันและรูปเครื่องมาก่อนที่ไลน์ <strong>@webuy</strong> ได้เลย
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">สรุป: รับซื้อไอโฟนมือสองให้คุยจบไว ต้องทำอะไร</h2>
+      <ul class="mt-3 list-disc pl-5 text-base leading-relaxed text-text-muted">
+        <li>ส่งรูปให้ชัด (จอ About ด้านข้าง ฝาหลัง กล้อง สายชาร์จ)</li>
+        <li>แจ้งรุ่น ความจุ และเครื่องศูนย์ไทยหรือเครื่องนอก</li>
+        <li>แจ้งสภาพตามจริง โดยเฉพาะอาการเสียและอุปกรณ์ที่มี</li>
+        <li>ตกลงเงื่อนไขก่อนนัด และเลือกวิธีรับเครื่องที่เหมาะกับพื้นที่</li>
+      </ul>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        พร้อมเริ่มแล้ว แอดไลน์ <strong>@webuy</strong> ส่งรูปประเมินได้เลย หรือโทร <strong>0642579353</strong>
+      </p>
+      <div class="mt-4">
+        <CTAButtons />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">คำถามสั้น ๆ ที่เจอบ่อย (ตอบตรง)</h2>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-4">
+          <h3 class="text-base font-bold text-text-dark">เครื่องเก่ามากยังมีราคาไหม</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            ยังมีได้ครับ ขึ้นกับรุ่นและสภาพรวม โดยเฉพาะถ้าแบตและจอยังใช้งานได้ดีมักมีมูลค่าตามสภาพ
+          </p>
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-4">
+          <h3 class="text-base font-bold text-text-dark">ถ่ายรูปไม่เก่ง จะเริ่มยังไงดี</h3>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">
+            เริ่มจาก 3 รูปนี้ก่อนก็พอ: หน้าจอ About, ด้านข้างเครื่อง, รูปสายชาร์จ แล้วค่อยเพิ่มรูปกล้องและมุมที่มีรอยตามที่สะดวก
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        พร้อมเริ่มเช็คราคา แอดไลน์ <strong>@webuy</strong> ส่งรูปได้เลย หรือโทร <strong>0642579353</strong>
+      </p>
+      <p class="mt-2 text-xs text-gray-medium">
+        ทิป: ถ้ากังวลเรื่องข้อมูลส่วนตัว คุณสามารถขอประเมินจาก “รูปสภาพ + รูปหน้า About” ได้ก่อน แล้วค่อยล้างข้อมูลก่อนส่งมอบจริง
+      </p>
+      <p class="mt-2 text-xs text-gray-medium">ส่งให้ครบตั้งแต่ต้น จะช่วยให้ประเมินไวขึ้นมาก</p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div
+      class="prose prose-stone max-w-none rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8 sm:prose-lg prose-headings:font-extrabold prose-headings:tracking-tight prose-headings:text-text-dark prose-p:text-text-muted prose-p:leading-relaxed prose-a:font-semibold prose-a:text-gold-deep prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-gold prose-li:text-text-muted"
+    >
+      <MoneyUsedIphonePillar />
+    </div>
+  </section>
+
+  <div class="mx-auto w-full max-w-6xl px-4 pt-8">
+    <EeatTrustPanel contextLabel="รับซื้อไอโฟนมือสอง" />
+  </div>
+
+  <ProcessSteps />
+  <PriceFactors />
+  <FAQ faqs={faqs} />
+</ServiceLayout>
+

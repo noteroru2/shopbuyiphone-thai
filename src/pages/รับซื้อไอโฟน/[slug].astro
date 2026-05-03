@@ -1,0 +1,583 @@
+---
+import BrandLayout from '../../layouts/BrandLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import LineCTA from '../../components/LineCTA.astro';
+import FAQSection from '../../components/FAQSection.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import FinalCtaBanner from '../../components/FinalCtaBanner.astro';
+import CTAButtons from '../../components/CTAButtons.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import PriceFactors from '../../components/PriceFactors.astro';
+import ContentProse from '../../components/ContentProse.astro';
+import { getCollection, render } from 'astro:content';
+import { absoluteUrl, SITE } from '../../lib/seo';
+
+export async function getStaticPaths() {
+  const [models, conditions, locations] = await Promise.all([
+    getCollection('models'),
+    getCollection('conditions'),
+    getCollection('locations'),
+  ]);
+
+  const all = [
+    ...models.map((e) => ({ kind: 'model' as const, entry: e })),
+    ...conditions.map((e) => ({ kind: 'condition' as const, entry: e })),
+    ...locations.map((e) => ({ kind: 'location' as const, entry: e })),
+  ];
+
+  return all.map(({ kind, entry }) => ({
+    params: { slug: entry.data.slug },
+    props: { kind, entry },
+  }));
+}
+
+const { kind, entry } = Astro.props as { kind: 'model' | 'condition' | 'location'; entry: any };
+const { Content } = await render(entry);
+
+const slug = entry.data.slug;
+const canonical = absoluteUrl(`/รับซื้อไอโฟน/${slug}/`);
+
+const breadcrumbs = [
+  { name: 'หน้าแรก', url: absoluteUrl('/') },
+  { name: 'รับซื้อไอโฟน', url: absoluteUrl('/รับซื้อไอโฟน/') },
+  { name: entry.data.title, url: canonical },
+];
+
+const layoutTitle =
+  kind === 'location'
+    ? (entry.data.seoTitle ??
+        `รับซื้อไอโฟน${entry.data.title} ประเมินฟรีผ่านไลน์ ${SITE.lineHandle} | ร้านรับซื้อไอโฟน.com`)
+    : entry.data.seoTitle
+      ? entry.data.seoTitle
+      : `${entry.data.title} | ร้านรับซื้อไอโฟน.com`;
+
+const locationH1 =
+  kind === 'location'
+    ? (entry.data.h1 ?? `รับซื้อไอโฟน${entry.data.title} ประเมินไว ส่งรูปเช็คราคาไอโฟนฟรี`)
+    : '';
+
+const modelOrConditionH1 =
+  kind === 'model'
+    ? (entry.data.h1 ?? `รับซื้อ ${entry.data.title} มือสอง ประเมินจากรูป`)
+    : kind === 'condition'
+      ? (entry.data.h1 ?? `รับซื้อไอโฟน${entry.data.title} ประเมินไว จ่ายเงินสด`)
+      : '';
+
+const description = entry.data.description;
+const ogImage = entry.data.featuredImage ? absoluteUrl(entry.data.featuredImage) : undefined;
+const faqs = entry.data.faqs ?? [];
+
+const internalLinks = [
+  { label: 'หน้าแรก', href: '/' },
+  { label: 'รับซื้อไอโฟน', href: '/รับซื้อไอโฟน/' },
+  { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/' },
+  { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/' },
+  { label: 'เช็คราคาไอโฟนก่อนขาย', href: '/เช็คราคาไอโฟน/' },
+  { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/' },
+  { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/' },
+  { label: 'ขายไอโฟน', href: '/ขายไอโฟน/' },
+];
+
+const prepChecklist = [
+  'ถ่ายรูป 3–5 รูป (หน้าจอแสดงความจุ/รุ่น ด้านข้าง ด้านหลัง กล้อง)',
+  'แจ้งความจุ (GB) สีเครื่อง และเครื่องศูนย์ไทยหรือเครื่องนอก',
+  'แจ้งสภาพแบต Face ID กล้อง และอาการผิดปกติแบบตรงไปตรงมา',
+  'แจ้งว่าติดรหัสหน้าจอหรือติดบัญชีผู้ใช้ (iCloud) หรือไม่',
+  'สำรองข้อมูลและถอดซิมก่อนส่งมอบเมื่อตกลงขาย',
+];
+
+const conditionCauseMap: Record<string, string[]> = {
+  'ใช้งานปกติ': ['รอยเล็กน้อยมีผลตามสภาพ', 'แบตสุขภาพดีช่วยให้ประเมินง่ายขึ้น', 'กล่องและอุปกรณ์ครบช่วยให้ปิดดีลไว'],
+  'จอแตก': ['กระแทกหรือหล่น', 'จอเป็นเส้นร่วมด้วย', 'ทัชหยุดตอบสนองบางจุด'],
+  'จอเป็นเส้น': ['แพรจอหรือชิปจอ', 'เคยเปลี่ยนจอไม่คุณภาพ', 'กระแทกเบาแต่เส้นค่อยขยาย'],
+  'แบตเสื่อม': ['แบตหมดไว', 'เครื่องดับเอง', 'แบตบวมต้องระวังความปลอดภัย'],
+  'Face ID เสีย': ['กล้อง TrueDepth มีรอย/น้ำเข้า', 'เคยซ่อมจอแล้วกระทบเซนเซอร์', 'ระบบรีเซ็ตบางเคส'],
+  'กล้องเสีย': ['เลนส์ร้าว/ฝ้า', 'สั่น/โฟกัสไม่ได้', 'กล้องหน้า/หลังเสียแยกกัน'],
+  'เปิดไม่ติด': ['แบตหมดสนิท', 'บอร์ดมีปัญหา', 'อัปเดตค้าง', 'ชาร์จไม่เข้า'],
+  'ติดรหัส': ['ลืมรหัสหน้าจอ', 'ต้องปลดล็อกก่อนรับซื้อตามเงื่อนไข'],
+  'ติด iCloud': ['ลืมรหัสบัญชี', 'ต้องออกจากบัญชีได้ก่อนโอนกรรมสิทธิ์'],
+  'เครื่องนอก': ['ต่างประเทศคนละโมเดล', 'ซิม/เครือข่ายต่างจากเครื่องไทยบางรุ่น'],
+  'เครื่องศูนย์ไทย': ['โมเดลไทยมักขายคล่อง', 'อุปกรณ์ครบช่วยให้ตรวจสอบง่าย'],
+  'ฝาหลังแตก': ['กระแทกด้านหลัง', 'อาจกระทบแบตหรือไวไลน์ชาร์จ'],
+};
+
+const aeoBySlug: Record<string, { q: string; a: string }> = {
+  'จอแตก': {
+    q: 'ไอโฟนจอแตกขายได้ไหม?',
+    a: 'ขายได้ในบางกรณี โดยราคาขึ้นอยู่กับรุ่น ความจุ สภาพจอ Face ID และการตรวจสภาพจริง สามารถแอดไลน์ @webuy ส่งรูปเพื่อประเมินเบื้องต้นได้',
+  },
+  'แบตเสื่อม': {
+    q: 'ไอโฟนแบตเสื่อมขายได้ไหม?',
+    a: 'หลายกรณีขายได้ครับ ราคาขึ้นกับรุ่น ความจุ สุขภาพแบตจริง และอาการกระทบการใช้งาน — ส่งรูปเมนูแบตและอาการทาง LINE @webuy เพื่อประเมินเบื้องต้น',
+  },
+  'เปิดไม่ติด': {
+    q: 'ไอโฟนเปิดไม่ติดยังรับประเมินได้ไหม?',
+    a: 'ประเมินได้ในหลายเคส โดยดูอาการชาร์จ จอ และประวัติการใช้งาน แนะนำส่งวิดีโอสั้นและรูปหลายมุมทาง LINE @webuy',
+  },
+  'ติด-icloud': {
+    q: 'ไอโฟนติด iCloud ขายได้ไหม?',
+    a: 'ต้องเป็นผู้ใช้ที่มีสิทธิ์ในตัวเครื่องและต้องตรวจสอบความเป็นเจ้าของก่อนประเมิน แนะนำให้ออกจาก Apple ID และปิด Find My ก่อนขาย เราไม่สนับสนุนการปลดล็อกหรือการเข้าถึงบัญชีที่ผิดกฎหมาย — สอบถามเงื่อนไขและส่งรูปหน้าจอทาง LINE @webuy',
+  },
+  'ติดรหัส': {
+    q: 'ไอโฟนติดรหัสหน้าจอยังขายได้ไหม?',
+    a: 'ต้องปลดล็อกได้ตามเงื่อนไขที่ทีมงานแจ้ง และต้องเป็นผู้ใช้ที่มีสิทธิ์ในตัวเครื่อง — ส่งรูปหน้าจอและแจ้งสถานะทาง LINE @webuy เพื่อตรวจสอบก่อนประเมิน',
+  },
+  'face-id-เสีย': {
+    q: 'ไอโฟน Face ID เสียยังรับประเมินได้ไหม?',
+    a: 'ได้ในหลายกรณี โดยดูรุ่น ความจุ สภาพจอ/กล้อง TrueDepth และอาการร่วม — ส่งรูปและคลิปสั้นทาง LINE @webuy',
+  },
+  'ฝาหลังแตก': {
+    q: 'ไอโฟนฝาหลังแตกขายได้ไหม?',
+    a: 'หลายกรณีขายได้ครับ ราคาขึ้นกับรุ่น ความจุ ความรุนแรงของรอย และผลกับแบต/ชาร์จไร้สาย — ส่งรูปหลายมุมทาง LINE @webuy',
+  },
+  'เครื่องนอก': {
+    q: 'ไอโฟนเครื่องนอกรับประเมินไหม?',
+    a: 'รับประเมินครับ โดยโมเดลและตลาดมือสองต่างจากเครื่องศูนย์ไทย — แจ้งแหล่งเครื่องและส่งรูป About ถ้าเปิดได้ทาง LINE @webuy',
+  },
+  'เครื่องศูนย์ไทย': {
+    q: 'ไอโฟนเครื่องศูนย์ไทยขายง่ายไหม?',
+    a: 'โดยทั่วไปตลาดมือสองคล่องกว่าเมื่อข้อมูลชัด แจ้งรุ่น ความจุ สภาพ และอุปกรณ์ที่มี แล้วส่งรูปทาง LINE @webuy เพื่อประเมินเบื้องต้น',
+  },
+};
+
+function getAeo(slugKey: string, title: string) {
+  return (
+    aeoBySlug[slugKey] ?? {
+      q: `ไอโฟน${title} ยังขายได้ไหม?`,
+      a: `หลายกรณีประเมินได้ครับ โดยขึ้นกับรุ่น ความจุ อาการ และสภาพรวม — แอดไลน์ ${SITE.lineHandle} ส่งรูปเพื่อเช็คราคาเบื้องต้นฟรี`,
+    }
+  );
+}
+
+const modelAeoBySlug: Record<string, { q: string; a: string }> = {
+  'iphone-17': {
+    q: 'รับซื้อ iPhone 17 ต้องส่งอะไรเพื่อเช็คราคาเบื้องต้น?',
+    a: 'ส่งรูปหน้าจอ About แสดงรุ่นและความจุ แคป Battery Health (ถ้าเข้าเมนูได้) รูปตัวเครื่องหลายมุม และอาการถ้ามี ผ่าน LINE @webuy — ประเมินตามสภาพจริง ไม่กำหนดราคาตายตัวล่วงหน้า',
+  },
+  'iphone-16': {
+    q: 'รับซื้อ iPhone 16 ประเมินยังไงให้ใกล้เคียง?',
+    a: 'แจ้งรุ่นย่อยและความจุ ส่งรูป About ฝาหลัง กรอบจอ กล้อง และอุปกรณ์ที่มี ทาง LINE @webuy ทีมงานจะช่วยเช็คราคาเบื้องต้นตามสภาพ',
+  },
+};
+
+function getModelAeo(slugKey: string, title: string) {
+  return (
+    modelAeoBySlug[slugKey] ?? {
+      q: `รับซื้อ ${title} ต้องส่งอะไรในไลน์?`,
+      a: `ส่งรูปหน้าจอ About (รุ่น/ความจุ) Battery Health ถ้ามี ตัวเครื่องรอบด้าน และอาการตรง ๆ ผ่าน LINE @webuy เพื่อประเมินราคาเบื้องต้น — ราคาขึ้นกับสภาพจริงและตลาดมือสอง ณ ช่วงนั้น`,
+    }
+  );
+}
+
+const locationAeoBySlug: Record<string, { q: string; a: string }> = {
+  กรุงเทพ: {
+    q: 'รับซื้อไอโฟนในกรุงเทพเริ่มยังไง?',
+    a: 'ส่งรูปเครื่อง รุ่น ความจุ และโซนที่สะดวกนัดผ่าน LINE @webuy เพื่อเช็คราคาเบื้องต้น จากนั้นค่อยสอบถามนัดรับหรือวิธีส่งเครื่องตามที่ตกลงกัน',
+  },
+  ปริมณฑล: {
+    q: 'รับซื้อไอโฟนในเขตปริมณฑลต้องทำอย่างไร?',
+    a: 'ส่งรูปประเมินและแจ้งจังหวัด/โซนคร่าว ๆ ผ่าน LINE @webuy ก่อน แล้วค่อยสอบถามนัดรับหรือการส่งเครื่องที่เหมาะสม — ไม่อ้างว่ามีสาขาในทุกพื้นที่หากยังไม่ได้ยืนยันในแชท',
+  },
+  ภาคอีสาน: {
+    q: 'อยู่ภาคอีสานจะขายไอโฟนยังไงให้สะดวก?',
+    a: 'เริ่มจากส่งรูปและข้อมูลรุ่นผ่าน LINE @webuy เพื่อประเมินเบื้องต้น จากนั้นเลือกนัดหรือส่งเครื่องตามแนวทางที่คุยกัน ดูจังหวัดใกล้เคียงได้จากลิงก์ด้านล่าง',
+  },
+  อุบลราชธานี: {
+    q: 'รับซื้อไอโฟนในอุบลราชธานีเริ่มยังไง?',
+    a: 'ส่งรูปเครื่อง รุ่น ความจุ และโซนที่อยู่ผ่าน LINE @webuy เพื่อประเมินเบื้องต้น จากนั้นสอบถามพื้นที่ให้บริการและวิธีนัดรับหรือส่งเครื่องตามที่ตกลงกัน',
+  },
+  ขอนแก่น: {
+    q: 'รับซื้อไอโฟนในขอนแก่นเริ่มยังไง?',
+    a: 'ส่งรูปเครื่อง รุ่น ความจุ และโซนที่อยู่ผ่าน LINE @webuy เพื่อประเมินเบื้องต้น จากนั้นสอบถามพื้นที่ให้บริการและวิธีนัดรับหรือส่งเครื่องตามที่ตกลงกัน',
+  },
+  อุดรธานี: {
+    q: 'รับซื้อไอโฟนในอุดรธานีเริ่มยังไง?',
+    a: 'ส่งรูปเครื่อง รุ่น ความจุ และโซนที่อยู่ผ่าน LINE @webuy เพื่อประเมินเบื้องต้น จากนั้นสอบถามพื้นที่ให้บริการและวิธีนัดรับหรือส่งเครื่องตามที่ตกลงกัน',
+  },
+  นครราชสีมา: {
+    q: 'รับซื้อไอโฟนในโคราชเริ่มยังไง?',
+    a: 'ส่งรูปเครื่อง รุ่น ความจุ และโซนที่อยู่ผ่าน LINE @webuy เพื่อประเมินเบื้องต้น จากนั้นสอบถามพื้นที่ให้บริการและวิธีนัดรับหรือส่งเครื่องตามที่ตกลงกัน',
+  },
+};
+
+function getLocationAeo(slugKey: string, title: string) {
+  return (
+    locationAeoBySlug[slugKey] ?? {
+      q: `รับซื้อไอโฟนใน${title} เริ่มยังไง?`,
+      a: `ส่งรูปเครื่อง รุ่น ความจุ และโซนที่อยู่ผ่าน LINE @webuy เพื่อประเมินราคาเบื้องต้น จากนั้นค่อยสอบถามนัดรับหรือวิธีส่งเครื่องที่เหมาะสม`,
+    }
+  );
+}
+
+const showAccountSafety = slug === 'ติด-icloud' || slug === 'ติดรหัส';
+
+const neighborBySlug: Record<string, { label: string; href: string }[]> = {
+  กรุงเทพ: [
+    { label: 'รับซื้อไอโฟนลาดพร้าว', href: '/รับซื้อไอโฟน/ลาดพร้าว/' },
+    { label: 'รับซื้อไอโฟนบางนา', href: '/รับซื้อไอโฟน/บางนา/' },
+    { label: 'รับซื้อไอโฟนรามคำแหง', href: '/รับซื้อไอโฟน/รามคำแหง/' },
+    { label: 'รับซื้อไอโฟนปทุมธานี', href: '/รับซื้อไอโฟน/ปทุมธานี/' },
+    { label: 'รับซื้อไอโฟนนนทบุรี', href: '/รับซื้อไอโฟน/นนทบุรี/' },
+  ],
+  ขอนแก่น: [
+    { label: 'รับซื้อไอโฟนอุดรธานี', href: '/รับซื้อไอโฟน/อุดรธานี/' },
+    { label: 'รับซื้อไอโฟนร้อยเอ็ด', href: '/รับซื้อไอโฟน/ร้อยเอ็ด/' },
+    { label: 'รับซื้อไอโฟนมหาสารคาม', href: '/รับซื้อไอโฟน/มหาสารคาม/' },
+    { label: 'รับซื้อไอโฟนนครราชสีมา', href: '/รับซื้อไอโฟน/นครราชสีมา/' },
+  ],
+  อุบลราชธานี: [
+    { label: 'รับซื้อไอโฟนศรีสะเกษ', href: '/รับซื้อไอโฟน/ศรีสะเกษ/' },
+    { label: 'รับซื้อไอโฟนยโสธร', href: '/รับซื้อไอโฟน/ยโสธร/' },
+    { label: 'รับซื้อไอโฟนมุกดาหาร', href: '/รับซื้อไอโฟน/มุกดาหาร/' },
+    { label: 'รับซื้อไอโฟนนครพนม', href: '/รับซื้อไอโฟน/นครพนม/' },
+  ],
+  อุดรธานี: [
+    { label: 'รับซื้อไอโฟนหนองคาย', href: '/รับซื้อไอโฟน/หนองคาย/' },
+    { label: 'รับซื้อไอโฟนเลย', href: '/รับซื้อไอโฟน/เลย/' },
+    { label: 'รับซื้อไอโฟนหนองบัวลำภู', href: '/รับซื้อไอโฟน/หนองบัวลำภู/' },
+    { label: 'รับซื้อไอโฟนขอนแก่น', href: '/รับซื้อไอโฟน/ขอนแก่น/' },
+  ],
+  นครราชสีมา: [
+    { label: 'รับซื้อไอโฟนชัยภูมิ', href: '/รับซื้อไอโฟน/ชัยภูมิ/' },
+    { label: 'รับซื้อไอโฟนบุรีรัมย์', href: '/รับซื้อไอโฟน/บุรีรัมย์/' },
+    { label: 'รับซื้อไอโฟนมหาสารคาม', href: '/รับซื้อไอโฟน/มหาสารคาม/' },
+    { label: 'รับซื้อไอโฟนขอนแก่น', href: '/รับซื้อไอโฟน/ขอนแก่น/' },
+  ],
+  ภาคอีสาน: [
+    { label: 'รับซื้อไอโฟนอุบลราชธานี', href: '/รับซื้อไอโฟน/อุบลราชธานี/' },
+    { label: 'รับซื้อไอโฟนขอนแก่น', href: '/รับซื้อไอโฟน/ขอนแก่น/' },
+    { label: 'รับซื้อไอโฟนอุดรธานี', href: '/รับซื้อไอโฟน/อุดรธานี/' },
+    { label: 'รับซื้อไอโฟนนครราชสีมา', href: '/รับซื้อไอโฟน/นครราชสีมา/' },
+  ],
+  ปริมณฑล: [
+    { label: 'รับซื้อไอโฟนกรุงเทพ', href: '/รับซื้อไอโฟน/กรุงเทพ/' },
+    { label: 'รับซื้อไอโฟนนนทบุรี', href: '/รับซื้อไอโฟน/นนทบุรี/' },
+    { label: 'รับซื้อไอโฟนปทุมธานี', href: '/รับซื้อไอโฟน/ปทุมธานี/' },
+    { label: 'รับซื้อไอโฟนสมุทรปราการ', href: '/รับซื้อไอโฟน/สมุทรปราการ/' },
+  ],
+};
+
+const MODEL_RELATED: { slug: string; label: string }[] = [
+  { slug: 'iphone-17', label: 'รับซื้อ iPhone 17' },
+  { slug: 'iphone-16', label: 'รับซื้อ iPhone 16' },
+  { slug: 'iphone-15', label: 'รับซื้อ iPhone 15' },
+  { slug: 'iphone-14', label: 'รับซื้อ iPhone 14' },
+  { slug: 'iphone-13', label: 'รับซื้อ iPhone 13' },
+  { slug: 'iphone-12', label: 'รับซื้อ iPhone 12' },
+  { slug: 'iphone-11', label: 'รับซื้อ iPhone 11' },
+  { slug: 'iphone-se', label: 'รับซื้อ iPhone SE' },
+];
+
+const CONDITION_SLUGS = [
+  'จอแตก',
+  'แบตเสื่อม',
+  'เปิดไม่ติด',
+  'ติด-icloud',
+  'ติดรหัส',
+  'face-id-เสีย',
+  'ฝาหลังแตก',
+  'เครื่องนอก',
+  'เครื่องศูนย์ไทย',
+  'กล้องเสีย',
+  'จอเป็นเส้น',
+  'ใช้งานปกติ',
+];
+
+function dedupeLinks(links: { label: string; href: string }[]) {
+  const seen = new Set<string>();
+  return links.filter((l) => {
+    if (seen.has(l.href)) return false;
+    seen.add(l.href);
+    return true;
+  });
+}
+
+const heroTitle = kind === 'location' ? locationH1 : modelOrConditionH1;
+const heroEyebrow =
+  kind === 'location' ? 'พื้นที่ให้บริการ' : kind === 'model' ? 'รับซื้อ iPhone มือสอง' : 'สภาพเครื่อง / ประเมินตามอาการ';
+
+const heroBadges = (entry.data.keywords ?? []).slice(0, 3);
+
+const serviceName =
+  kind === 'location'
+    ? `รับซื้อไอโฟน ${entry.data.title}`
+    : kind === 'model'
+      ? `รับซื้อไอโฟน ${entry.data.title}`
+      : `รับซื้อไอโฟน — ${entry.data.title}`;
+
+let extraRelated: { label: string; href: string }[] = [];
+if (kind === 'location') {
+  extraRelated = [...(neighborBySlug[slug] ?? [])];
+  if (slug !== 'ภาคอีสาน') {
+    extraRelated.push({ label: 'รับซื้อไอโฟนภาคอีสาน', href: '/รับซื้อไอโฟน/ภาคอีสาน/' });
+  }
+  if (slug !== 'กรุงเทพ') {
+    extraRelated.push({ label: 'รับซื้อไอโฟนกรุงเทพ', href: '/รับซื้อไอโฟน/กรุงเทพ/' });
+  }
+} else if (kind === 'model') {
+  extraRelated = MODEL_RELATED.filter((m) => m.slug !== slug)
+    .slice(0, 6)
+    .map((m) => ({ label: m.label, href: `/รับซื้อไอโฟน/${m.slug}/` }));
+  extraRelated = [
+    ...extraRelated,
+    { label: 'สภาพจอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+    { label: 'แบตเสื่อม', href: '/รับซื้อไอโฟน/แบตเสื่อม/' },
+    { label: 'เครื่องศูนย์ไทย', href: '/รับซื้อไอโฟน/เครื่องศูนย์ไทย/' },
+  ];
+} else {
+  const conditionLinkLabel: Record<string, string> = {
+    'จอแตก': 'สภาพจอแตก',
+    'แบตเสื่อม': 'แบตเสื่อม',
+    'เปิดไม่ติด': 'เปิดไม่ติด',
+    'ติด-icloud': 'ติด iCloud',
+    'ติดรหัส': 'ติดรหัสหน้าจอ',
+    'face-id-เสีย': 'Face ID เสีย',
+    'ฝาหลังแตก': 'ฝาหลังแตก',
+    'เครื่องนอก': 'เครื่องนอก',
+    'เครื่องศูนย์ไทย': 'เครื่องศูนย์ไทย',
+    'กล้องเสีย': 'กล้องเสีย',
+    'จอเป็นเส้น': 'จอเป็นเส้น',
+    'ใช้งานปกติ': 'ใช้งานปกติ',
+  };
+  extraRelated = CONDITION_SLUGS.filter((s) => s !== slug).map((s) => ({
+    label: conditionLinkLabel[s] ?? s,
+    href: `/รับซื้อไอโฟน/${s}/`,
+  }));
+}
+
+const relatedLinksMerged = dedupeLinks([
+  ...extraRelated,
+  ...internalLinks.map((l) => ({ label: l.label, href: l.href })),
+]);
+
+const aeo =
+  kind === 'condition'
+    ? getAeo(slug, entry.data.title)
+    : kind === 'model'
+      ? getModelAeo(slug, entry.data.title)
+      : getLocationAeo(slug, entry.data.title);
+
+const faqSectionTitle = kind === 'location' ? 'คำถามพบบ่อยในพื้นที่นี้' : 'คำถามที่พบบ่อย';
+const faqSectionLead =
+  kind === 'location'
+    ? `เกี่ยวกับการรับซื้อ iPhone ใน${entry.data.title} นัดรับ และการส่งรูปประเมิน`
+    : 'เกี่ยวกับการรับซื้อ iPhone มือสองและการประเมินราคา';
+---
+
+<BrandLayout
+  title={layoutTitle}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  breadcrumbs={breadcrumbs}
+  faqs={faqs}
+  serviceName={serviceName}
+>
+  <PageHero
+    eyebrow={heroEyebrow}
+    title={heroTitle}
+    description={description}
+    badges={heroBadges}
+    variant="dark"
+    tertiaryText="เช็คราคาไอโฟนก่อนขาย"
+    tertiaryHref="/เช็คราคาไอโฟน/"
+  />
+
+  <div class="bg-section-warm pb-16">
+    <div class="mx-auto max-w-[1180px] space-y-10 px-4 pt-10">
+      {
+        kind === 'location' ? (
+          <section class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8" aria-labelledby="geo-intro-heading">
+            <h2 id="geo-intro-heading" class="border-l-2 border-gold pl-4 text-xl font-bold tracking-tight text-text-dark">
+              รับซื้อไอโฟนใน{entry.data.title}
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-text-muted">
+              ถ้าต้องการเช็คราคาไอโฟนไว แนะนำส่งรูป 3–5 รูป + รุ่น/ความจุ + สภาพ/อาการ ผ่าน LINE ก่อนนัดรับหรือส่งเครื่อง
+              เพื่อให้ประเมินเบื้องต้นได้ตรงขึ้นและลดเวลาหน้างาน
+            </p>
+          </section>
+        ) : null
+      }
+
+      {
+        aeo ? (
+          <section class="rounded-2xl border border-gold-border/35 bg-dark-card p-6 shadow-md sm:p-8" aria-labelledby="aeo-heading">
+            <h2 id="aeo-heading" class="text-lg font-bold tracking-tight text-gold-soft sm:text-xl">
+              {aeo.q}
+            </h2>
+            <p class="mt-3 text-base leading-relaxed text-off-white/95">{aeo.a}</p>
+          </section>
+        ) : null
+      }
+
+      {
+        showAccountSafety ? (
+          <section
+            class="rounded-2xl border border-amber-500/35 bg-charcoal p-6 sm:p-8"
+            aria-labelledby="safety-heading"
+          >
+            <h2 id="safety-heading" class="text-lg font-bold text-gold-soft">ข้อควรทราบด้านความเป็นเจ้าของและความปลอดภัย</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-light">
+              <li>ต้องตรวจสอบความเป็นเจ้าของก่อนประเมินและก่อนดำเนินการใด ๆ กับตัวเครื่อง</li>
+              <li>ไม่สนับสนุนการปลดล็อกหรือดำเนินการที่อาจผิดกฎหมาย</li>
+              <li>แนะนำให้ออกจาก Apple ID และปิด Find My ตามขั้นตอนของระบบก่อนขายหรือโอนกรรมสิทธิ์</li>
+            </ul>
+          </section>
+        ) : null
+      }
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        {
+          kind === 'location' ? (
+            <>
+              <div class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-1">
+                <h2 class="text-lg font-bold text-text-dark">นัดรับ / นัดเจอ</h2>
+                <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-text-muted">
+                  {(entry.data.meetingOptions ?? []).map((m: string) => (
+                    <li>{m}</li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-1">
+                <h2 class="text-lg font-bold text-text-dark">พื้นที่ย่อย</h2>
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {(entry.data.subAreas ?? []).map((a: string) => (
+                    <span class="rounded-full border border-gold-border/30 bg-section-warm px-3 py-1.5 text-xs font-semibold text-text-dark">
+                      {a}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-1">
+                <h2 class="text-lg font-bold text-text-dark">จุดเด่นของพื้นที่</h2>
+                <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-text-muted">
+                  {(entry.data.highlights ?? []).map((h: string) => (
+                    <li>{h}</li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <>
+              <div class="rounded-2xl border border-gold-border/30 bg-dark-card p-6 shadow-md lg:col-span-2">
+                <h2 class="text-lg font-bold text-gold-soft">
+                  {kind === 'model' ? 'สรุปรุ่นที่สอบถามบ่อย' : 'สภาพที่รับซื้อและแนวทางประเมิน'}
+                </h2>
+                {kind === 'model' ? (
+                  <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-off-white/90">
+                    {(entry.data.popularModels ?? []).map((m: string) => (
+                      <li>{m}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-off-white/90">
+                    {(entry.data.whatWeBuy ?? []).map((w: string) => (
+                      <li>{w}</li>
+                    ))}
+                  </ul>
+                )}
+                <p class="mt-4 text-xs text-muted-light">
+                  ลิงก์ที่เกี่ยวข้อง:{' '}
+                  <a class="font-semibold text-gold-soft underline underline-offset-4" href="/รับซื้อไอโฟนมือสอง/">
+                    รับซื้อไอโฟนมือสอง
+                  </a>{' '}
+                  ·{' '}
+                  <a class="font-semibold text-gold-soft underline underline-offset-4" href="/เช็คราคาไอโฟน/">
+                    เช็คราคาไอโฟน
+                  </a>{' '}
+                  ·{' '}
+                  <a class="font-semibold text-gold-soft underline underline-offset-4" href="/">
+                    หน้าแรก
+                  </a>
+                </p>
+              </div>
+              <aside class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm">
+                <h2 class="text-lg font-bold text-text-dark">สิ่งที่ควรเตรียมก่อนขาย</h2>
+                <ul class="mt-3 space-y-2 text-sm text-text-muted">
+                  {prepChecklist.map((p) => (
+                    <li class="flex items-start gap-2">
+                      <span class="text-gold-deep" aria-hidden="true">
+                        ✓
+                      </span>
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </aside>
+            </>
+          )
+        }
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm lg:col-span-2">
+          <h2 class="border-l-2 border-gold pl-4 text-lg font-bold text-text-dark">
+            {kind === 'location'
+              ? 'ส่งรูปประเมินก่อนนัดได้ไหม'
+              : kind === 'model'
+                ? 'วิธีส่งรูปประเมินราคา'
+                : `อาการ “${entry.data.title}” ขายได้ไหม`}
+          </h2>
+          {
+            kind === 'location' ? (
+              <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                ได้ครับ ส่งรูปหน้าจอแสดงรุ่น/ความจุ ด้านข้าง ฝาหลัง และอุปกรณ์ที่มี พร้อมแจ้งเครื่องศูนย์ไทยหรือเครื่องนอก
+                เราจะช่วยประเมินราคาไอโฟนเบื้องต้นให้ฟรีผ่าน LINE แล้วค่อยนัดรับ/ส่งเครื่องตามสะดวก
+              </p>
+            ) : kind === 'model' ? (
+              <div>
+                <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                  แนะนำส่งรูปหน้าจอที่เห็นรุ่นและความจุ ด้านข้าง ฝาหลัง กล้อง และอุปกรณ์ที่มี พร้อมแจ้งเครื่องศูนย์ไทยหรือเครื่องนอก
+                  และอาการผิดปกติ (ถ้ามี) ทีมงานจะประเมินราคาเบื้องต้นให้ฟรีผ่าน LINE
+                </p>
+                <ul class="mt-3 list-disc space-y-1.5 pl-5 text-sm text-text-muted">
+                  <li>หน้าจอแสดงรุ่น/ความจุ (Settings → General → About)</li>
+                  <li>สภาพกรอบจอและฝาหลัง</li>
+                  <li>กล้องหน้า-หลัง</li>
+                  <li>อุปกรณ์ที่มี (สายชาร์จ/หัวแปลง/กล่อง)</li>
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                  ขายได้ครับ โดยเราจะดู “รุ่น/ความจุ + อาการ + สภาพรวม” เพื่อประเมินว่ารับซื้อได้ในเงื่อนไขไหน แนะนำส่งรูป/วิดีโอสั้น ๆ
+                  ให้เห็นอาการชัด เพื่อช่วยให้ประเมินใกล้เคียงขึ้น
+                </p>
+                <p class="mt-4 text-sm font-semibold text-text-dark">สาเหตุที่พบบ่อย (เพื่อช่วยบอกอาการ)</p>
+                <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm text-text-muted">
+                  {(conditionCauseMap[entry.data.title] ?? [
+                    'ส่งรูปหลายมุมและอธิบายอาการเป็นข้อ ๆ ช่วยให้ประเมินได้ตรงขึ้น',
+                  ]).map((c: string) => (
+                    <li>{c}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-6 shadow-sm">
+          <LineCTA variant="compact" checklist={kind === 'model' ? prepChecklist.slice(0, 4) : []} />
+        </div>
+      </div>
+
+      <LineCTA variant="dark" />
+
+      <ContentProse>
+        <Content />
+      </ContentProse>
+    </div>
+
+    <ProcessSteps />
+    <PriceFactors />
+
+    {faqs.length ? <FAQSection title={faqSectionTitle} lead={faqSectionLead} faqs={faqs} /> : null}
+
+    <RelatedLinks title={kind === 'location' ? 'พื้นที่ใกล้เคียงและลิงก์สำคัญ' : 'ลิงก์ที่เกี่ยวข้อง'} links={relatedLinksMerged} />
+
+    <div class="mx-auto max-w-[1180px] px-4">
+      <FinalCtaBanner>
+        <CTAButtons tone="dark" size="lg" secondaryCompact />
+      </FinalCtaBanner>
+    </div>
+  </div>
+</BrandLayout>

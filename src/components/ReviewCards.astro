@@ -1,0 +1,65 @@
+---
+import { SITE } from '../lib/seo';
+
+const scenarios = [
+  {
+    title: 'iPhone 14 Pro Max ใช้งานปกติ',
+    tag: 'สถานการณ์ตัวอย่าง',
+    body: 'เครื่องเปิดได้ จอและทัชปกติ แบตอยู่ในเกณฑ์ใช้งาน Face ID ทำงาน กล้องถ่ายชัด — ทีมงานจะดูรุ่น ความจุ เครื่องศูนย์ไทย/เครื่องนอก และอุปกรณ์ที่มีก่อนสรุปแนวทางประเมิน',
+  },
+  {
+    title: 'iPhone 13 จอแตก',
+    tag: 'ตัวอย่างแนวทางประเมิน',
+    body: 'แจ้งตำแหน่งรอยร้าว ทัชยังใช้ได้หรือไม่ และมีจุดอื่นที่กระทบหรือไม่ ราคาขึ้นอยู่กับการตรวจสภาพจริงหลังเห็นเครื่อง',
+  },
+  {
+    title: 'iPhone 12 แบตเสื่อม',
+    tag: 'สถานการณ์ตัวอย่าง',
+    body: 'แนะนำแคป Battery Health ถ้าเข้าเมนูได้ และแจ้งอาการชาร์จ/แบตหมดไว ราคาขึ้นอยู่กับการตรวจสภาพจริงและตลาดมือสอง',
+  },
+  {
+    title: 'iPhone 11 เปิดไม่ติดบางกรณี',
+    tag: 'ตัวอย่างแนวทางประเมิน',
+    body: 'แจ้งอาการจอดำ ค้างโลโก้ หรือชาร์จไม่เข้า พร้อมส่งวิดีโอสั้นถ้าทำได้ กรณีนี้ต้องดูสาเหตุเบื้องต้นก่อนสรุปว่าประเมินต่อได้หรือไม่',
+  },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-14">
+  <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+    <div>
+      <h2 class="text-xl font-extrabold text-[#111827]">ตัวอย่างแนวทางประเมิน iPhone ที่มักพบ</h2>
+      <p class="mt-2 max-w-2xl text-sm text-text-muted">
+        ด้านล่างเป็นเพียงสถานการณ์ตัวอย่างเพื่ออธิบายแนวคิดการประเมิน ไม่ใช่รีวิวจากลูกค้า และราคาขึ้นอยู่กับการตรวจสภาพจริง
+      </p>
+    </div>
+    <a class="text-sm font-semibold text-gold-deep hover:text-gold" href="/ติดต่อเรา/"> ติดต่อส่งรูป </a>
+  </div>
+
+  <div class="mt-8 grid gap-4 sm:grid-cols-2">
+    {scenarios.map((s) => (
+      <article class="flex h-full flex-col rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm transition-all hover:border-gold/40 hover:shadow-md">
+        <div class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-light-gray via-white to-gold-bg ring-1 ring-gold-border/25">
+          <img
+            src="/images/hero-iphone-buying.svg"
+            alt={`ภาพประกอบสถานการณ์: ${s.title}`}
+            width="640"
+            height="400"
+            class="h-full w-full object-cover opacity-90"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <p class="mt-4 text-xs font-bold uppercase tracking-wide text-gold-deep">{s.tag}</p>
+        <h3 class="mt-2 text-base font-extrabold text-[#111827]">{s.title}</h3>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{s.body}</p>
+        <p class="mt-4 text-xs font-semibold text-gray-medium">ราคาขึ้นอยู่กับการตรวจสภาพจริง</p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          <a class="text-xs font-semibold text-gold-deep underline underline-offset-4" href={SITE.lineUrl} target="_blank" rel="noopener noreferrer">
+            ส่งรูปทาง LINE {SITE.lineHandle}
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

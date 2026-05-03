@@ -1,0 +1,14 @@
+---
+import FAQSection from './FAQSection.astro';
+import type { FaqItem } from '../lib/seo';
+
+interface Props {
+  title?: string;
+  lead?: string;
+  faqs: FaqItem[];
+}
+
+const props = Astro.props;
+---
+
+<FAQSection {...props} />

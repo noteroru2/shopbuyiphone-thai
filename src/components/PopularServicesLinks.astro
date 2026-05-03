@@ -1,0 +1,36 @@
+﻿---
+const links = [
+  { label: 'รับซื้อไอโฟน', href: '/รับซื้อไอโฟน/' },
+  { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/' },
+  { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/' },
+  { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+  { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/' },
+  { label: 'ขายไอโฟน', href: '/ขายไอโฟน/' },
+  { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/' },
+  { label: 'จอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+  { label: 'แบตเสื่อม', href: '/รับซื้อไอโฟน/แบตเสื่อม/' },
+  { label: 'ติดบัญชีผู้ใช้', href: '/รับซื้อไอโฟน/ติด-icloud/' },
+  { label: 'iPhone Pro / Pro Max', href: '/รับซื้อไอโฟน/pro-max/' },
+  { label: 'รับซื้อไอโฟนกรุงเทพ', href: '/รับซื้อไอโฟน/กรุงเทพ/' },
+  { label: 'บทความ', href: '/blog/' },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-12">
+  <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+    <h2 class="text-lg font-extrabold text-text-dark">บริการรับซื้อยอดนิยม</h2>
+    <p class="mt-2 text-sm text-text-muted">ลิงก์รวมหน้าที่คนเข้าบ่อย ช่วยให้หาเนื้อหาที่ต้องการได้เร็วขึ้น</p>
+
+    <div class="mt-5 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class="rounded-2xl border border-gold-border/25 bg-white px-4 py-3 text-sm font-semibold text-text-dark shadow-sm hover:border-gold/40 hover:bg-gold-bg"
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+

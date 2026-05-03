@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import PartnerSites from '../components/PartnerSites.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import { SITE, absoluteUrl } from '../lib/seo';
+
+const title = 'เกี่ยวกับเรา | ร้านรับซื้อไอโฟน.com';
+const description =
+  'รู้จักร้านรับซื้อไอโฟน.com — รับซื้อไอโฟนมือสอง รับซื้อ iPhone หลายรุ่น ประเมินฟรี ตอบไว จ่ายเงินสด/โอนทันที เน้นความชัดเจนและปลอดภัย';
+const canonical = absoluteUrl('/เกี่ยวกับเรา/');
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <div class="bg-section-warm text-text-dark pb-16">
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <h1 class="text-3xl font-bold tracking-tight text-text-dark sm:text-4xl">เกี่ยวกับ ร้านรับซื้อไอโฟน.com</h1>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      เราเป็นทีมรับซื้อไอโฟนมือสองที่โฟกัส “ความเร็ว + ความชัดเจน” ลูกค้าส่วนใหญ่ต้องการคำตอบง่าย ๆ: เครื่องรุ่นนี้ขายได้ไหม
+      ได้ราคาเท่าไร และจบงานอย่างปลอดภัย. เราจึงออกแบบขั้นตอนให้สั้น: ส่งรูป → ประเมิน → นัดรับ/ส่ง → จ่ายเงินทันที
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      สิ่งที่เรายึดคือการประเมินแบบตรงไปตรงมา อิงจากรุ่น ความจุ สภาพ และราคาตลาดมือสองในช่วงนั้น. ถ้าเครื่องมีอาการเสีย
+      เราจะอธิบายผลกระทบต่อราคาตามต้นทุนซ่อมหรือความเสี่ยง ไม่ใช้คำกำกวมเพื่อกดราคา. เป้าหมายคือให้คุณตัดสินใจได้ง่าย
+      และรู้สึกสบายใจตลอดการขาย
+    </p>
+    <div class="mt-6 rounded-3xl border border-gold-border/25 bg-section-warm p-6">
+      <h2 class="text-lg font-extrabold text-text-dark">หน้าร้านจริง ({SITE.physicalStoreName})</h2>
+      <p class="mt-2 text-sm leading-relaxed text-text-muted">
+        นำทางที่จอดหรือเข้ามาติดต่อได้ผ่าน Google Maps — แนะนำแจ้งนัดผ่าน LINE {SITE.lineHandle} ล่วงหน้าเพื่อความสะดวก
+      </p>
+      <a
+        class="mt-4 inline-flex items-center justify-center rounded-2xl border border-gold-border/50 bg-gold-bg px-5 py-3 text-sm font-extrabold text-gold-deep transition hover:border-gold hover:bg-gold-bg/80"
+        href={SITE.googleMapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        เปิด Google Maps — {SITE.physicalStoreName}
+      </a>
+    </div>
+    <div class="mt-6">
+      <CTAButtons />
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 py-12">
+    <h2 class="text-2xl font-extrabold tracking-tight text-text-dark">บริการอื่นในเครือ</h2>
+    <p class="mt-3 max-w-3xl text-sm leading-relaxed text-text-muted">
+      นอกจากบริการรับซื้อไอโฟน เรายังมีเว็บไซต์ในเครือที่ดูแลสินค้าไอทีประเภทอื่น เช่น คอมพิวเตอร์พกพา แท็บเล็ต สมาร์ทโฟน กล้อง เลนส์
+      และบริการจำนำสินค้าไอทีในบางพื้นที่ เพื่อให้ลูกค้าเลือกช่องทางที่เหมาะกับสินค้าที่ต้องการขาย
+    </p>
+    <div class="mt-6">
+      <PartnerSites variant="section" hideHeading limit={6} />
+    </div>
+    <p class="mt-4 text-sm">
+      <a class="font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold" href="/เว็บไซต์ในเครือ/">
+        ดูเว็บไซต์ในเครือทั้งหมด
+      </a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 py-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-10">
+      <h2 class="text-2xl font-extrabold tracking-tight text-text-dark">นโยบายเนื้อหา ความเป็นกลาง และความสัมพันธ์กับ Apple</h2>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        เนื้อหาบนเว็บไซต์นี้จัดทำเพื่อช่วยให้ผู้ขาย iPhone มือสองเข้าใจขั้นตอนการประเมิน การเตรียมเครื่อง และความเสี่ยงทั่วไปของตลาดมือสองในบริบทไทย
+        เราไม่ใช่ตัวแทนของ Apple และไม่ใช่ศูนย์บริการของ Apple — คำแนะด้านบัญชีผู้ใช้ การล้างข้อมูล หรือ Find My ควรอ้างอิงคู่มือทางการจาก Apple เป็นหลัก
+        เราเชื่อมไปยังแหล่งทางการเมื่อเกี่ยวข้อง และระบุขอบเขตบริการของร้านอย่างชัดเจนในหน้าเชิงธุรกิจและแผงความน่าเชื่อถือบนหน้าบริการ
+      </p>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        <strong class="text-text-dark">ความเป็นกลางและความถูกต้อง:</strong> เราไม่แสดงราคาตายตัวสำหรับทุกรุ่นบนหน้าเว็บ เพราะราคามือสองเปลี่ยนตามสภาพและช่วงเวลา
+        การประเมินจากรูปเป็นกรอบเบื้องต้น ราคาสุดท้ายอาจปรับเมื่อตรวจเครื่องจริงหากมีรายละเอียดที่ไม่ปรากฏในข้อมูลที่ส่งมา — เราพยายามอธิบายเหตุผลของกรอบราคาให้โปร่งใส
+      </p>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        <strong class="text-text-dark">การอัปเดตเนื้อหา:</strong> ทีมงานปรับปรุงหน้าหลักและบทความเมื่อมีการเปลี่ยนแปลงขั้นตอนบริการ แนวทางความปลอดภัยของข้อมูล หรือโครงสร้างเว็บไซต์
+        หากพบข้อความที่ล้าสมัยหรือไม่ชัดเจน แนะนำแจ้งผ่านช่องทาง LINE Official หรือโทรที่ระบบบนหน้าเว็บ เพื่อให้เราตรวจสอบและแก้ไข
+      </p>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        รายละเอียดการเก็บและใช้ข้อมูลส่วนบุคคลอยู่ที่หน้า{' '}
+        <a class="font-semibold text-gold-deep underline underline-offset-4 hover:text-gold" href="/นโยบายความเป็นส่วนตัว/">นโยบายความเป็นส่วนตัว</a>
+      </p>
+    </div>
+  </section>
+
+  <TrustBadges />
+
+  <section class="mx-auto w-full max-w-6xl px-4 py-14">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-10">
+      <h2 class="text-2xl font-bold tracking-tight text-text-dark">อยากเริ่มขายเลย?</h2>
+      <p class="mt-3 text-sm leading-relaxed text-text-muted">
+        กลับไปหน้า <a class="underline" href="/">รับซื้อไอโฟน</a> หรือไปที่หน้า <a class="underline" href="/ติดต่อเรา/">ติดต่อเรา</a>
+      </p>
+      <div class="mt-6">
+        <CTAButtons />
+      </div>
+    </div>
+  </section>
+  </div>
+</BaseLayout>
+

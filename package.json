@@ -1,0 +1,28 @@
+{
+  "name": "ranrubsueiphone-static-seo",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev --port 4322",
+    "build": "astro build",
+    "preview": "astro preview --port 4322 --host",
+    "astro": "astro",
+    "gen:isan-svgs": "node scripts/gen-isan-location-svgs.mjs",
+    "gen:isan-pages": "node scripts/isan-build.mjs"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^5.0.4",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/vite": "^4.2.4",
+    "astro": "^6.1.10",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.19"
+  }
+}

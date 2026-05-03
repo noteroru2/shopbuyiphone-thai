@@ -1,0 +1,47 @@
+---
+const chips = [
+  { label: 'iPhone 15 Pro Max', href: '/รับซื้อไอโฟน/iphone-15/' },
+  { label: 'iPhone 15 Pro', href: '/รับซื้อไอโฟน/iphone-15/' },
+  { label: 'iPhone 14 Pro Max', href: '/รับซื้อไอโฟน/iphone-14/' },
+  { label: 'iPhone 14 Pro', href: '/รับซื้อไอโฟน/iphone-14/' },
+  { label: 'iPhone 13 Pro Max', href: '/รับซื้อไอโฟน/iphone-13/' },
+  { label: 'iPhone 13', href: '/รับซื้อไอโฟน/iphone-13/' },
+  { label: 'iPhone 12 Pro', href: '/รับซื้อไอโฟน/iphone-12/' },
+  { label: 'iPhone 12', href: '/รับซื้อไอโฟน/iphone-12/' },
+  { label: 'iPhone 11', href: '/รับซื้อไอโฟน/iphone-11/' },
+  { label: 'iPhone SE 3', href: '/รับซื้อไอโฟน/iphone-se/' },
+  { label: 'iPhone XR', href: '/รับซื้อไอโฟน/iphone-xs-xr/' },
+  { label: 'iPhone XS Max', href: '/รับซื้อไอโฟน/iphone-xs-xr/' },
+];
+---
+
+<section class="mx-auto w-full max-w-6xl px-4 pt-12">
+  <div class="flex items-end justify-between gap-4">
+    <div>
+      <h2 class="text-xl font-extrabold text-[#111827]">รุ่น iPhone ที่มักส่งประเมินราคา</h2>
+      <p class="mt-2 text-sm text-text-muted">
+        แตะเพื่อไปหน้าซีรีส์ที่เกี่ยวข้อง แล้วส่งรูปพร้อมรุ่นย่อยและความจุทาง LINE @webuy
+      </p>
+    </div>
+    <a class="hidden text-sm font-semibold text-gold-deep hover:text-gold sm:block" href="/รับซื้อไอโฟน/">
+      ดูทุกรุ่น
+    </a>
+  </div>
+
+  <div class="mt-5 flex flex-wrap gap-2">
+    {chips.map((c, i) => (
+      <a
+        href={c.href}
+        class:list={[
+          'rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors',
+          i < 2
+            ? 'border-[#020617] bg-[#020617] text-white hover:bg-black'
+            : 'border-gold-border/25 bg-white text-text-dark hover:border-gold/40 hover:bg-gold-bg/50',
+        ]}
+        aria-label={`ไปหน้ารับซื้อสำหรับ ${c.label}`}
+      >
+        {c.label}
+      </a>
+    ))}
+  </div>
+</section>

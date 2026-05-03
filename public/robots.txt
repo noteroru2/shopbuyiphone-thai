@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ร้านรับซื้อไอโฟน.com/sitemap-index.xml

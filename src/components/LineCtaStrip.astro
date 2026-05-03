@@ -1,0 +1,46 @@
+---
+import { SITE } from '../config/site';
+
+interface Props {
+  label?: string;
+}
+
+const { label = 'พร้อมส่งรูปประเมิน?' } = Astro.props;
+---
+
+<div
+  class="border-y border-gold-border/12 bg-black/[0.92] backdrop-blur-sm"
+  role="region"
+  aria-label="ช่องทางติดต่อ LINE"
+>
+  <div class="mx-auto flex min-h-[36px] max-w-[1180px] items-center justify-between gap-2 px-3 py-1.5 sm:min-h-[38px] sm:gap-3 sm:px-4 sm:py-2">
+    <p class="min-w-0 flex-1 truncate text-[11px] leading-snug text-muted-light sm:text-sm">
+      <span class="font-medium text-off-white/90">{label}</span>
+      <span class="hidden text-muted-light sm:inline"> · </span>
+      <span class="hidden text-muted-light/95 sm:inline">แอดไลน์ @webuy ส่งรูปประเมินราคา</span>
+    </p>
+    <div class="flex shrink-0 items-center gap-1.5 sm:gap-2.5">
+      <a
+        class="inline-flex max-w-[min(100%,200px)] items-center justify-center truncate rounded-lg bg-line-green px-2.5 py-2 text-[10px] font-semibold leading-tight text-white shadow-[0_2px_12px_rgba(6,199,85,0.35)] transition hover:bg-line-green-dark sm:max-w-none sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-sm sm:font-semibold"
+        href={SITE.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        แอดไลน์ @webuy ส่งรูปประเมินราคา
+      </a>
+      <a
+        class="hidden items-center justify-center whitespace-nowrap rounded-full border border-gold-border/55 bg-transparent px-3 py-1.5 text-xs font-semibold text-gold-soft transition hover:border-gold-border hover:bg-glass-white sm:inline-flex"
+        href={`tel:${SITE.telephone}`}
+      >
+        โทร {SITE.telephone}
+      </a>
+      <a
+        class="inline-flex items-center justify-center rounded-full border border-gold-border/50 px-2 py-1.5 text-[10px] font-semibold tabular-nums tracking-tight text-gold-soft transition hover:border-gold-border/80 hover:bg-glass-white sm:hidden"
+        href={`tel:${SITE.telephone}`}
+        aria-label={`โทร ${SITE.telephone}`}
+      >
+        {SITE.telephone}
+      </a>
+    </div>
+  </div>
+</div>

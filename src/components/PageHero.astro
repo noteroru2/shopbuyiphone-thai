@@ -1,0 +1,144 @@
+---
+import CTAButtons from './CTAButtons.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  /** ส่วนท้ายหัวข้อที่เน้นสีทอง (ถ้ามี) */
+  accent?: string;
+  description: string;
+  primaryCtaText?: string;
+  primaryCtaHref?: string;
+  secondaryCtaText?: string;
+  secondaryCtaHref?: string;
+  /** ลิงก์ข้อความใต้ปุ่ม (เช่น เช็คราคา) */
+  tertiaryText?: string;
+  tertiaryHref?: string;
+  /** ข้อความใต้ปุ่ม CTA (microcopy) */
+  microcopy?: string;
+  badges?: string[];
+  variant?: 'dark' | 'cream';
+}
+
+const {
+  eyebrow,
+  title,
+  accent,
+  description,
+  primaryCtaText,
+  primaryCtaHref,
+  secondaryCtaText,
+  secondaryCtaHref,
+  tertiaryText,
+  tertiaryHref,
+  microcopy,
+  badges = [],
+  variant = 'dark',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<section
+  class:list={[
+    'relative isolate overflow-hidden border-b border-gold-border/15',
+    isDark ? 'bg-black text-off-white' : 'bg-section-warm text-text-dark',
+  ]}
+  aria-labelledby="page-hero-heading"
+>
+  <div
+    aria-hidden="true"
+    class:list={[
+      'pointer-events-none absolute inset-0',
+      isDark ? 'bg-gradient-to-b from-black via-near-black to-charcoal opacity-100' : 'bg-gradient-to-b from-section-warm to-soft-cream opacity-90',
+    ]}
+  >
+  </div>
+  {
+    isDark ? (
+      <div
+        aria-hidden="true"
+        class="pointer-events-none absolute -right-1/4 top-0 h-[min(70vw,420px)] w-[min(70vw,420px)] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.16)_0%,transparent_65%)] blur-2xl"
+      />
+    ) : null
+  }
+
+  <div class="relative z-[1] mx-auto max-w-[1180px] px-4 py-12 sm:py-14 md:py-16">
+    {eyebrow ? (
+      <p
+        class:list={[
+          'inline-flex max-w-full flex-wrap items-center gap-2 rounded-full border px-4 py-2 text-[11px] font-semibold uppercase tracking-wider',
+          isDark ? 'border-gold-border/45 bg-glass-white text-gold-soft' : 'border-gold-border/40 bg-white/80 text-gold-deep',
+        ]}
+      >
+        {eyebrow}
+      </p>
+    ) : null}
+
+    <h1
+      id="page-hero-heading"
+      class:list={[
+        'mt-6 max-w-4xl text-balance text-3xl font-bold leading-tight tracking-tight sm:text-4xl md:text-[2.5rem]',
+        isDark ? 'text-off-white' : 'text-text-dark',
+      ]}
+    >
+      <span>{title}</span>
+      {accent ? <span class="text-gradient-gold"> {accent}</span> : null}
+    </h1>
+
+    <p
+      class:list={[
+        'mt-5 max-w-3xl text-pretty text-base leading-relaxed sm:text-lg',
+        isDark ? 'text-muted-light' : 'text-text-muted',
+      ]}
+    >
+      {description}
+    </p>
+
+    {
+      badges.length ? (
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="แท็ก">
+          {badges.map((b) => (
+            <li>
+              <span
+                class:list={[
+                  'inline-flex rounded-full border px-3 py-1 text-xs font-semibold',
+                  isDark ? 'border-gold-border/50 bg-glass-white text-gold-soft' : 'border-gold-border/45 bg-white text-gold-deep',
+                ]}
+              >
+                {b}
+              </span>
+            </li>
+          ))}
+        </ul>
+      ) : null
+    }
+
+    <div class="mt-8">
+      <CTAButtons
+        tone={isDark ? 'dark' : 'light'}
+        size="lg"
+        secondaryCompact
+        primaryText={primaryCtaText}
+        primaryHref={primaryCtaHref}
+        secondaryText={secondaryCtaText}
+        secondaryHref={secondaryCtaHref}
+        tertiaryText={tertiaryText}
+        tertiaryHref={tertiaryHref}
+        tertiaryCompact={Boolean(tertiaryText)}
+      />
+    </div>
+    {
+      microcopy ? (
+        <p
+          class:list={[
+            'mt-4 max-w-3xl text-pretty text-sm leading-relaxed sm:text-base',
+            isDark ? 'text-muted-light' : 'text-text-muted',
+          ]}
+        >
+          {microcopy}
+        </p>
+      ) : null
+    }
+  </div>
+</section>

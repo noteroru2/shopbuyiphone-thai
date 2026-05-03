@@ -1,0 +1,62 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = 'ราคาประเมินไอโฟนขึ้นอยู่กับอะไร' } = Astro.props;
+
+const factors = [
+  'รุ่น iPhone',
+  'ความจุ',
+  'Battery Health',
+  'สภาพจอ',
+  'Face ID / Touch ID',
+  'กล้อง',
+  'ฝาหลังและขอบเครื่อง',
+  'เครื่องศูนย์ไทย / เครื่องนอก',
+  'อุปกรณ์ที่มี',
+  'Apple ID / Find My',
+];
+---
+
+<section class="bg-section-cream py-20" aria-labelledby="price-factors-heading">
+  <div class="mx-auto max-w-[1080px] px-4">
+    <div class="rounded-2xl border border-gold-border/35 bg-white p-8 shadow-sm sm:p-10">
+      <h2 id="price-factors-heading" class="text-2xl font-bold tracking-tight text-text-dark">
+        {title}
+      </h2>
+      <p class="mt-3 max-w-xl text-sm leading-relaxed text-text-muted">
+        ราคาเบื้องต้นอิงจากข้อมูลและรูปที่ส่งมา ก่อนสรุปหลังตรวจสภาพจริง
+      </p>
+
+      <div class="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-14">
+        <div>
+          <p class="text-sm leading-relaxed text-text-muted">
+            ทีมงานดูทั้งรุ่น ความจุ สุขภาพแบต สภาพจอ ช่องทางสแกน กล้อง ฝาหลัง แหล่งเครื่อง อุปกรณ์ และสถานะบัญชีผู้ใช้ร่วมกับกรอบราคาตลาดมือสอง
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-text-muted">
+            อ่านแนวทางเพิ่มเติมได้ที่หน้า{' '}
+            <a class="font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
+            {' '}และ{' '}
+            <a class="font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
+          </p>
+        </div>
+        <ul class="grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2" role="list">
+          {
+            factors.map((f) => (
+              <li class="flex items-start gap-2.5 text-sm text-text-dark">
+                <span
+                  class="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-gold-border bg-gold-bg text-[10px] font-bold text-gold-deep"
+                  aria-hidden="true"
+                >
+                  ✓
+                </span>
+                <span>{f}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

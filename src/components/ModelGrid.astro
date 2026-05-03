@@ -1,0 +1,130 @@
+---
+const series = [
+  {
+    label: 'iPhone 17 Series',
+    modelsLine: 'iPhone 17 · 17 Plus · 17 Pro · 17 Pro Max',
+    href: '/รับซื้อไอโฟน/iphone-17/',
+    blurb: 'ประเมินตามรุ่น ความจุ และสภาพจริง',
+    featured: true,
+    badges: ['รุ่นใหม่'],
+  },
+  {
+    label: 'iPhone 16 Series',
+    modelsLine: 'iPhone 16 · 16 Plus · 16 Pro · 16 Pro Max',
+    href: '/รับซื้อไอโฟน/iphone-16/',
+    blurb: 'ส่งรูปเช็คราคาเบื้องต้นฟรีผ่านไลน์',
+    featured: true,
+    badges: ['ประเมินฟรี'],
+  },
+  {
+    label: 'iPhone 15 Series',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-15/',
+    blurb: 'ประเมินจากสภาพและอุปกรณ์',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+  {
+    label: 'iPhone 14 Series',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-14/',
+    blurb: 'ส่งรูป About ช่วยให้ประเมินตรงขึ้น',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+  {
+    label: 'iPhone 13 Series',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-13/',
+    blurb: 'แจ้งความจุและแบตให้ชัด',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+  {
+    label: 'iPhone 12 Series',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-12/',
+    blurb: 'หลายความจุ — แจ้งเครื่องศูนย์/นอก',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+  {
+    label: 'iPhone 11 Series',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-11/',
+    blurb: 'ยังมีตลาดรองรับ — ส่งรูปหลายมุม',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+  {
+    label: 'iPhone SE',
+    modelsLine: '',
+    href: '/รับซื้อไอโฟน/iphone-se/',
+    blurb: 'รุ่นกะทัดรัด — แจ้งรุ่นและความจุ',
+    featured: false,
+    badges: ['รับซื้อ'],
+  },
+];
+---
+
+<section id="iphone-models" class="scroll-mt-28 bg-section-warm py-16 sm:scroll-mt-32 sm:py-20" aria-labelledby="models-heading">
+  <div class="mx-auto max-w-[1180px] px-4">
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <h2 id="models-heading" class="text-2xl font-bold tracking-tight text-text-dark">รับซื้อ iPhone รุ่นไหนบ้าง</h2>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-text-muted">
+          เลือกซีรีส์เพื่อดูรายละเอียด — ไม่ใช้โลโก้ทางการของแบรนด์ผู้ผลิต
+        </p>
+      </div>
+      <a
+        class="text-sm font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold"
+        href="/รับซื้อไอโฟน/"
+      >
+        ดูหน้ารวมรับซื้อไอโฟน
+      </a>
+    </div>
+
+    <div class="mt-10 grid auto-rows-fr grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        series.map((m) => (
+          <a
+            href={m.href}
+            class:list={[
+              'group relative flex min-h-[200px] h-full flex-col overflow-hidden rounded-2xl border bg-[#faf9f6] p-5 pt-6 transition-all duration-300',
+              m.featured
+                ? 'border-gold-border/55 shadow-[0_1px_0_0_rgba(212,175,55,0.35)] hover:border-gold-border hover:shadow-[0_22px_48px_-16px_rgba(0,0,0,0.14)]'
+                : 'border-gray-border/80 hover:border-gold-border/60 hover:shadow-[0_20px_44px_-18px_rgba(0,0,0,0.12)]',
+            ]}
+          >
+            <span
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-premium-gold/85 to-transparent"
+            />
+            <div class="flex flex-wrap gap-1.5">
+              {m.badges.map((b) => (
+                <span class="inline-flex rounded-md border border-gold-border/60 bg-gold-bg/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-gold-deep">
+                  {b}
+                </span>
+              ))}
+            </div>
+            <p class="mt-4 text-base font-bold tracking-tight text-text-dark sm:text-lg">{m.label}</p>
+            {m.modelsLine ? <p class="mt-1 text-xs leading-snug text-text-muted">{m.modelsLine}</p> : null}
+            <p class="mt-2 flex-1 text-xs leading-relaxed text-text-muted sm:text-[13px]">{m.blurb}</p>
+            <span class="mt-auto pt-4 text-sm font-semibold text-gold-deep transition group-hover:underline">
+              ดูรายละเอียด
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-center text-sm text-text-muted sm:text-left">
+      รุ่นอื่น:
+      <a class="font-semibold text-gold-deep hover:underline" href="/รับซื้อไอโฟน/iphone-xs-xr/">iPhone XR / XS</a>
+      <span class="mx-2 text-gray-medium" aria-hidden="true">·</span>
+      <a class="font-semibold text-gold-deep hover:underline" href="/รับซื้อไอโฟน/pro-max/">Pro / Pro Max</a>
+      <span class="mx-2 text-gray-medium" aria-hidden="true">·</span>
+      <a class="font-semibold text-gold-deep hover:underline" href="/รับซื้อไอโฟน/">รุ่นทั้งหมด</a>
+    </p>
+  </div>
+</section>

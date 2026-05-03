@@ -1,0 +1,163 @@
+---
+import { SITE } from '../config/site';
+---
+
+<section id="lead-estimate-form" class="mx-auto w-full max-w-[1180px] scroll-mt-28 px-4 pt-20 sm:scroll-mt-32" aria-labelledby="lead-form-heading">
+  <p class="text-xs font-semibold uppercase tracking-wider text-gold-deep">ฟอร์ม</p>
+  <h2 id="lead-form-heading" class="mt-2 text-2xl font-semibold tracking-tight text-charcoal">เช็คราคาไอโฟนก่อนขาย</h2>
+  <div class="grid gap-10 lg:grid-cols-2 lg:gap-16 lg:items-start">
+    <div>
+      <h3 class="text-lg font-semibold tracking-tight text-charcoal">ส่งข้อมูลเบื้องต้น</h3>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        กรอกข้อมูลด้านขวาเพื่อให้ทีมงานเห็นภาพรวม จากนั้นแนะนำส่งรูปเครื่องหลายมุมทาง LINE {SITE.lineHandle} เพื่อให้ประเมินได้เร็วและแม่นขึ้น
+      </p>
+      <ul class="mt-8 space-y-3 text-sm text-text-muted">
+        <li class="flex gap-2"><span class="text-gold-deep" aria-hidden="true">✓</span> ประเมินเบื้องต้นไม่มีค่าใช้จ่าย</li>
+        <li class="flex gap-2"><span class="text-gold-deep" aria-hidden="true">✓</span> ไม่มีข้อผูกมัดก่อนตัดสินใจขาย</li>
+        <li class="flex gap-2"><span class="text-gold-deep" aria-hidden="true">✓</span> ส่งรูปจริงช่วยลดช่องว่างราคา</li>
+      </ul>
+      <p class="mt-8 text-sm text-text-muted">
+        ไม่สะดวกกรอกฟอร์ม?
+        <a class="font-medium text-gold-deep underline decoration-gold-border underline-offset-4" href={SITE.lineUrl} target="_blank" rel="noopener noreferrer">
+          แอดไลน์ {SITE.lineHandle} ส่งรูป iPhone
+        </a>
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-gray-border bg-white p-6 sm:p-8">
+      <form class="grid gap-5 sm:grid-cols-2" method="get" action="/ติดต่อเรา/">
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">ชื่อ</span>
+          <input
+            name="name"
+            type="text"
+            autocomplete="name"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">เบอร์โทร</span>
+          <input
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">LINE ID</span>
+          <input
+            name="line"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">รุ่น iPhone</span>
+          <input
+            name="model"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">ความจุ</span>
+          <input
+            name="storage"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">Battery Health</span>
+          <input
+            name="battery"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+
+        <label class="block sm:col-span-2">
+          <span class="text-xs font-medium text-text-dark">สภาพเครื่อง</span>
+          <textarea
+            name="condition"
+            rows="2"
+            class="mt-1.5 min-h-[88px] w-full rounded-xl border border-gray-border bg-white px-3 py-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          ></textarea>
+        </label>
+
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">Face ID / Touch ID (ถ้ามี)</span>
+          <select
+            name="biometric"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          >
+            <option value="">เลือก</option>
+            <option value="ok">ใช้งานได้</option>
+            <option value="fail">ไม่ทำงาน</option>
+            <option value="unknown">ไม่แน่ใจ</option>
+          </select>
+        </label>
+        <label class="block sm:col-span-1">
+          <span class="text-xs font-medium text-text-dark">เครื่องศูนย์ไทย / นอก</span>
+          <select
+            name="origin"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          >
+            <option value="">เลือก</option>
+            <option value="th">เครื่องศูนย์ไทย</option>
+            <option value="import">เครื่องนอก</option>
+            <option value="unknown">ไม่แน่ใจ</option>
+          </select>
+        </label>
+
+        <label class="block sm:col-span-2">
+          <span class="text-xs font-medium text-text-muted">ติด Apple ID / Find My / iCloud (ถ้ามี)</span>
+          <input
+            name="account"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+        <label class="block sm:col-span-2">
+          <span class="text-xs font-medium text-text-muted">อุปกรณ์ที่มี (ถ้ามี)</span>
+          <input
+            name="accessories"
+            type="text"
+            class="mt-1.5 h-12 w-full rounded-xl border border-gray-border bg-white px-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          />
+        </label>
+
+        <label class="block sm:col-span-2">
+          <span class="text-xs font-medium text-text-dark">รายละเอียดเพิ่มเติม</span>
+          <textarea
+            name="notes"
+            rows="3"
+            class="mt-1.5 min-h-[100px] w-full rounded-xl border border-gray-border bg-white px-3 py-3 text-sm text-text-dark transition focus:border-gold-border focus:outline-none focus:ring-2 focus:ring-gold/20"
+          ></textarea>
+        </label>
+
+        <div class="sm:col-span-2 rounded-xl border border-dashed border-gold-border/80 bg-gold-bg/40 p-4 text-xs leading-relaxed text-text-muted">
+          บนเว็บนี้ไม่มีการอัปโหลดไฟล์โดยตรง — หลังกรอกข้อมูล แนะนำส่งรูป iPhone หลายมุมผ่าน LINE {SITE.lineHandle}
+        </div>
+
+        <div class="sm:col-span-2 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <button
+            type="submit"
+            class="inline-flex h-12 min-w-[200px] items-center justify-center rounded-xl border border-charcoal bg-charcoal px-6 text-sm font-semibold text-white transition hover:bg-dark-slate"
+          >
+            ส่งข้อมูลประเมินราคา
+          </button>
+          <a
+            class="inline-flex h-12 min-w-[200px] items-center justify-center rounded-xl bg-line-green px-6 text-sm font-semibold text-white transition hover:brightness-95"
+            href={SITE.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            แอดไลน์ {SITE.lineHandle} ส่งรูป iPhone
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

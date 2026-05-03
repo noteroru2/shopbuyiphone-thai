@@ -1,0 +1,176 @@
+---
+import { SITE } from '../lib/seo';
+
+const pathname = Astro.url.pathname;
+
+const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+
+const mainNav = [
+  { label: 'หน้าแรก', href: '/' },
+  { label: 'รับซื้อไอโฟน', href: '/รับซื้อไอโฟน/' },
+  { label: 'เช็คราคา', href: '/เช็คราคาไอโฟน/' },
+  { label: 'รุ่นที่รับซื้อ', href: '/#iphone-models' },
+  { label: 'สภาพเครื่อง', href: '/#iphone-conditions' },
+  { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/' },
+  { label: 'บทความ', href: '/blog/' },
+];
+
+const serviceLinks = [
+  { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/' },
+  { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/' },
+  { label: 'ขายไอโฟน', href: '/ขายไอโฟน/' },
+  { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/' },
+  { label: 'ติดต่อเรา', href: '/ติดต่อเรา/' },
+];
+---
+
+<header
+  class="sticky top-0 z-40 h-16 border-b border-glass-border bg-near-black/95 backdrop-blur-md sm:h-[4.5rem]"
+>
+  <div class="mx-auto flex h-full max-w-[1180px] items-center justify-between gap-3 px-4">
+    <a href="/" class="flex min-w-0 items-center gap-2.5 rounded-xl py-1 pr-2 transition-opacity hover:opacity-90">
+      <img
+        src={SITE.logo}
+        alt=""
+        width="36"
+        height="36"
+        class="h-9 w-9 flex-none rounded-xl border border-gold-border bg-charcoal object-cover shadow-sm shadow-black/30"
+        loading="eager"
+        decoding="async"
+        aria-hidden="true"
+      />
+      <span class="min-w-0">
+        <span class="block truncate text-sm font-semibold tracking-tight text-off-white">ร้านรับซื้อไอโฟน.com</span>
+        <span class="hidden truncate text-[11px] font-normal text-muted-light lg:block">รับซื้อ iPhone มือสอง</span>
+      </span>
+    </a>
+
+    <div class="flex min-w-0 items-center gap-2 lg:hidden">
+      <a
+        class="inline-flex min-w-0 items-center justify-center rounded-xl border border-gold-border bg-transparent px-3 py-2 text-xs font-medium text-off-white"
+        href={`tel:${SITE.telephone}`}
+        aria-label={`โทร ${SITE.telephone}`}
+      >
+        โทร
+      </a>
+      <a
+        class="inline-flex min-w-0 items-center justify-center rounded-xl bg-line-green px-3 py-2 text-xs font-semibold text-white transition hover:bg-line-green-dark"
+        href={SITE.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`แอดไลน์ ${SITE.lineHandle}`}
+      >
+        LINE
+      </a>
+      <details class="relative">
+        <summary
+          class="list-none cursor-pointer rounded-xl border border-glass-border bg-glass-white px-3 py-2 text-xs font-medium text-off-white"
+          aria-label="เปิดเมนู"
+        >
+          เมนู
+        </summary>
+        <div
+          class="absolute right-0 mt-2 max-h-[min(70vh,520px)] w-72 overflow-y-auto rounded-2xl border border-gold-border/40 bg-charcoal py-2 shadow-xl shadow-black/40"
+        >
+          <nav aria-label="เมนูหลัก (มือถือ)" class="flex flex-col px-1">
+            {mainNav.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'rounded-lg px-3 py-2.5 text-sm transition-colors',
+                  isActive(item.href) && item.href !== '/#iphone-models' && item.href !== '/#iphone-conditions'
+                    ? 'bg-gold-bg font-medium text-gold-soft'
+                    : 'text-muted-light hover:bg-glass-white hover:text-off-white',
+                ]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+            <p class="px-3 pb-1 pt-3 text-[10px] font-semibold uppercase tracking-wider text-gold-soft/80">บริการ</p>
+            {serviceLinks.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'rounded-lg px-3 py-2 text-sm transition-colors',
+                  isActive(item.href) ? 'bg-glass-white font-medium text-off-white' : 'text-muted-light hover:bg-glass-white hover:text-off-white',
+                ]}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          <div class="mt-2 border-t border-glass-border px-3 pb-2 pt-3">
+            <a
+              class="flex w-full items-center justify-center rounded-xl bg-line-green py-3 text-sm font-semibold text-white transition hover:bg-line-green-dark"
+              href={SITE.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              แอดไลน์ {SITE.lineHandle}
+            </a>
+          </div>
+        </div>
+      </details>
+    </div>
+
+    <nav aria-label="เมนูหลัก" class="hidden min-w-0 flex-1 items-center justify-center gap-0.5 lg:flex">
+      {mainNav.map((item) => (
+        <a
+          href={item.href}
+          class:list={[
+            'whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-normal tracking-tight transition-colors',
+            isActive(item.href) && item.href !== '/#iphone-models' && item.href !== '/#iphone-conditions'
+              ? 'text-gold-soft'
+              : 'text-muted-light hover:text-off-white',
+          ]}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <details class="group relative">
+        <summary
+          class="list-none cursor-pointer whitespace-nowrap rounded-lg px-2 py-2 text-[13px] font-normal text-muted-light transition-colors marker:hidden hover:text-off-white [&::-webkit-details-marker]:hidden"
+        >
+          บริการ
+          <span class="text-[10px] opacity-60" aria-hidden="true">▾</span>
+        </summary>
+        <div
+          class="absolute left-0 top-full z-50 mt-1 min-w-[200px] rounded-xl border border-gold-border/40 bg-charcoal py-1.5 shadow-lg shadow-black/30"
+        >
+          {serviceLinks.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                'block px-3 py-2 text-[13px] transition-colors',
+                isActive(item.href) ? 'bg-glass-white font-medium text-off-white' : 'text-muted-light hover:bg-glass-white hover:text-off-white',
+              ]}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </details>
+    </nav>
+
+    <div class="hidden shrink-0 items-center gap-2 lg:flex">
+      <a
+        class="inline-flex items-center justify-center rounded-xl bg-line-green px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-line-green-dark"
+        href={SITE.lineUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        แอดไลน์ {SITE.lineHandle}
+      </a>
+      <a
+        class="inline-flex items-center justify-center rounded-xl border border-gold-border bg-transparent px-3 py-2.5 text-[13px] font-medium text-off-white transition hover:bg-glass-white"
+        href={`tel:${SITE.telephone}`}
+        aria-label={`โทร ${SITE.telephone}`}
+      >
+        โทร {SITE.telephone}
+      </a>
+    </div>
+  </div>
+</header>

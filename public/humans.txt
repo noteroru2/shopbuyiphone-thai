@@ -1,0 +1,18 @@
+ร้านรับซื้อไอโฟน.com
+บริการรับซื้อไอโฟน รับซื้อ iPhone มือสอง เช็คราคาไอโฟนฟรีผ่าน LINE
+
+Contact:
+Phone: 0642579353
+LINE: @webuy
+LINE URL: https://line.me/R/ti/p/@webuy
+Website: https://ร้านรับซื้อไอโฟน.com/
+
+Physical store (Google Maps): https://maps.app.goo.gl/MRNFJY318DSg2Q22A
+Store name on Maps: ร้านอำพล เทรดดิ้ง
+
+Service Area (schema / ประกาศหลัก):
+กรุงเทพมหานคร, ปริมณฑล, ภาคอีสาน, อุบลราชธานี, ขอนแก่น, อุดรธานี, นครราชสีมา
+วิธีนัดรับหรือส่งเครื่องขึ้นกับพื้นที่และเงื่อนไข — สอบถามผ่าน LINE @webuy
+
+Technology:
+Astro, Tailwind CSS, Markdown/MDX, Decap CMS, Coolify

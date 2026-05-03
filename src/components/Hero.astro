@@ -1,0 +1,176 @@
+---
+import CTAButtons from './CTAButtons.astro';
+import { SITE } from '../config/site';
+
+interface Props {
+  subtitle: string;
+  imageSrc: string;
+  imageAlt: string;
+  /** ถ้ามี WebP คู่กับ raster จะใส่ใน `<picture>` เพื่อลดน้ำหนัก LCP */
+  imageWebpSrc?: string;
+  /** ค่า CSS object-position เช่น "76% center" เมื่อใช้รูปแคมเปญแนวนอน */
+  imageObjectPosition?: string;
+  imageFit?: 'contain' | 'cover';
+}
+
+const { subtitle, imageSrc, imageAlt, imageWebpSrc, imageObjectPosition = 'center', imageFit = 'contain' } = Astro.props;
+
+const microDesktop = ['ประเมินฟรี', 'ส่งรูปผ่าน LINE', 'ไม่ต้องกรอกฟอร์ม', 'ตอบกลับตามลำดับคิว'];
+---
+
+<section class="relative isolate w-full overflow-hidden bg-black text-off-white" aria-labelledby="hero-heading">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-hero-noise opacity-[0.45]"></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -left-1/4 top-0 h-[min(90vw,520px)] w-[min(90vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.18)_0%,transparent_68%)]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 bg-gradient-to-b from-black via-near-black to-charcoal"
+  >
+  </div>
+
+  <div class="relative z-[1] mx-auto max-w-[1180px] px-4 pb-14 pt-11 sm:pb-16 sm:pt-14 md:pb-20 md:pt-16">
+    <div
+      class="grid items-center gap-10 lg:grid-cols-[minmax(0,12fr)_minmax(0,13fr)] lg:items-center lg:gap-12 xl:gap-14"
+    >
+      <div class="relative max-w-xl">
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -left-6 -top-10 h-48 w-[min(100%,320px)] rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.12)_0%,transparent_70%)] blur-2xl md:h-56 md:w-80"
+        >
+        </div>
+        <p
+          class="relative inline-flex max-w-full flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-gold-border/45 bg-glass-white px-4 py-2 text-[11px] font-semibold uppercase tracking-wider text-gold-soft"
+        >
+          <span>รับซื้อ iPhone มือสอง</span>
+          <span class="text-gold-border/70" aria-hidden="true">•</span>
+          <span class="normal-case tracking-normal text-muted-light">ให้ราคาตามสภาพจริง</span>
+        </p>
+
+        <h1
+          id="hero-heading"
+          class="relative mt-7 text-balance text-[2.25rem] font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-[3.2rem] lg:leading-[1.04]"
+        >
+          <span class="block text-off-white">
+            <span class="text-gradient-gold">รับซื้อไอโฟน</span>
+          </span>
+          <span class="mt-2 block text-off-white">ประเมินไว <span class="text-gradient-gold">จ่ายเงินไว</span></span>
+        </h1>
+
+        <p class="relative mt-5 max-w-[520px] text-pretty text-[0.9375rem] leading-relaxed text-muted-light sm:text-base">
+          {subtitle}
+        </p>
+
+        <div class="relative mt-9">
+          <CTAButtons
+            tone="dark"
+            size="lg"
+            secondaryCompact
+            primaryText={`แอดไลน์ ${SITE.lineHandle} ส่งรูปประเมินราคา`}
+            primaryHref={SITE.lineUrl}
+            secondaryText="โทร"
+            secondaryHref={`tel:${SITE.telephone}`}
+            tertiaryText="เช็คราคาไอโฟนก่อนขาย"
+            tertiaryHref="/เช็คราคาไอโฟน/"
+            tertiaryCompact
+          />
+        </div>
+
+        <p class="relative mt-4 max-w-xl text-[13px] leading-relaxed text-muted-light/95 sm:text-sm">
+          ส่งรูป iPhone 3–5 รูปผ่านไลน์ @webuy เพื่อประเมินราคาเบื้องต้น ไม่ต้องกรอกฟอร์ม
+        </p>
+
+        <ul
+          class="relative mt-6 hidden flex-wrap items-center gap-x-0 gap-y-2 text-[11px] font-medium text-muted-light md:flex"
+          aria-label="จุดเด่นบริการ"
+        >
+          {
+            microDesktop.map((t, i) => (
+              <li class="flex items-center">
+                {i > 0 ? <span class="mx-3 h-2.5 w-px bg-white/12" aria-hidden="true" /> : null}
+                <span class="whitespace-nowrap text-muted-light/90">{t}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:justify-self-end">
+        <!-- subtle gold halo ฝั่งขวา (campaign card) -->
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute -right-[12%] top-1/2 h-[min(92vw,440px)] w-[min(92vw,440px)] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.28)_0%,rgba(212,175,55,0.08)_38%,transparent_68%)] blur-2xl sm:-right-[8%] lg:h-[min(100%,480px)] lg:w-[min(100%,480px)]"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          class="pointer-events-none absolute inset-x-0 bottom-0 top-[18%] rounded-[2rem] bg-[radial-gradient(ellipse_at_50%_100%,rgba(212,175,55,0.14),transparent_55%)] blur-xl"
+        >
+        </div>
+
+        <div class="relative p-[1px] lg:scale-[1.02]">
+          <div
+            class="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-gradient-to-br from-gold-border/50 via-gold-border/15 to-transparent sm:rounded-[1.65rem]"
+            aria-hidden="true"
+          />
+          <div
+            class="relative overflow-hidden rounded-3xl border border-gold-border/50 bg-dark-card shadow-[0_4px_0_0_rgba(212,175,55,0.08),0_32px_90px_rgba(0,0,0,0.65),0_0_1px_rgba(212,175,55,0.35)] ring-1 ring-gold-border/20 sm:rounded-[1.6rem]"
+          >
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]"
+            >
+            </div>
+            <div
+              aria-hidden="true"
+              class="pointer-events-none absolute -right-8 -top-12 h-52 w-52 rounded-full bg-[radial-gradient(circle,rgba(212,175,55,0.22),transparent_70%)]"
+            >
+            </div>
+            <div class="relative aspect-[4/3] w-full bg-gradient-to-b from-graphite/40 to-black/20">
+              {
+                imageWebpSrc ? (
+                  <picture>
+                    <source srcset={imageWebpSrc} type="image/webp" />
+                    <img
+                      src={imageSrc}
+                      alt={imageAlt}
+                      class:list={[
+                        'absolute inset-0 h-full w-full drop-shadow-[0_12px_40px_rgba(0,0,0,0.45)]',
+                        imageFit === 'cover' ? 'object-cover' : 'object-contain',
+                        imageObjectPosition === 'center' ? 'object-center' : '',
+                      ]}
+                      style={imageObjectPosition !== 'center' ? { objectPosition: imageObjectPosition } : undefined}
+                      loading="eager"
+                      decoding="async"
+                      fetchpriority="high"
+                      width="1024"
+                      height="768"
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={imageSrc}
+                    alt={imageAlt}
+                    class:list={[
+                      'absolute inset-0 h-full w-full drop-shadow-[0_12px_40px_rgba(0,0,0,0.45)]',
+                      imageFit === 'cover' ? 'object-cover' : 'object-contain',
+                      imageObjectPosition === 'center' ? 'object-center' : '',
+                    ]}
+                    style={imageObjectPosition !== 'center' ? { objectPosition: imageObjectPosition } : undefined}
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                    width="1024"
+                    height="768"
+                  />
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
