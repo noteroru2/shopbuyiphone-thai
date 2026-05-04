@@ -10,7 +10,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const locDir = path.join(__dirname, '..', 'src', 'content', 'locations');
 
-const OG_FALLBACK = '/images/hero-iphone-buying.svg';
+const OG_FALLBACK = '/images/hero-webuy-campaign.webp';
 
 function hash(s) {
   let h = 0;

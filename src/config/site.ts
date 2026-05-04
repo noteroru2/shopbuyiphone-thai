@@ -32,8 +32,8 @@ export const SITE = {
   lineHandle: '@webuy',
   /** โลโก้เว็บ — ตัว W ไล่เฉดทอง (สอดคล้องธีม Black Gold) */
   logo: '/images/logo-webuy-gold-w.svg',
-  /** OG / แชร์โซเชียล + LocalBusiness schema — ไฟล์จริงใน public/images */
-  ogImage: '/images/hero-iphone-buying.svg',
+  /** OG / แชร์โซเชียล + LocalBusiness schema — แบนเนอร์แคมเปญ @webuy */
+  ogImage: '/images/hero-webuy-campaign.webp',
   language: 'th-TH',
   localeOg: 'th_TH',
   sameAs: {
