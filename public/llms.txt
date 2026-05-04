@@ -1,4 +1,4 @@
-# ร้านรับซื้อไอโฟน.com
+﻿# ร้านรับซื้อไอโฟน.com
 
 ## เว็บไซต์นี้เกี่ยวกับอะไร
 เว็บไซต์สำหรับบริการรับซื้อไอโฟนและรับซื้อ iPhone มือสอง พร้อมเช็คราคาไอโฟนและประเมินราคาเบื้องต้นฟรีผ่าน LINE @webuy โดยประเมินจากรุ่น ความจุ สภาพจริง และอุปกรณ์ที่มี รวมถึงเครื่องที่มีอาการตามที่แจ้ง เช่น จอแตก แบตเสื่อม หรือเปิดไม่ติดบางกรณี
@@ -31,17 +31,18 @@
 ลูกค้าสามารถส่งรูปประเมินเบื้องต้นผ่าน LINE @webuy แล้วสอบถามพื้นที่ให้บริการ วิธีนัดรับ หรือวิธีส่งเครื่องได้
 
 ## หน้าสำคัญ
+ลิงก์ด้านล่างเป็นโฮสต์ punycode + path แบบ percent-encoding (UTF-8) เพื่อให้ crawler และเบราว์เซอร์อ่านได้แม้ไม่ได้รับ header charset
 - https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อไอโฟน/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อไอโฟน/iphone-17/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อไอโฟน/iphone-16/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อไอโฟน/iphone-15/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อไอโฟนมือสอง/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/รับซื้อ-iphone/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/เช็คราคาไอโฟน/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/ตีราคาไอโฟน/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/ขายไอโฟน/
-- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/พื้นที่ให้บริการ/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/iphone-17/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/iphone-16/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/iphone-15/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%AA%E0%B8%AD%E0%B8%87/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%8B%E0%B8%B7%E0%B9%89%E0%B8%AD-iphone/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B9%80%E0%B8%8A%E0%B9%87%E0%B8%84%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%95%E0%B8%B5%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3/
 - https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/blog/
 
 ## วิธีประเมินราคา
