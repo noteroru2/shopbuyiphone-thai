@@ -10,6 +10,13 @@ export function absoluteUrl(pathname: string) {
   return `${base}${path}`;
 }
 
+/** Absolute URL โฮสต์ punycode — ใช้ใน JSON-LD รูป (Organization / LocalBusiness ฯลฯ) */
+export function schemaAbsoluteUrl(pathname: string) {
+  const base = SITE.schemaPublicOrigin.replace(/\/$/, '');
+  const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  return `${base}${path}`;
+}
+
 export function localBusinessSchema(opts?: { description?: string }) {
   const description = opts?.description ?? SITE.description;
 
@@ -20,7 +27,7 @@ export function localBusinessSchema(opts?: { description?: string }) {
     alternateName: SITE.physicalStoreName,
     url: SITE.url,
     telephone: SITE.telephone,
-    image: absoluteUrl(SITE.ogImage),
+    image: schemaAbsoluteUrl(SITE.ogImage),
     areaServed: SITE.areaServed,
     description,
     hasMap: SITE.googleMapsUrl,

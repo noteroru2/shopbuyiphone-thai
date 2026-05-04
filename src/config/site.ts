@@ -20,6 +20,8 @@ export const SITE = {
   shortName: 'รับซื้อไอโฟน',
   /** Canonical base URL — เปลี่ยนที่เดียวเมื่อมีโดเมน punycode/จริง */
   url: 'https://ร้านรับซื้อไอโฟน.com/',
+  /** โอริจิน punycode สำหรับ URL รูปใน JSON-LD (crawler / IDN) */
+  schemaPublicOrigin: 'https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com',
   description:
     'ร้านรับซื้อไอโฟน.com ให้บริการประเมินราคา iPhone มือสอง ประเมินตามรุ่นและสภาพจริง (รวมความจุตามเครื่อง) ลูกค้าสามารถส่งรูปผ่านไลน์ @webuy เพื่อเช็คราคาเบื้องต้นก่อนตัดสินใจขาย หรือโทร 0642579353',
   mainKeyword: 'รับซื้อไอโฟน',
@@ -30,8 +32,8 @@ export const SITE = {
   lineHandle: '@webuy',
   /** โลโก้เว็บ — ตัว W ไล่เฉดทอง (สอดคล้องธีม Black Gold) */
   logo: '/images/logo-webuy-gold-w.svg',
-  /** OG / แชร์โซเชียล — แบนเนอร์แคมเปญ @webuy */
-  ogImage: '/images/hero-webuy-campaign.webp',
+  /** OG / แชร์โซเชียล + LocalBusiness schema — ไฟล์จริงใน public/images */
+  ogImage: '/images/hero-iphone-buying.svg',
   language: 'th-TH',
   localeOg: 'th_TH',
   sameAs: {

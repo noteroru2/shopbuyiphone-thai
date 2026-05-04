@@ -1,5 +1,5 @@
 import { SITE } from '../config/site';
-import { absoluteUrl } from './seo';
+import { absoluteUrl, schemaAbsoluteUrl } from './seo';
 
 export function organizationSchema() {
   return {
@@ -8,7 +8,8 @@ export function organizationSchema() {
     name: SITE.name,
     alternateName: SITE.physicalStoreName,
     url: SITE.url,
-    logo: absoluteUrl(SITE.logo),
+    logo: schemaAbsoluteUrl(SITE.logo),
+    image: schemaAbsoluteUrl(SITE.logo),
     telephone: SITE.telephone,
     description: SITE.description,
     sameAs: [SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
@@ -73,7 +74,12 @@ export function blogPostingSchema(opts: {
     dateModified: opts.dateModified ?? opts.datePublished,
     inLanguage: SITE.language,
     author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
-    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url, logo: { '@type': 'ImageObject', url: absoluteUrl(SITE.logo) } },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE.name,
+      url: SITE.url,
+      logo: { '@type': 'ImageObject', url: schemaAbsoluteUrl(SITE.logo) },
+    },
     ...(opts.image ? { image: [opts.image] } : {}),
   };
 }
