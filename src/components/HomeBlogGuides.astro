@@ -1,74 +1,84 @@
----
-import { getCollection } from 'astro:content';
-import { SITE } from '../config/site';
-
-const slugs = ['ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร', 'วิธีดู-battery-health-iphone-ก่อนขาย', 'ไอโฟนจอแตกขายได้ไหม'];
-
-const all = await getCollection('blog');
-const posts = slugs
-  .map((slug) => all.find((e) => e.data.slug === slug))
-  .filter((e): e is NonNullable<typeof e> => Boolean(e));
----
-
-<section class="border-t border-gold-border/10 bg-section-cream py-16 sm:py-20" aria-labelledby="guides-heading">
-  <div class="mx-auto w-full max-w-[1180px] px-4">
-    <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-      <div>
-        <h2 id="guides-heading" class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem]">
-          คู่มือก่อนขายไอโฟน
-        </h2>
-        <p class="mt-2 max-w-xl text-sm leading-relaxed text-text-muted">บทความสั้น ๆ ช่วยเตรียมเครื่องและส่งข้อมูลให้ครบ</p>
-      </div>
-      <a class="text-sm font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold" href="/blog/">
-        ดูบทความทั้งหมด
-      </a>
-    </div>
-
-    <div class="mt-10 grid gap-6 sm:gap-8 lg:grid-cols-3">
-      {
-        posts.map((post) => (
-          <article class="flex min-h-[400px] flex-col overflow-hidden rounded-2xl border border-gold-border/25 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.05)] transition duration-300 hover:border-gold-border/50 hover:shadow-[0_20px_48px_-20px_rgba(0,0,0,0.12)]">
-            <a href={`/blog/${post.data.slug}/`} class="group flex flex-1 flex-col">
-              <div class="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-near-black via-graphite to-charcoal">
-                <div
-                  aria-hidden="true"
-                  class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(212,175,55,0.45),transparent_55%)]"
-                />
-                <div aria-hidden="true" class="absolute inset-0 bg-[radial-gradient(circle_at_80%_90%,rgba(212,175,55,0.12),transparent_45%)]" />
-                <div aria-hidden="true" class="absolute inset-0 opacity-[0.1] bg-hero-noise" />
-                <span class="absolute left-3 top-3 z-[1] rounded-md border border-gold-border/50 bg-black/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-soft backdrop-blur-sm">
-                  คู่มือ
-                </span>
-                <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 pt-8">
-                  <svg
-                    class="h-[4.5rem] w-auto text-gold-soft/45 sm:h-24"
-                    viewBox="0 0 64 120"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    aria-hidden="true"
-                  >
-                    <rect x="12" y="8" width="40" height="104" rx="10" stroke-linejoin="round" />
-                    <path d="M22 20h20M32 104h.01" stroke-linecap="round" />
-                  </svg>
-                  <span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-soft/80">iPhone</span>
-                </div>
-              </div>
-              <div class="flex flex-1 flex-col p-6 sm:p-7">
-                <h3 class="text-lg font-bold leading-snug tracking-tight text-text-dark group-hover:text-gold-deep sm:text-xl">
-                  {post.data.title}
-                </h3>
-                <p class="mt-3 line-clamp-2 flex-1 text-sm leading-relaxed text-text-muted">{post.data.description}</p>
-                <span class="mt-5 text-sm font-semibold text-gold-deep group-hover:underline">อ่านต่อ</span>
-              </div>
-            </a>
-          </article>
-        ))
-      }
-    </div>
-
-    <p class="mt-10 text-center text-sm text-text-muted lg:text-left">
-      ส่งรูปประเมินได้ที่ LINE {SITE.lineHandle} หรือโทร {SITE.telephone}
-    </p>
-  </div>
-</section>
+---
+import { getCollection } from 'astro:content';
+import { SITE } from '../config/site';
+
+/** เรียงก่อนหลัง: บทความคีย์หลัก → เชื่อมหน้าเงิน/ไลน์ → คู่มือเตรียมเครื่อง */
+const slugs = [
+  'คู่มือคีย์หลักรับซื้อไอโฟน-ประเมินไลน์',
+  'รับซื้อไอโฟนมือสอง-เช็คราคาและขายปลอดภัย',
+  'ส่งรูปประเมินราคาไอโฟนผ่านไลน์',
+  'เช็คราคาไอโฟนก่อนขาย',
+  'ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร',
+  'วิธีดู-battery-health-iphone-ก่อนขาย',
+];
+
+const all = await getCollection('blog');
+const posts = slugs
+  .map((slug) => all.find((e) => e.data.slug === slug))
+  .filter((e): e is NonNullable<typeof e> => Boolean(e));
+---
+
+<section class="border-t border-gold-border/10 bg-section-cream py-16 sm:py-20" aria-labelledby="guides-heading">
+  <div class="mx-auto w-full max-w-[1180px] px-4">
+    <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <h2 id="guides-heading" class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem]">
+          บทความคีย์หลักและคู่มือก่อนขายไอโฟน
+        </h2>
+        <p class="mt-2 max-w-xl text-sm leading-relaxed text-text-muted">
+          รวมคำค้นหลัก รับซื้อไอโฟน เช็คราคาไอโฟน ประเมินไลน์ @webuy — อ่านบนหน้าแรกแล้วไปต่อได้ทันที
+        </p>
+      </div>
+      <a class="text-sm font-semibold text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold" href="/blog/">
+        ดูบทความทั้งหมด
+      </a>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+      {
+        posts.map((post) => (
+          <article class="flex min-h-[380px] flex-col overflow-hidden rounded-2xl border border-gold-border/25 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.05)] transition duration-300 hover:border-gold-border/50 hover:shadow-[0_20px_48px_-20px_rgba(0,0,0,0.12)]">
+            <a href={`/blog/${post.data.slug}/`} class="group flex flex-1 flex-col">
+              <div class="relative aspect-[16/10] w-full overflow-hidden bg-gradient-to-br from-near-black via-graphite to-charcoal">
+                <div
+                  aria-hidden="true"
+                  class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(212,175,55,0.45),transparent_55%)]"
+                />
+                <div aria-hidden="true" class="absolute inset-0 bg-[radial-gradient(circle_at_80%_90%,rgba(212,175,55,0.12),transparent_45%)]" />
+                <div aria-hidden="true" class="absolute inset-0 opacity-[0.1] bg-hero-noise" />
+                <span class="absolute left-3 top-3 z-[1] rounded-md border border-gold-border/50 bg-black/55 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-gold-soft backdrop-blur-sm">
+                  คู่มือ
+                </span>
+                <div class="absolute inset-0 flex flex-col items-center justify-center gap-2 p-6 pt-8">
+                  <svg
+                    class="h-[4.5rem] w-auto text-gold-soft/45 sm:h-24"
+                    viewBox="0 0 64 120"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    aria-hidden="true"
+                  >
+                    <rect x="12" y="8" width="40" height="104" rx="10" stroke-linejoin="round" />
+                    <path d="M22 20h20M32 104h.01" stroke-linecap="round" />
+                  </svg>
+                  <span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-gold-soft/80">iPhone</span>
+                </div>
+              </div>
+              <div class="flex flex-1 flex-col p-6 sm:p-7">
+                <h3 class="text-lg font-bold leading-snug tracking-tight text-text-dark group-hover:text-gold-deep sm:text-xl">
+                  {post.data.title}
+                </h3>
+                <p class="mt-3 line-clamp-2 flex-1 text-sm leading-relaxed text-text-muted">{post.data.description}</p>
+                <span class="mt-5 text-sm font-semibold text-gold-deep group-hover:underline">อ่านต่อ</span>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-10 text-center text-sm text-text-muted lg:text-left">
+      ส่งรูปประเมินได้ที่ LINE {SITE.lineHandle} หรือโทร {SITE.telephone}
+    </p>
+  </div>
+</section>

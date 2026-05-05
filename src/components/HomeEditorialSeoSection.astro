@@ -1,167 +1,178 @@
----
-import { SITE } from '../config/site';
----
-
-<section class="border-t border-gold-border/10 bg-section-warm py-20 sm:py-24" aria-label="ข้อมูลสำคัญสำหรับผู้ขาย iPhone">
-  <div class="mx-auto max-w-[1080px] px-4">
-    <article class="border-b border-gold-border/10 pb-14 last:border-0 last:pb-0">
-      <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
-        <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
-          <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
-            ร้านรับซื้อไอโฟนที่ประเมินจากสภาพจริง
-          </h2>
-          <div
-            class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
-          >
-            <p>
-              เลือก <strong>ร้านรับซื้อไอโฟน</strong> ควรดูที่กระบวนการประเมิน ไม่ใช่แค่รุ่นบนกระดาษ
-              <strong>รับซื้อไอโฟน</strong> และ <strong>รับซื้อไอโฟนมือสอง</strong> ต้องพิจารณาความจุ เครื่องศูนย์ไทยหรือเครื่องนอก แบต หน้าจอ Face ID และกรอบเครื่องไปพร้อมกัน
-            </p>
-            <p>
-              ถ้าต้องการ <strong>เช็คราคาไอโฟน</strong> ให้ใกล้เคียงจริง แนะนำส่งรูปพร้อมรุ่นและความจุ รวมถึงอาการเช่น <strong>ไอโฟนจอแตก</strong> <strong>ไอโฟนแบตเสื่อม</strong> หรือ <strong>ไอโฟนเปิดไม่ติด</strong>
-              เพื่อให้ทีมงานช่วย <strong>ประเมินราคาไอโฟน</strong> เบื้องต้นก่อน <strong>ขายไอโฟนมือสอง</strong>
-            </p>
-            <p>
-              แจ้งประวัติซ่อมหรือเปลี่ยนอะไหล่ถ้ามี จะช่วยลดช่องว่างระหว่างประเมินจากรูปกับการตรวจจริง
-              คำว่า <strong>รับซื้อ iPhone</strong> กับ <strong>รับซื้อไอโฟนมือสอง</strong> ในบริบทนี้คือบริการเดียวกัน — สอบถาม LINE {SITE.lineHandle}
-            </p>
-          </div>
-          <div class="mt-8">
-            <a
-              class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(6,199,85,0.2)] transition hover:bg-line-green-dark"
-              href={SITE.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              แอดไลน์ {SITE.lineHandle} ส่งรูปประเมินราคา
-            </a>
-          </div>
-        </div>
-        <aside
-          class="rounded-2xl border border-gold-border/35 bg-charcoal p-5 text-off-white shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-gold-border/15"
-        >
-          <p class="text-xs font-semibold uppercase tracking-wider text-gold-soft">สรุปส่งประเมิน</p>
-          <ul class="mt-3 space-y-2.5 text-sm leading-snug text-muted-light">
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รูป About + ด้านข้าง + ฝาหลัง</li>
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รุ่น ความจุ เครื่องศูนย์/นอก</li>
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> อาการเสียและอุปกรณ์ที่มี</li>
-          </ul>
-        </aside>
-      </div>
-    </article>
-
-    <article class="border-b border-gold-border/10 pb-14 pt-14 last:border-0 last:pb-0">
-      <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
-        <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
-          รับซื้อ iPhone และรับซื้อไอโฟน ต่างกันไหม
-        </h2>
-        <div
-          class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
-        >
-          <p>
-            <strong>รับซื้อ iPhone</strong> และ <strong>รับซื้อไอโฟน</strong> ใช้เรียกบริการรับซื้อสมาร์ทโฟน Apple ในตลาดมือสองชุดเดียวกัน เพื่อให้ค้นหาได้ทั้งภาษาไทยและอังกฤษ
-            ขั้นตอนส่งรูปและข้อมูลที่ใช้ประเมินเหมือนกัน
-          </p>
-          <p>
-            เราไม่ใช่ตัวแทนหรือศูนย์บริการของแบรนด์ผู้ผลิต และไม่แสดงราคาตายตัวบนหน้าเว็บ — ราคาขึ้นกับข้อมูลจริงและตลาดมือสอง
-          </p>
-        </div>
-        <div class="mt-6 rounded-xl border border-gold-border/15 bg-section-warm/80 px-4 py-3 text-[13px] leading-relaxed text-text-muted">
-          <span class="font-medium text-text-dark">ลิงก์ที่เกี่ยวข้อง:</span>
-          {' '}
-          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/">รับซื้อไอโฟน</a>
-          <span class="text-gray-medium" aria-hidden="true"> · </span>
-          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/รับซื้อ-iphone/">รับซื้อ iPhone</a>
-          <span class="text-gray-medium" aria-hidden="true"> · </span>
-          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="border-b border-gold-border/10 pb-14 pt-14 last:border-0 last:pb-0">
-      <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
-        <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
-          <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
-            ขายไอโฟนมือสอง ต้องเตรียมอะไรบ้าง
-          </h2>
-          <div
-            class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
-          >
-            <p>
-              <strong>ขายไอโฟนมือสอง</strong> ให้ประเมินได้ตรงขึ้น ควรส่งข้อมูลครบตั้งแต่แรก เพื่อใช้ <strong>เช็คราคาไอโฟน</strong> และ <strong>ประเมินราคา iPhone</strong> เบื้องต้น
-              ไม่ว่าจะเครื่องปกติ จอแตก แบตเสื่อม หรือเปิดไม่ติด
-            </p>
-            <p>
-              สำรองข้อมูล ออกจากบัญชีผู้ใช้ ปิด Find My และล้างข้อมูลตามขั้นตอนของระบบก่อนส่งมอบ ถ่ายรูปชัด ๆ แจ้ง Battery Health ถ้าเข้าเมนูได้ และรายการอุปกรณ์
-              ส่งผ่าน LINE {SITE.lineHandle}
-            </p>
-            <p>
-              กรณีติด Apple ID / Find My / iCloud ให้สอบถามทีมงานเพื่อตรวจสอบความเป็นเจ้าของและเงื่อนไขก่อนประเมิน
-            </p>
-          </div>
-          <div class="mt-6 flex flex-wrap items-center gap-3">
-            <a
-              class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-line-green-dark"
-              href={SITE.lineUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              แอดไลน์ {SITE.lineHandle} ส่งรูปประเมินราคา
-            </a>
-            <a
-              class="text-sm font-medium text-text-dark underline decoration-gray-border underline-offset-4 hover:text-gold-deep"
-              href={`tel:${SITE.telephone}`}
-            >
-              โทร {SITE.telephone}
-            </a>
-          </div>
-        </div>
-        <aside
-          class="rounded-2xl border border-gold-border/35 bg-charcoal p-5 text-off-white shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-gold-border/15"
-        >
-          <p class="text-xs font-semibold uppercase tracking-wider text-gold-soft">เช็กลิสต์</p>
-          <ul class="mt-3 space-y-2.5 text-sm leading-snug text-muted-light">
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รูปหลายมุม</li>
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รุ่น / ความจุ</li>
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> สภาพและอาการเสีย</li>
-            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> สถานะบัญชีผู้ใช้</li>
-          </ul>
-        </aside>
-      </div>
-    </article>
-
-    <article class="pt-14">
-      <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
-        <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
-          ก่อนขายไอโฟน ต้องระวังเรื่อง Apple ID / iCloud
-        </h2>
-        <div
-          class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
-        >
-          <p>
-            ข้อมูลในเครื่องมีทั้งรูป ข้อความ และบัญชีแอป การขายมือสองควรทำอย่างมีขั้นตอน บัญชีผู้ใช้ Apple ID การค้นหาเครื่อง (Find My) และบริการคลาวด์ เป็นส่วนสำคัญของการโอนกรรมสิทธิ์
-          </p>
-          <p>
-            ควรออกจากบัญชีและปิดการค้นหาเครื่องตามขั้นตอนของระบบก่อนส่งมอบ เราไม่สนับสนุนการเลี่ยงระบบความปลอดภัยหรือการเข้าถึงข้อมูลโดยไม่ได้รับอนุญาต
-          </p>
-        </div>
-        <div class="mt-6 flex flex-wrap items-center gap-3">
-          <a
-            class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-line-green-dark"
-            href={SITE.lineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            แอดไลน์ {SITE.lineHandle} สอบถามขั้นตอน
-          </a>
-          <a
-            class="text-sm font-medium text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold"
-            href="/blog/ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร/"
-          >
-            อ่านบทความล้างข้อมูลก่อนขาย
-          </a>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
+---
+import { SITE } from '../config/site';
+---
+
+<section class="border-t border-gold-border/10 bg-section-warm py-20 sm:py-24" aria-label="ข้อมูลสำคัญสำหรับผู้ขาย iPhone">
+  <div class="mx-auto max-w-[1080px] px-4">
+    <article class="border-b border-gold-border/10 pb-14 last:border-0 last:pb-0">
+      <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
+        <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
+          <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
+            ร้านรับซื้อไอโฟนที่ประเมินจากสภาพจริง
+          </h2>
+          <div
+            class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
+          >
+            <p>
+              เลือก <strong>ร้านรับซื้อไอโฟน</strong> ควรดูที่กระบวนการประเมิน ไม่ใช่แค่รุ่นบนกระดาษ
+              <strong>รับซื้อไอโฟน</strong> และ <strong>รับซื้อไอโฟนมือสอง</strong> ต้องพิจารณาความจุ เครื่องศูนย์ไทยหรือเครื่องนอก แบต หน้าจอ Face ID และกรอบเครื่องไปพร้อมกัน
+            </p>
+            <p>
+              ถ้าต้องการ <strong>เช็คราคาไอโฟน</strong> ให้ใกล้เคียงจริง แนะนำส่งรูปพร้อมรุ่นและความจุ รวมถึงอาการเช่น <strong>ไอโฟนจอแตก</strong> <strong>ไอโฟนแบตเสื่อม</strong> หรือ <strong>ไอโฟนเปิดไม่ติด</strong>
+              เพื่อให้ทีมงานช่วย <strong>ประเมินราคาไอโฟน</strong> เบื้องต้นก่อน <strong>ขายไอโฟนมือสอง</strong>
+            </p>
+            <p>
+              แจ้งประวัติซ่อมหรือเปลี่ยนอะไหล่ถ้ามี จะช่วยลดช่องว่างระหว่างประเมินจากรูปกับการตรวจจริง
+              คำว่า <strong>รับซื้อ iPhone</strong> กับ <strong>รับซื้อไอโฟนมือสอง</strong> ในบริบทนี้คือบริการเดียวกัน — สอบถาม LINE {SITE.lineHandle}
+            </p>
+            <p>
+              อ่านเชิงคีย์หลักเพิ่มเติมได้ที่บทความ{' '}
+              <a class="font-semibold text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/blog/คู่มือคีย์หลักรับซื้อไอโฟน-ประเมินไลน์/">
+                คู่มือคีย์หลักรับซื้อไอโฟน
+              </a>
+              {' และ '}
+              <a class="font-semibold text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/blog/รับซื้อไอโฟนมือสอง-เช็คราคาและขายปลอดภัย/">
+                รับซื้อไอโฟนมือสอง เช็คราคาและขายปลอดภัย
+              </a>
+              {' '}ซึ่งเชื่อมจากหน้าแรกเพื่อให้คำค้น <strong>รับซื้อไอโฟน</strong> <strong>ร้านรับซื้อไอโฟน</strong> และ <strong>เช็คราคาไอโฟน</strong> มีบริบทชัดขึ้น
+            </p>
+          </div>
+          <div class="mt-8">
+            <a
+              class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(6,199,85,0.2)] transition hover:bg-line-green-dark"
+              href={SITE.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              แอดไลน์ {SITE.lineHandle} ส่งรูปประเมินราคา
+            </a>
+          </div>
+        </div>
+        <aside
+          class="rounded-2xl border border-gold-border/35 bg-charcoal p-5 text-off-white shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-gold-border/15"
+        >
+          <p class="text-xs font-semibold uppercase tracking-wider text-gold-soft">สรุปส่งประเมิน</p>
+          <ul class="mt-3 space-y-2.5 text-sm leading-snug text-muted-light">
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รูป About + ด้านข้าง + ฝาหลัง</li>
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รุ่น ความจุ เครื่องศูนย์/นอก</li>
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> อาการเสียและอุปกรณ์ที่มี</li>
+          </ul>
+        </aside>
+      </div>
+    </article>
+
+    <article class="border-b border-gold-border/10 pb-14 pt-14 last:border-0 last:pb-0">
+      <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
+        <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
+          รับซื้อ iPhone และรับซื้อไอโฟน ต่างกันไหม
+        </h2>
+        <div
+          class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
+        >
+          <p>
+            <strong>รับซื้อ iPhone</strong> และ <strong>รับซื้อไอโฟน</strong> ใช้เรียกบริการรับซื้อสมาร์ทโฟน Apple ในตลาดมือสองชุดเดียวกัน เพื่อให้ค้นหาได้ทั้งภาษาไทยและอังกฤษ
+            ขั้นตอนส่งรูปและข้อมูลที่ใช้ประเมินเหมือนกัน
+          </p>
+          <p>
+            เราไม่ใช่ตัวแทนหรือศูนย์บริการของแบรนด์ผู้ผลิต และไม่แสดงราคาตายตัวบนหน้าเว็บ — ราคาขึ้นกับข้อมูลจริงและตลาดมือสอง
+          </p>
+        </div>
+        <div class="mt-6 rounded-xl border border-gold-border/15 bg-section-warm/80 px-4 py-3 text-[13px] leading-relaxed text-text-muted">
+          <span class="font-medium text-text-dark">ลิงก์ที่เกี่ยวข้อง:</span>
+          {' '}
+          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/">รับซื้อไอโฟน</a>
+          <span class="text-gray-medium" aria-hidden="true"> · </span>
+          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/รับซื้อ-iphone/">รับซื้อ iPhone</a>
+          <span class="text-gray-medium" aria-hidden="true"> · </span>
+          <a class="font-medium text-gold-deep underline decoration-gold-border/60 underline-offset-2 hover:text-gold" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="border-b border-gold-border/10 pb-14 pt-14 last:border-0 last:pb-0">
+      <div class="grid gap-10 lg:grid-cols-[1fr_280px] lg:items-start">
+        <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
+          <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
+            ขายไอโฟนมือสอง ต้องเตรียมอะไรบ้าง
+          </h2>
+          <div
+            class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
+          >
+            <p>
+              <strong>ขายไอโฟนมือสอง</strong> ให้ประเมินได้ตรงขึ้น ควรส่งข้อมูลครบตั้งแต่แรก เพื่อใช้ <strong>เช็คราคาไอโฟน</strong> และ <strong>ประเมินราคา iPhone</strong> เบื้องต้น
+              ไม่ว่าจะเครื่องปกติ จอแตก แบตเสื่อม หรือเปิดไม่ติด
+            </p>
+            <p>
+              สำรองข้อมูล ออกจากบัญชีผู้ใช้ ปิด Find My และล้างข้อมูลตามขั้นตอนของระบบก่อนส่งมอบ ถ่ายรูปชัด ๆ แจ้ง Battery Health ถ้าเข้าเมนูได้ และรายการอุปกรณ์
+              ส่งผ่าน LINE {SITE.lineHandle}
+            </p>
+            <p>
+              กรณีติด Apple ID / Find My / iCloud ให้สอบถามทีมงานเพื่อตรวจสอบความเป็นเจ้าของและเงื่อนไขก่อนประเมิน
+            </p>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a
+              class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-line-green-dark"
+              href={SITE.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              แอดไลน์ {SITE.lineHandle} ส่งรูปประเมินราคา
+            </a>
+            <a
+              class="text-sm font-medium text-text-dark underline decoration-gray-border underline-offset-4 hover:text-gold-deep"
+              href={`tel:${SITE.telephone}`}
+            >
+              โทร {SITE.telephone}
+            </a>
+          </div>
+        </div>
+        <aside
+          class="rounded-2xl border border-gold-border/35 bg-charcoal p-5 text-off-white shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-gold-border/15"
+        >
+          <p class="text-xs font-semibold uppercase tracking-wider text-gold-soft">เช็กลิสต์</p>
+          <ul class="mt-3 space-y-2.5 text-sm leading-snug text-muted-light">
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รูปหลายมุม</li>
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> รุ่น / ความจุ</li>
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> สภาพและอาการเสีย</li>
+            <li class="flex gap-2"><span class="text-gold-soft" aria-hidden="true">✓</span> สถานะบัญชีผู้ใช้</li>
+          </ul>
+        </aside>
+      </div>
+    </article>
+
+    <article class="pt-14">
+      <div class="max-w-[720px] rounded-2xl border border-gold-border/20 bg-white p-6 shadow-[0_2px_24px_rgba(0,0,0,0.04)] sm:p-8">
+        <h2 class="border-l-2 border-gold pl-4 text-2xl font-bold tracking-tight text-text-dark sm:text-[1.85rem] sm:leading-snug">
+          ก่อนขายไอโฟน ต้องระวังเรื่อง Apple ID / iCloud
+        </h2>
+        <div
+          class="prose prose-sm prose-p:max-w-[62ch] mt-6 max-w-none text-text-muted prose-p:leading-[1.75] prose-strong:text-text-dark"
+        >
+          <p>
+            ข้อมูลในเครื่องมีทั้งรูป ข้อความ และบัญชีแอป การขายมือสองควรทำอย่างมีขั้นตอน บัญชีผู้ใช้ Apple ID การค้นหาเครื่อง (Find My) และบริการคลาวด์ เป็นส่วนสำคัญของการโอนกรรมสิทธิ์
+          </p>
+          <p>
+            ควรออกจากบัญชีและปิดการค้นหาเครื่องตามขั้นตอนของระบบก่อนส่งมอบ เราไม่สนับสนุนการเลี่ยงระบบความปลอดภัยหรือการเข้าถึงข้อมูลโดยไม่ได้รับอนุญาต
+          </p>
+        </div>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a
+            class="inline-flex min-h-[44px] items-center justify-center rounded-xl bg-line-green px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-line-green-dark"
+            href={SITE.lineUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            แอดไลน์ {SITE.lineHandle} สอบถามขั้นตอน
+          </a>
+          <a
+            class="text-sm font-medium text-gold-deep underline decoration-gold-border underline-offset-4 hover:text-gold"
+            href="/blog/ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร/"
+          >
+            อ่านบทความล้างข้อมูลก่อนขาย
+          </a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
