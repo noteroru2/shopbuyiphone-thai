@@ -1,13 +1,15 @@
 import { SITE } from '../config/site';
-import { absoluteUrl, schemaAbsoluteUrl } from './seo';
+import { absoluteUrl, businessOpeningHoursSpecificationJsonLd, companyPostalAddressJsonLd, schemaAbsoluteUrl } from './seo';
 
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: SITE.name,
+    legalName: SITE.companyLegalName,
     alternateName: SITE.physicalStoreName,
     url: SITE.url,
+    address: companyPostalAddressJsonLd(),
     logo: schemaAbsoluteUrl(SITE.logo),
     image: schemaAbsoluteUrl(SITE.logo),
     telephone: SITE.telephone,
@@ -29,7 +31,9 @@ export function organizationSchema() {
         availableLanguage: ['Thai'],
       },
     ],
+    openingHoursSpecification: [businessOpeningHoursSpecificationJsonLd()],
     publishingPrinciples: absoluteUrl('/เกี่ยวกับเรา/'),
+    termsOfService: absoluteUrl('/เงื่อนไขการให้บริการ/'),
   };
 }
 
@@ -62,12 +66,15 @@ export function blogPostingSchema(opts: {
   datePublished: string;
   dateModified?: string;
   image?: string;
+  /** สรุปสั้นสำหรับ snippet / AEO */
+  abstract?: string;
 }) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: opts.headline,
     description: opts.description,
+    ...(opts.abstract ? { abstract: opts.abstract } : {}),
     mainEntityOfPage: opts.url,
     url: opts.url,
     datePublished: opts.datePublished,
@@ -99,3 +106,25 @@ export function itemListSchema(opts: { name: string; url: string; items: { name:
   };
 }
 
+export function howToSchema(opts: {
+  name: string;
+  description: string;
+  url: string;
+  steps: { name: string; text: string }[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: opts.name,
+    description: opts.description,
+    url: opts.url,
+    inLanguage: SITE.language,
+    totalTime: 'PT20M',
+    step: opts.steps.map((s, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}

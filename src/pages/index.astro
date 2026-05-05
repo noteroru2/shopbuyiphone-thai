@@ -65,8 +65,8 @@ const description = SITE.description;
     />
   </FinalCtaBanner>
 
-  <section class="mx-auto w-full max-w-[1080px] px-4 pb-8 pt-4" aria-labelledby="partner-it-heading">
-    <div class="rounded-2xl border border-gold-border/35 bg-charcoal px-6 py-6 sm:px-8">
+  <section class="mx-auto grid max-w-[1080px] gap-4 px-4 pb-8 pt-4 md:grid-cols-2" aria-label="เครือข่ายและนโยบาย">
+    <div class="rounded-2xl border border-gold-border/35 bg-charcoal px-6 py-6 sm:px-8" aria-labelledby="partner-it-heading">
       <h2 id="partner-it-heading" class="text-base font-semibold text-gold-soft">บริการรับซื้อสินค้าไอทีอื่นในเครือ</h2>
       <p class="mt-2 max-w-3xl text-sm leading-relaxed text-muted-light">
         หากมีอุปกรณ์อื่นนอกจาก iPhone เช่น แท็บเล็ต คอมพิวเตอร์พกพา หรือกล้อง ดูเว็บไซต์ในเครือได้ที่{' '}
@@ -74,6 +74,17 @@ const description = SITE.description;
           เว็บไซต์ในเครือทั้งหมด
         </a>
       </p>
+    </div>
+    <div class="rounded-2xl border border-gold-border/35 bg-charcoal px-6 py-6 sm:px-8" aria-labelledby="trust-policy-heading">
+      <h2 id="trust-policy-heading" class="text-base font-semibold text-gold-soft">นโยบายและความโปร่งใส</h2>
+      <p class="mt-2 text-sm leading-relaxed text-muted-light">
+        <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a>
+        {' · '}
+        <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/เงื่อนไขการให้บริการ/">เงื่อนไขการให้บริการ</a>
+        {' · '}
+        <a class="font-medium text-gold-soft underline decoration-gold-border underline-offset-4 hover:text-off-white" href="/นโยบายความเป็นส่วนตัว/">นโยบายความเป็นส่วนตัว</a>
+      </p>
+      <p class="mt-3 text-xs leading-relaxed text-gray-medium">ขอบเขตการประเมินจากรูป การชำระเงิน และการเก็บข้อมูล — อ่านรายละเอียดได้จากลิงก์ด้านบน</p>
     </div>
   </section>
 </BaseLayout>

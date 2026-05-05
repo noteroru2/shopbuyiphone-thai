@@ -16,7 +16,7 @@ const breadcrumbs = [
   { name: 'คำถามที่พบบ่อย', url: canonical },
 ];
 
-const faqs = [...generalFaqs, ...pricingFaqs, ...conditionFaqs, ...iphoneAccountFaqs, ...locationFaqs].slice(0, 12);
+const faqs = [...generalFaqs, ...pricingFaqs, ...conditionFaqs, ...iphoneAccountFaqs, ...locationFaqs].slice(0, 13);
 const schemas = [breadcrumbListSchema(breadcrumbs), faqPageSchema(faqs)];
 ---
 
@@ -41,6 +41,8 @@ const schemas = [breadcrumbListSchema(breadcrumbs), faqPageSchema(faqs)];
       { label: 'ขายไอโฟน', href: '/ขายไอโฟน/', description: 'เตรียมเครื่องให้ปลอดภัยและได้ราคาดีขึ้น' },
       { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/', description: 'ดูโซนที่ให้บริการและแนวทางนัดรับ/ส่งเครื่อง' },
       { label: 'บทความ', href: '/blog/', description: 'คู่มือรุ่น ส่งรูปประเมิน และล้างข้อมูลก่อนขาย' },
+      { label: 'เกี่ยวกับเรา', href: '/เกี่ยวกับเรา/', description: 'นโยบายเนื้อหา ความเป็นกลาง และข้อมูลร้าน' },
+      { label: 'เงื่อนไขการให้บริการ', href: '/เงื่อนไขการให้บริการ/', description: 'ขอบเขตการประเมิน ราคา และการชำระเงิน' },
     ]}
   />
 
@@ -245,7 +247,8 @@ const schemas = [breadcrumbListSchema(breadcrumbs), faqPageSchema(faqs)];
       <h2 class="text-xl font-extrabold text-text-dark">การชำระเงิน นัดเวลา และหลักฐานที่ควรเก็บ</h2>
       <p class="mt-3 text-base leading-relaxed text-text-muted">
         ก่อนตกลงขาย แนะนำสรุปเงื่อนไขเป็นลายลักษณ์อักษรในแชทให้ครบ เช่น รุ่น สภาพหลัก อุปกรณ์ที่ส่งมอบ และช่วงเวลานัด เพื่อลดความสับสน
-        เก็บหลักฐานการโอนและภาพถ่ายสภาพเครื่องก่อนส่งมอบเป็นประโยชน์ต่อทั้งสองฝ่าย
+        เก็บหลักฐานการโอนและภาพถ่ายสภาพเครื่องก่อนส่งมอบเป็นประโยชน์ต่อทั้งสองฝ่าย รายละเอียดขอบเขตการประเมินและราคาสุดท้าย อ่านเพิ่มที่หน้า{' '}
+        <a class="underline" href="/เงื่อนไขการให้บริการ/">เงื่อนไขการให้บริการ</a>
       </p>
       <p class="mt-3 text-base leading-relaxed text-text-muted">
         ถ้าคุณอยู่ต่างพื้นที่และต้องใช้ขนส่ง ให้อ่านแนวทางการแพ็กในหน้า <a class="underline" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a> และเช็กลิสต์ใน <a class="underline" href="/วิธีขายไอโฟน/">วิธีขายไอโฟน</a>

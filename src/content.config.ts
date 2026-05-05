@@ -19,6 +19,8 @@ const blog = defineCollection({
     ogImage: z.string().optional(),
     canonical: z.string().optional(),
     keywords: z.array(z.string()).default([]),
+    /** บรรทัดเดียวหรือสั้น ๆ — แสดงเหนือเนื้อหาเพื่อ AEO / อ่านไว */
+    summary: z.string().optional(),
     faqs: z.array(faqSchema).default([]),
     relatedLinks: z
       .array(

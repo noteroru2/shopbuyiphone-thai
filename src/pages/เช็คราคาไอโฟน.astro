@@ -12,6 +12,7 @@ import MoneyCheckPricePillar from '../components/pillars/money-check-price-pilla
 import EeatTrustPanel from '../components/EeatTrustPanel.astro';
 import { SITE } from '../config/site';
 import { absoluteUrl } from '../lib/seo';
+import { howToSchema } from '../lib/schema';
 
 const title = 'เช็คราคาไอโฟน ก่อนขาย ประเมินฟรี | ร้านรับซื้อไอโฟน.com';
 const description =
@@ -70,6 +71,40 @@ const relatedLinks = [
   { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/' },
 ];
 
+const pageContentUpdated = new Date('2026-05-05');
+
+const checkPriceHowToSteps = [
+  {
+    name: 'ดูรุ่นและความจุจากเมนู About',
+    text: 'เปิด Settings → General → About เพื่อยืนยันรุ่นและความจุ หรือถ่ายรูปหน้าจอ About ให้ชัด',
+  },
+  {
+    name: 'ถ่ายรูป iPhone หลายมุม',
+    text: 'แนะนำ 3–5 รูป: ด้านหน้า ด้านหลัง ขอบเครื่อง พอร์ตชาร์จ และอุปกรณ์ที่มี',
+  },
+  {
+    name: 'แจ้งสภาพ อาการ และโซนที่อยู่',
+    text: 'ระบุเครื่องศูนย์ไทยหรือเครื่องนอก อาการเสีย (ถ้ามี) และพื้นที่เพื่อแนะนำการนัดรับหรือส่งเครื่อง',
+  },
+  {
+    name: 'แอด LINE @webuy แล้วส่งรูปและข้อความ',
+    text: 'ส่งข้อมูลครบเพื่อประเมินราคาเบื้องต้นฟรี ไม่มีข้อผูกมัด',
+  },
+  {
+    name: 'พิจารณากรอบราคาและตัดสินใจขั้นต่อไป',
+    text: 'เมื่อได้กรอบราคาแล้ว ค่อยนัดรับหรือส่งเครื่องตามที่ตกลง หรือสอบถามเพิ่มได้หากยังไม่แน่ใจ',
+  },
+];
+
+const extraSchemas = [
+  howToSchema({
+    name: 'วิธีเช็คราคาไอโฟนก่อนขายผ่าน LINE @webuy',
+    description: 'ขั้นตอนเตรียมข้อมูลรุ่น ถ่ายรูป แจ้งสภาพ ส่งไลน์ประเมินฟรี และตัดสินใจขาย',
+    url: canonical,
+    steps: checkPriceHowToSteps,
+  }),
+];
+
 ---
 
 <ServiceLayout
@@ -79,6 +114,7 @@ const relatedLinks = [
   breadcrumbs={breadcrumbs}
   serviceName="เช็คราคาไอโฟน"
   faqs={faqs}
+  extraSchemas={extraSchemas}
 >
   <PageHero
     eyebrow="เช็คราคาไอโฟน"
@@ -92,6 +128,18 @@ const relatedLinks = [
     microcopy="ส่งรูป iPhone 3–5 รูปผ่านไลน์ @webuy เพื่อประเมินราคาเบื้องต้น ไม่ต้องกรอกฟอร์ม"
     variant="dark"
   />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-6">
+    <div class="rounded-2xl border border-gold-border/30 bg-section-warm px-4 py-3 sm:px-5">
+      <p class="text-xs font-semibold uppercase tracking-wide text-gold-deep">สรุปเร็ว (AEO)</p>
+      <p class="mt-2 text-sm font-medium leading-relaxed text-text-dark">
+        เตรียมรุ่น/ความจุ + รูปหลายมุม + แจ้งสภาพตรง ๆ → แอดไลน์ @webuy ส่งข้อมูล → ได้กรอบราคาเบื้องต้นฟรี → ค่อยตัดสินใจนัดรับหรือส่งเครื่อง
+      </p>
+      <p class="mt-2 text-xs text-gray-medium">
+        อัปเดตเนื้อหาหน้านี้ล่าสุด: {pageContentUpdated.toLocaleDateString('th-TH', { dateStyle: 'medium' })}
+      </p>
+    </div>
+  </section>
 
   <section class="mx-auto w-full max-w-6xl px-4 pt-10">
     <h2 class="text-2xl font-bold tracking-tight text-text-dark sm:text-3xl">ทำไมควรเช็คราคาก่อนขาย</h2>

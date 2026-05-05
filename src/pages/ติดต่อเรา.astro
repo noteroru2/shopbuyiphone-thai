@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CompanyRegisteredAddress from '../components/CompanyRegisteredAddress.astro';
 import CTAButtons from '../components/CTAButtons.astro';
 import PremiumLineCtaSection from '../components/PremiumLineCtaSection.astro';
 import FAQ from '../components/FAQ.astro';
@@ -75,6 +76,13 @@ const schemas = [breadcrumbListSchema(breadcrumbs), faqPageSchema(faqs)];
         >
           เปิด Google Maps — {SITE.physicalStoreName}
         </a>
+      </div>
+      <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:col-span-2">
+        <p class="text-sm font-semibold text-text-dark">ที่อยู่จดทะเบียนบริษัท</p>
+        <p class="mt-2 text-xs text-text-muted">นิติบุคคลผู้ดำเนินการเว็บไซต์ — ที่อยู่ตามหนังสือรับรอง (อาจต่างจากทำเลหน้าร้านบนแผนที่)</p>
+        <div class="mt-4">
+          <CompanyRegisteredAddress variant="light" />
+        </div>
       </div>
     </div>
 

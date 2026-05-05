@@ -5,7 +5,7 @@ import FAQ from '../../components/FAQ.astro';
 import CTAButtons from '../../components/CTAButtons.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { getCollection, render } from 'astro:content';
-import { absoluteUrl, breadcrumbListSchema, faqPageSchema } from '../../lib/seo';
+import { absoluteUrl, breadcrumbListSchema, faqPageSchema, SITE } from '../../lib/seo';
 import { blogPostingSchema } from '../../lib/schema';
 
 export async function getStaticPaths() {
@@ -43,8 +43,14 @@ const schemas = [
     datePublished: isoDate(post.data.date),
     dateModified: post.data.dateModified ? isoDate(post.data.dateModified) : undefined,
     image: post.data.featuredImage ? absoluteUrl(post.data.featuredImage) : undefined,
+    abstract: post.data.summary,
   }),
 ];
+
+const publishedAt = post.data.date;
+const modifiedAt = post.data.dateModified;
+const showLastUpdated =
+  modifiedAt != null && modifiedAt.getTime() !== publishedAt.getTime();
 ---
 
 <BaseLayout
@@ -53,16 +59,30 @@ const schemas = [
   canonical={canonical}
   ogImage={post.data.ogImage ? absoluteUrl(post.data.ogImage) : post.data.featuredImage ? absoluteUrl(post.data.featuredImage) : undefined}
   schemas={schemas}
+  ogType="article"
+  articlePublishedTime={isoDate(publishedAt)}
+  articleModifiedTime={isoDate(modifiedAt ?? publishedAt)}
 >
   <div class="bg-section-warm text-text-dark">
   <Breadcrumbs items={breadcrumbs} variant="light" />
   <article class="mx-auto w-full max-w-6xl px-4 pb-10 pt-10">
     <header class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
       <p class="text-xs font-semibold uppercase tracking-wide text-gray-medium">
-        {post.data.category} • {post.data.date.toLocaleDateString('th-TH')}
+        {post.data.category} • เผยแพร่ {publishedAt.toLocaleDateString('th-TH')}
+        {showLastUpdated && modifiedAt ? ` · อัปเดตล่าสุด ${modifiedAt.toLocaleDateString('th-TH')}` : ''}
+      </p>
+      <p class="mt-2 text-xs leading-relaxed text-gray-medium">
+        เนื้อหาโดยทีมบรรณาธิการ {SITE.name} — หลักเกณฑ์ความเป็นกลางและขอบเขตบริการดูที่{' '}
+        <a class="font-semibold text-gold-deep underline underline-offset-4 hover:text-gold" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a>
       </p>
       <h1 class="mt-3 text-3xl font-extrabold tracking-tight text-text-dark sm:text-4xl">{post.data.title}</h1>
       <p class="mt-4 text-base leading-relaxed text-text-muted">{post.data.description}</p>
+      {post.data.summary ? (
+        <div class="not-prose mt-5 rounded-2xl border border-gold-border/30 bg-section-warm px-4 py-3 sm:px-5">
+          <p class="text-xs font-semibold uppercase tracking-wide text-gold-deep">สรุปสั้น (อ่านไว)</p>
+          <p class="mt-2 text-sm leading-relaxed text-text-muted">{post.data.summary}</p>
+        </div>
+      ) : null}
       <div class="mt-6 flex flex-wrap gap-3">
         <CTAButtons primaryText={post.data.ctaText ?? 'แอดไลน์ @webuy ส่งรูปประเมินราคา'} secondaryText="โทร" />
       </div>

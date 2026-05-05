@@ -17,6 +17,38 @@ export function schemaAbsoluteUrl(pathname: string) {
   return `${base}${path}`;
 }
 
+export function companyPostalAddressJsonLd() {
+  const a = SITE.companyPostalAddress;
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: a.streetAddress,
+    addressLocality: a.addressLocality,
+    addressRegion: a.addressRegion,
+    postalCode: a.postalCode,
+    addressCountry: a.addressCountry,
+  };
+}
+
+const schemaDayUrls = [
+  'https://schema.org/Monday',
+  'https://schema.org/Tuesday',
+  'https://schema.org/Wednesday',
+  'https://schema.org/Thursday',
+  'https://schema.org/Friday',
+  'https://schema.org/Saturday',
+  'https://schema.org/Sunday',
+] as const;
+
+export function businessOpeningHoursSpecificationJsonLd() {
+  const { opens, closes } = SITE.businessHours;
+  return {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [...schemaDayUrls],
+    opens,
+    closes,
+  };
+}
+
 export function localBusinessSchema(opts?: { description?: string }) {
   const description = opts?.description ?? SITE.description;
 
@@ -28,10 +60,13 @@ export function localBusinessSchema(opts?: { description?: string }) {
     url: SITE.url,
     telephone: SITE.telephone,
     image: schemaAbsoluteUrl(SITE.ogImage),
+    address: companyPostalAddressJsonLd(),
+    openingHoursSpecification: [businessOpeningHoursSpecificationJsonLd()],
     areaServed: SITE.areaServed,
     description,
     hasMap: SITE.googleMapsUrl,
     sameAs: [SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
+    termsOfService: absoluteUrl('/เงื่อนไขการให้บริการ/'),
   };
 }
 
@@ -75,6 +110,8 @@ export function serviceSchema(opts: { name: string; url: string; description: st
       name: SITE.name,
       url: SITE.url,
       telephone: SITE.telephone,
+      address: companyPostalAddressJsonLd(),
+      openingHoursSpecification: [businessOpeningHoursSpecificationJsonLd()],
     },
     areaServed: SITE.areaServed,
   };

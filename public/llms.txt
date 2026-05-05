@@ -17,6 +17,7 @@
 ## ติดต่อ
 - LINE: https://line.me/R/ti/p/@webuy (@webuy)
 - โทร: 0642579353
+- ที่อยู่จดทะเบียนบริษัท: บริษัท อำพล เทรดดิ้ง จำกัด — 740/8 ถนนชยางกูร ตำบลในเมือง อำเภอเมืองอุบลราชธานี จังหวัดอุบลราชธานี 34000
 
 ## พื้นที่ให้บริการ
 พื้นที่หลักที่ระบุใน schema areaServed:
@@ -44,6 +45,9 @@
 - https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%82%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%AD%E0%B9%82%E0%B8%9F%E0%B8%99/
 - https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3/
 - https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/blog/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B9%80%E0%B8%A3%E0%B8%B2/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B9%80%E0%B8%9B%E0%B9%87%E0%B8%99%E0%B8%AA%E0%B9%88%E0%B8%A7%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B8%A7/
+- https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/%E0%B9%80%E0%B8%87%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%99%E0%B9%84%E0%B8%82%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%81%E0%B8%B2%E0%B8%A3/
 
 ## วิธีประเมินราคา
 ประเมินจากรุ่น ความจุ สภาพจอและทัช แบตเตอรี่ Face ID กล้อง อุปกรณ์ การติดรหัสหรือบัญชีผู้ใช้ และราคาตลาดมือสอง ไม่แสดงราคาตายตัวบนหน้าเว็บ

@@ -10,6 +10,12 @@ Website: https://ร้านรับซื้อไอโฟน.com/
 Physical store (Google Maps): https://maps.app.goo.gl/MRNFJY318DSg2Q22A
 Store name on Maps: ร้านอำพล เทรดดิ้ง
 
+Registered company (Thailand):
+บริษัท อำพล เทรดดิ้ง จำกัด
+740/8 ถนนชยางกูร ตำบลในเมือง อำเภอเมืองอุบลราชธานี จังหวัดอุบลราชธานี 34000
+
+Terms of service (Thai): https://ร้านรับซื้อไอโฟน.com/เงื่อนไขการให้บริการ/
+
 Service Area (schema / ประกาศหลัก):
 กรุงเทพมหานคร, ปริมณฑล, ภาคอีสาน, อุบลราชธานี, ขอนแก่น, อุดรธานี, นครราชสีมา
 วิธีนัดรับหรือส่งเครื่องขึ้นกับพื้นที่และเงื่อนไข — สอบถามผ่าน LINE @webuy

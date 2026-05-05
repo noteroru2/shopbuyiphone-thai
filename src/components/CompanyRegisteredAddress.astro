@@ -1,0 +1,17 @@
+---
+import { SITE } from '../config/site';
+
+interface Props {
+  variant?: 'dark' | 'light';
+  class?: string;
+}
+
+const { variant = 'light', class: className = '' } = Astro.props;
+const nameClass = variant === 'dark' ? 'text-off-white' : 'text-text-dark';
+const lineClass = variant === 'dark' ? 'text-muted-light' : 'text-text-muted';
+---
+
+<div class:list={['text-sm leading-relaxed not-italic', className]}>
+  <p class:list={['font-semibold', nameClass]}>{SITE.companyLegalName}</p>
+  <p class:list={['mt-1', lineClass]}>{SITE.companyAddressDisplay}</p>
+</div>

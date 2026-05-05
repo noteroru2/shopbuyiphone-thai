@@ -13,6 +13,19 @@ const schemaAreaServed = [
 
 export const SITE = {
   name: 'ร้านรับซื้อไอโฟน.com',
+  /** นิติบุคคลผู้ดำเนินการเว็บไซต์ (ชื่อในหนังสือรับรอง) */
+  companyLegalName: 'บริษัท อำพล เทรดดิ้ง จำกัด',
+  /** ที่อยู่จดทะเบียน — แสดงบนเว็บและเอกสาร */
+  companyAddressDisplay:
+    '740/8 ถนนชยางกูร ตำบลในเมือง อำเภอเมืองอุบลราชธานี จังหวัดอุบลราชธานี 34000',
+  /** แยกฟิลด์สำหรับ JSON-LD PostalAddress */
+  companyPostalAddress: {
+    streetAddress: '740/8 ถนนชยางกูร ตำบลในเมือง',
+    addressLocality: 'อำเภอเมืองอุบลราชธานี',
+    addressRegion: 'อุบลราชธานี',
+    postalCode: '34000',
+    addressCountry: 'TH',
+  },
   /** ชื่อหน้าร้านจริงบน Google Maps / Google Business Profile */
   physicalStoreName: 'ร้านอำพล เทรดดิ้ง',
   /** ลิงก์ไปที่หน้าร้านจริง (Google Maps) */
@@ -42,4 +55,9 @@ export const SITE = {
   },
   serviceAreaGroups,
   areaServed: [...schemaAreaServed],
+  /** เวลาแนะนำติดต่อ — ใช้ใน schema OpeningHoursSpecification (สอดคล้องหน้าติดต่อเรา) */
+  businessHours: {
+    opens: '10:00',
+    closes: '20:00',
+  },
 } as const;

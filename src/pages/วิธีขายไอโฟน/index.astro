@@ -4,12 +4,14 @@ import FAQ from '../../components/FAQ.astro';
 import SeoCTA from '../../components/SeoCTA.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { absoluteUrl, breadcrumbListSchema, faqPageSchema } from '../../lib/seo';
+import { howToSchema } from '../../lib/schema';
 import { pricingFaqs, generalFaqs } from '../../data/faqs';
 
 const title = 'วิธีขายไอโฟนมือสองให้ได้ราคาดีและปลอดภัย | ร้านรับซื้อไอโฟน.com';
 const description =
   'แนะนำวิธีขายไอโฟนมือสอง: เตรียมรูป เช็ครุ่นและความจุ ล้างข้อมูล และส่งประเมินราคาก่อนขาย เพื่อได้ราคาดีและปลอดภัย';
 const canonical = absoluteUrl('/วิธีขายไอโฟน/');
+const pageContentUpdated = new Date('2026-05-05');
 
 const breadcrumbs = [
   { name: 'หน้าแรก', url: absoluteUrl('/') },
@@ -17,15 +19,61 @@ const breadcrumbs = [
 ];
 
 const faqs = [...generalFaqs, ...pricingFaqs].slice(0, 8);
-const schemas = [breadcrumbListSchema(breadcrumbs), faqPageSchema(faqs)];
+const howToSellSteps = [
+  {
+    name: 'รวบรวมข้อมูลรุ่นและความจุ',
+    text: 'เปิด Settings → General → About ดูชื่อรุ่นและความจุ ถ้ามีแบตเสื่อมให้ดู Battery หรือ Battery Health ตามเวอร์ชัน iOS',
+  },
+  {
+    name: 'ถ่ายรูป iPhone หลายมุม',
+    text: 'ถ่ายอย่างน้อย 3–5 รูป: หน้าจอ About, ด้านข้าง, ฝาหลังและกล้อง, พอร์ตชาร์จ, อุปกรณ์ที่มี และตำหนิสำคัญ (ถ้ามี)',
+  },
+  {
+    name: 'แจ้งสภาพและอาการตรงตามจริง',
+    text: 'ระบุอาการเช่น แบตเสื่อม จอเป็นเส้น เปิดไม่ติด Face ID เสีย หรือไม่มีที่ชาร์จ เพื่อให้ประเมินใกล้เคียงขึ้น',
+  },
+  {
+    name: 'ส่งประเมินราคาเบื้องต้นผ่าน LINE @webuy',
+    text: 'ส่งรูปและข้อความเพื่อขอกรอบราคาก่อนตัดสินใจนัดรับหรือส่งเครื่อง',
+  },
+  {
+    name: 'สำรองและล้างข้อมูลก่อนส่งมอบ',
+    text: 'สำรองข้อมูลสำคัญ ออกจากบัญชีผู้ใช้ ปิด Find My และล้างเครื่องตามขั้นตอนของระบบเพื่อความปลอดภัย',
+  },
+  {
+    name: 'นัดรับหรือส่งเครื่องและรับเงินตามที่ตกลง',
+    text: 'เลือกวิธีที่เหมาะกับพื้นที่และความสะดวก แล้วรับเงินทันทีตามข้อตกลง',
+  },
+];
+
+const schemas = [
+  breadcrumbListSchema(breadcrumbs),
+  faqPageSchema(faqs),
+  howToSchema({
+    name: 'วิธีขายไอโฟนมือสองให้ได้ราคาดีและปลอดภัย',
+    description:
+      'ขั้นตอนเตรียมข้อมูลรุ่น ถ่ายรูป แจ้งสภาพ ส่งประเมินผ่าน LINE ล้างข้อมูล และนัดส่งมอบเครื่อง',
+    url: canonical,
+    steps: howToSellSteps,
+  }),
+];
 ---
 
 <BaseLayout title={title} description={description} canonical={canonical} schemas={schemas}>
   <section class="mx-auto w-full max-w-6xl px-4 pt-10">
     <h1 class="text-3xl font-extrabold tracking-tight text-text-dark sm:text-4xl">วิธีขายไอโฟนมือสองให้ได้ราคาดีและปลอดภัย</h1>
+    <div class="not-prose mt-4 rounded-2xl border border-gold-border/30 bg-section-warm px-4 py-3 sm:px-5">
+      <p class="text-xs font-semibold uppercase tracking-wide text-gold-deep">สรุปเร็ว (AEO)</p>
+      <p class="mt-2 text-sm font-medium leading-relaxed text-text-dark">
+        รวมรุ่น/ความจุ → ถ่ายรูปครบ → แอดไลน์ @webuy ประเมิน → ล้างเครื่องก่อนส่งมอบ → นัดรับเงินตามตกลง
+      </p>
+    </div>
     <p class="mt-4 text-base leading-relaxed text-text-muted">
       ถ้าคุณอยาก <strong>ขายไอโฟนมือสอง</strong> ให้จบไวและปลอดภัย สิ่งสำคัญคือ “เตรียมข้อมูลให้ครบ” มากกว่าพยายามเดาราคาเอง
       หน้านี้สรุปขั้นตอนแบบทำตามได้จริง ตั้งแต่เช็คราคาเบื้องต้น การถ่ายรูป การดูรุ่นและความจุจากเมนู About ไปจนถึงการล้างข้อมูลก่อนส่งมอบ
+    </p>
+    <p class="mt-3 text-xs text-gray-medium">
+      อัปเดตเนื้อหาหน้านี้ล่าสุด: {pageContentUpdated.toLocaleDateString('th-TH', { dateStyle: 'medium' })}
     </p>
   </section>
 
