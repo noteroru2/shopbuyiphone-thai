@@ -5,7 +5,15 @@ description: รับซื้อ iPhone Pro และ Pro Max มือสอ�
 slug: pro-max
 seoTitle: รับซื้อ iPhone Pro Max หลายรุ่น ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com
 h1: รับซื้อ iPhone Pro / Pro Max มือสอง ประเมินฟรี
-featuredImage: /images/iphone-models.svg
+featuredImage: "/images/gallery/real-phones/iphone-orange-front.webp"
+featuredImageAlt: "ภาพสินค้าจริงสำหรับหน้ารับซื้อ iPhone Pro / Pro Max"
+galleryImages:
+  - src: "/images/gallery/real-phones/iphone-orange-front.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มหน้าจอเปิดใช้งาน"
+  - src: "/images/gallery/real-phones/iphone-orange-back.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มด้านหลัง"
+  - src: "/images/gallery/real-phones/iphone-orange-box.webp"
+    alt: "ภาพสินค้าจริง iPhone พร้อมกล่องสินค้า"
 popularModels:
   - iPhone 15 Pro / 15 Pro Max (USB‑C)
   - iPhone 14 Pro / 14 Pro Max

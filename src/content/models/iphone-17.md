@@ -7,7 +7,15 @@ description: >-
 slug: iphone-17
 seoTitle: รับซื้อ iPhone 17 มือสอง ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com
 h1: รับซื้อ iPhone 17 มือสอง ประเมินฟรี
-featuredImage: /images/iphone-models.svg
+featuredImage: "/images/gallery/real-phones/iphone15-black-back.webp"
+featuredImageAlt: "ภาพสินค้าจริงสำหรับหน้ารับซื้อ iPhone 17"
+galleryImages:
+  - src: "/images/gallery/real-phones/iphone15-black-back.webp"
+    alt: "ภาพสินค้าจริง iPhone ด้านหลังสีดำ"
+  - src: "/images/gallery/real-phones/iphone-orange-front.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มหน้าจอเปิดใช้งาน"
+  - src: "/images/gallery/real-phones/iphone-orange-back.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มด้านหลัง"
 popularModels:
   - iPhone 17
   - iPhone 17 Plus

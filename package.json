@@ -12,6 +12,7 @@
     "astro": "astro",
     "images:webp": "node scripts/convert-raster-to-webp.mjs",
     "images:restore-fallbacks": "node scripts/restore-raster-fallbacks.mjs",
+    "content:real-images": "node scripts/refresh-content-real-images.mjs",
     "gen:seo-expansion": "node scripts/build-seo-expansion.mjs",
     "gen:isan-svgs": "node scripts/gen-isan-location-svgs.mjs",
     "gen:isan-pages": "node scripts/isan-build.mjs"

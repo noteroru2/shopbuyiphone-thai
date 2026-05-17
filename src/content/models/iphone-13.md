@@ -5,7 +5,15 @@ description: รับซื้อ iPhone 13 มือสอง ประเม�
 slug: iphone-13
 seoTitle: รับซื้อ iPhone 13 มือสอง ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com
 h1: รับซื้อ iPhone 13 มือสอง ประเมินฟรี
-featuredImage: /images/iphone-models.svg
+featuredImage: "/images/gallery/real-phones/iphone-orange-front.webp"
+featuredImageAlt: "ภาพสินค้าจริงสำหรับหน้ารับซื้อ iPhone 13"
+galleryImages:
+  - src: "/images/gallery/real-phones/iphone-orange-front.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มหน้าจอเปิดใช้งาน"
+  - src: "/images/gallery/real-phones/iphone-orange-back.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มด้านหลัง"
+  - src: "/images/gallery/real-phones/iphone-orange-box.webp"
+    alt: "ภาพสินค้าจริง iPhone พร้อมกล่องสินค้า"
 popularModels:
   - iPhone 13 mini
   - iPhone 13

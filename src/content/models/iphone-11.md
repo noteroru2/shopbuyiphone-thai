@@ -5,7 +5,15 @@ description: รับซื้อ iPhone 11 มือสอง ประเม�
 slug: iphone-11
 seoTitle: รับซื้อ iPhone 11 มือสอง ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com
 h1: รับซื้อ iPhone 11 มือสอง ประเมินฟรี
-featuredImage: /images/iphone-models.svg
+featuredImage: "/images/gallery/real-phones/iphone15-black-front.webp"
+featuredImageAlt: "ภาพสินค้าจริงสำหรับหน้ารับซื้อ iPhone 11"
+galleryImages:
+  - src: "/images/gallery/real-phones/iphone15-black-front.webp"
+    alt: "ภาพสินค้าจริง iPhone หน้าจอเปิดใช้งาน"
+  - src: "/images/gallery/real-phones/iphone15-black-back.webp"
+    alt: "ภาพสินค้าจริง iPhone ด้านหลังสีดำ"
+  - src: "/images/gallery/real-phones/iphone-orange-front.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มหน้าจอเปิดใช้งาน"
 popularModels:
   - iPhone 11
   - iPhone 11 Pro

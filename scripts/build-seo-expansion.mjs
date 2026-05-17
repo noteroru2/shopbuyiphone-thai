@@ -406,8 +406,8 @@ region: "ภาคอีสาน"
 seoTitle: ${quote(`รับซื้อไอโฟน${district} จังหวัด${province.title} ประเมินไว | ร้านรับซื้อไอโฟน.com`)}
 h1: ${quote(`รับซื้อไอโฟน${district} จังหวัด${province.title} ส่งรูปเช็คราคาได้ฟรี`)}
 description: ${quote(`รับซื้อไอโฟน${district} จังหวัด${province.title} สำหรับคนที่อยากเช็คราคาไอโฟนก่อนขาย ส่งรูปประเมินผ่าน LINE @webuy ได้ฟรี พร้อมแจ้งรุ่น ความจุ แบต และสภาพเครื่องให้ครบ`)}
-featuredImage: ${quote(province.image)}
-featuredImageAlt: ${quote(`ภาพประกอบพื้นที่จังหวัด${province.title} สำหรับคอนเทนต์รับซื้อไอโฟน${district}`)}
+featuredImage: ${quote(gallery[0].src)}
+featuredImageAlt: ${quote(`ภาพสินค้าจริงสำหรับหน้ารับซื้อไอโฟน${district} จังหวัด${province.title}`)}
 galleryImages:
 ${yamlGalleryImages(gallery)}
 subAreas:

@@ -1,0 +1,79 @@
+{
+  "hash": "b81d60d3",
+  "configHash": "97439ba7",
+  "lockfileHash": "e1e1b8a0",
+  "browserHash": "32f37c6f",
+  "optimized": {
+    "astro > aria-query": {
+      "src": "../../../node_modules/aria-query/lib/index.js",
+      "file": "astro___aria-query.js",
+      "fileHash": "1e92b6c7",
+      "needsInterop": true
+    },
+    "astro > axobject-query": {
+      "src": "../../../node_modules/axobject-query/lib/index.js",
+      "file": "astro___axobject-query.js",
+      "fileHash": "d3b04968",
+      "needsInterop": true
+    },
+    "astro > html-escaper": {
+      "src": "../../../node_modules/html-escaper/esm/index.js",
+      "file": "astro___html-escaper.js",
+      "fileHash": "e66bab3b",
+      "needsInterop": false
+    },
+    "astro/runtime/client/dev-toolbar/entrypoint.js": {
+      "src": "../../../node_modules/astro/dist/runtime/client/dev-toolbar/entrypoint.js",
+      "file": "astro_runtime_client_dev-toolbar_entrypoint__js.js",
+      "fileHash": "9232e277",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "toolbar-UKROZZYO": {
+      "file": "toolbar-UKROZZYO.js"
+    },
+    "ui-library-YXJY4YDF": {
+      "file": "ui-library-YXJY4YDF.js"
+    },
+    "chunk-SDTRAZKC": {
+      "file": "chunk-SDTRAZKC.js"
+    },
+    "astro-2RHXBSVD": {
+      "file": "astro-2RHXBSVD.js"
+    },
+    "chunk-QYWWJB3I": {
+      "file": "chunk-QYWWJB3I.js"
+    },
+    "audit-ZCKQP5EU": {
+      "file": "audit-ZCKQP5EU.js"
+    },
+    "chunk-4WQR7OM2": {
+      "file": "chunk-4WQR7OM2.js"
+    },
+    "chunk-CRA6Q4QT": {
+      "file": "chunk-CRA6Q4QT.js"
+    },
+    "xray-HRNYUUCI": {
+      "file": "xray-HRNYUUCI.js"
+    },
+    "chunk-V7DMMCXX": {
+      "file": "chunk-V7DMMCXX.js"
+    },
+    "chunk-Z2ATPMKA": {
+      "file": "chunk-Z2ATPMKA.js"
+    },
+    "settings-EMYTP5HS": {
+      "file": "settings-EMYTP5HS.js"
+    },
+    "chunk-63D55LZZ": {
+      "file": "chunk-63D55LZZ.js"
+    },
+    "chunk-VEHTF4FS": {
+      "file": "chunk-VEHTF4FS.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
+}

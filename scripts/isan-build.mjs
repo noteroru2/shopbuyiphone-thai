@@ -11,6 +11,13 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const locDir = path.join(__dirname, '..', 'src', 'content', 'locations');
 
 const OG_FALLBACK = '/images/hero-webuy-campaign.webp';
+const REAL_GALLERY = [
+  '/images/gallery/real-phones/iphone15-black-front.webp',
+  '/images/gallery/real-phones/iphone15-black-back.webp',
+  '/images/gallery/real-phones/iphone-orange-front.webp',
+  '/images/gallery/real-phones/iphone-orange-back.webp',
+  '/images/gallery/real-phones/iphone-orange-box.webp',
+];
 
 function hash(s) {
   let h = 0;
@@ -92,11 +99,22 @@ function yamlFaqs(faqs) {
     .join('\n');
 }
 
+function yamlGalleryImages(images) {
+  return images
+    .map(
+      (src) =>
+        `  - src: ${yamlEscape(src)}\n    alt: ${yamlEscape('ภาพสินค้าจริง iPhone สำหรับประกอบคอนเทนต์รับซื้อไอโฟน')}`,
+    )
+    .join('\n');
+}
+
 function buildFrontmatter(p) {
   const desc = `รับซื้อไอโฟน${p.title} รับซื้อไอโฟนมือสอง iPhone หลายรุ่น เครื่องเก่าและเครื่องมีอาการบางกรณี ส่งรูปเช็คราคาเบื้องต้นฟรีผ่านไลน์ @webuy หรือโทร 0642579353`;
   const seoTitle = `รับซื้อไอโฟน${p.title} ประเมินฟรีผ่านไลน์ @webuy | ร้านรับซื้อไอโฟน.com`;
   const faqs = buildFaqs(p);
-  const img = p.image ?? OG_FALLBACK;
+  const seed = hash(p.slug);
+  const gallery = Array.from({ length: 3 }, (_, idx) => REAL_GALLERY[(seed + idx) % REAL_GALLERY.length]);
+  const img = gallery[0] ?? OG_FALLBACK;
   return `---
 kind: location
 title: ${p.title}
@@ -105,6 +123,9 @@ description: ${desc}
 slug: ${p.slug}
 region: ภาคอีสาน
 featuredImage: ${img}
+featuredImageAlt: ${yamlEscape(`ภาพสินค้าจริงสำหรับหน้ารับซื้อไอโฟน${p.title}`)}
+galleryImages:
+${yamlGalleryImages(gallery)}
 subAreas:
 ${yamlList(p.districts)}
 meetingOptions:
@@ -270,7 +291,14 @@ h1: รับซื้อไอโฟนภาคอีสาน ส่งรู
 description: ${desc}
 slug: ${HUB_SLUG}
 region: ภาคอีสาน
-featuredImage: /images/locations/isan-region-hub.svg
+featuredImage: /images/gallery/real-phones/iphone15-black-front.webp
+featuredImageAlt: ภาพสินค้าจริงสำหรับหน้ารับซื้อไอโฟนภาคอีสาน
+galleryImages:
+${yamlGalleryImages([
+  '/images/gallery/real-phones/iphone15-black-front.webp',
+  '/images/gallery/real-phones/iphone15-black-back.webp',
+  '/images/gallery/real-phones/iphone-orange-front.webp',
+])}
 subAreas:
 ${PROVINCES.map((p) => `  - ${p.title}`).join('\n')}
 meetingOptions:

@@ -5,7 +5,15 @@ description: รับซื้อไอโฟนติด iCloud ต้อง�
 slug: ติด-icloud
 seoTitle: รับซื้อไอโฟนติด iCloud ตรวจเงื่อนไขก่อนประเมิน | ร้านรับซื้อไอโฟน.com
 h1: รับซื้อไอโฟนติด iCloud ต้องตรวจสอบอะไรบ้าง
-featuredImage: /images/iphone-condition.svg
+featuredImage: "/images/gallery/real-phones/iphone15-black-back.webp"
+featuredImageAlt: "ภาพสินค้าจริงสำหรับหน้าไอโฟนติด iCloud"
+galleryImages:
+  - src: "/images/gallery/real-phones/iphone15-black-back.webp"
+    alt: "ภาพสินค้าจริง iPhone ด้านหลังสีดำ"
+  - src: "/images/gallery/real-phones/iphone-orange-front.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มหน้าจอเปิดใช้งาน"
+  - src: "/images/gallery/real-phones/iphone-orange-back.webp"
+    alt: "ภาพสินค้าจริง iPhone สีส้มด้านหลัง"
 whatWeBuy:
   - ยังล็อกบัญชีผู้ใช้
   - ต้องออกจากบัญชีได้ก่อนโอน
