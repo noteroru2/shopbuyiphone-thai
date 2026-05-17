@@ -11,9 +11,13 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://ร้านรับซื้อไอโฟน.com/',
   trailingSlash: 'always',
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [sitemap(), mdx()],
 
   vite: {
+    cacheDir: '.cache/vite',
     plugins: [tailwindcss()],
   },
 });

@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import CTAButtons from '../../components/CTAButtons.astro';
+import ContentImageShowcase from '../../components/ContentImageShowcase.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import { getCollection, render } from 'astro:content';
 import { absoluteUrl, breadcrumbListSchema, faqPageSchema, SITE } from '../../lib/seo';
@@ -51,6 +52,7 @@ const publishedAt = post.data.date;
 const modifiedAt = post.data.dateModified;
 const showLastUpdated =
   modifiedAt != null && modifiedAt.getTime() !== publishedAt.getTime();
+const featuredImageAlt = post.data.featuredImageAlt ?? post.data.title;
 ---
 
 <BaseLayout
@@ -89,6 +91,17 @@ const showLastUpdated =
     </header>
 
     <div class="mt-8 rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8 lg:p-10">
+      {post.data.featuredImage || post.data.galleryImages?.length ? (
+        <div class="mb-8">
+          <ContentImageShowcase
+            featuredImage={post.data.featuredImage}
+            featuredImageAlt={featuredImageAlt}
+            galleryImages={post.data.galleryImages}
+            title="ภาพประกอบบทความ"
+            lead="ภาพตัวอย่างสินค้าและแบนเนอร์ที่ใช้ประกอบเนื้อหานี้"
+          />
+        </div>
+      ) : null}
       <div
         class:list={[
           'prose prose-stone max-w-none',
@@ -125,4 +138,3 @@ const showLastUpdated =
   </section>
   </div>
 </BaseLayout>
-

@@ -9,6 +9,7 @@ import CTAButtons from '../../components/CTAButtons.astro';
 import ProcessSteps from '../../components/ProcessSteps.astro';
 import PriceFactors from '../../components/PriceFactors.astro';
 import ContentProse from '../../components/ContentProse.astro';
+import ContentImageShowcase from '../../components/ContentImageShowcase.astro';
 import { getCollection, render } from 'astro:content';
 import { absoluteUrl, SITE } from '../../lib/seo';
 
@@ -65,6 +66,7 @@ const modelOrConditionH1 =
 
 const description = entry.data.description;
 const ogImage = entry.data.featuredImage ? absoluteUrl(entry.data.featuredImage) : undefined;
+const featuredImageAlt = entry.data.featuredImageAlt ?? entry.data.title;
 const faqs = entry.data.faqs ?? [];
 
 const internalLinks = [
@@ -381,6 +383,20 @@ const faqSectionLead =
     variant="dark"
     tertiaryText="เช็คราคาไอโฟนก่อนขาย"
     tertiaryHref="/เช็คราคาไอโฟน/"
+  />
+
+  <ContentImageShowcase
+    featuredImage={entry.data.featuredImage}
+    featuredImageAlt={featuredImageAlt}
+    galleryImages={entry.data.galleryImages}
+    title={kind === 'location' ? 'ภาพพื้นที่และตัวอย่างสินค้า' : kind === 'model' ? 'ภาพตัวอย่างรุ่นและสินค้า' : 'ภาพตัวอย่างอาการและสินค้า'}
+    lead={
+      kind === 'location'
+        ? 'ภาพประกอบพื้นที่ให้บริการและตัวอย่างเครื่องที่ใช้ในคอนเทนต์หน้านี้'
+        : kind === 'model'
+          ? 'ภาพตัวอย่างสินค้าและแบนเนอร์สำหรับรุ่นที่กำลังดู'
+          : 'ภาพตัวอย่างสินค้าและภาพประกอบสำหรับอาการเครื่องหน้านี้'
+    }
   />
 
   <div class="bg-section-warm pb-16">

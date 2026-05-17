@@ -1,0 +1,68 @@
+---
+interface GalleryImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  featuredImage?: string;
+  featuredImageAlt?: string;
+  galleryImages?: GalleryImage[];
+  title?: string;
+  lead?: string;
+}
+
+const {
+  featuredImage,
+  featuredImageAlt = '',
+  galleryImages = [],
+  title = 'ภาพประกอบ',
+  lead = 'ภาพตัวอย่างสินค้าและบรรยากาศที่ใช้ประกอบหน้าเนื้อหานี้',
+} = Astro.props;
+
+const hasFeatured = Boolean(featuredImage);
+const hasGallery = galleryImages.length > 0;
+---
+
+{
+  hasFeatured || hasGallery ? (
+    <div class="mx-auto max-w-[1180px] px-4 py-8" aria-labelledby="content-image-showcase-heading">
+      <div class="rounded-3xl border border-gold-border/25 bg-white p-5 shadow-sm sm:p-6">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 id="content-image-showcase-heading" class="text-xl font-bold tracking-tight text-text-dark">{title}</h2>
+            <p class="mt-1 text-sm leading-relaxed text-text-muted">{lead}</p>
+          </div>
+        </div>
+
+        {hasFeatured ? (
+          <figure class="mt-5 overflow-hidden rounded-2xl border border-gold-border/20 bg-section-warm">
+            <img
+              src={featuredImage}
+              alt={featuredImageAlt}
+              loading="lazy"
+              decoding="async"
+              class="h-full max-h-[560px] w-full object-cover"
+            />
+          </figure>
+        ) : null}
+
+        {hasGallery ? (
+          <div class:list={['mt-5 grid gap-4', galleryImages.length === 1 ? 'grid-cols-1' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3']}>
+            {galleryImages.map((image) => (
+              <figure class="overflow-hidden rounded-2xl border border-gold-border/20 bg-section-warm">
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-[4/3] w-full object-cover"
+                />
+              </figure>
+            ))}
+          </div>
+        ) : null}
+      </div>
+    </div>
+  ) : null
+}

@@ -10,6 +10,8 @@
     "build": "astro build",
     "preview": "astro preview --port 4322 --host",
     "astro": "astro",
+    "images:webp": "node scripts/convert-raster-to-webp.mjs",
+    "gen:seo-expansion": "node scripts/build-seo-expansion.mjs",
     "gen:isan-svgs": "node scripts/gen-isan-location-svgs.mjs",
     "gen:isan-pages": "node scripts/isan-build.mjs"
   },

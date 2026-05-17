@@ -6,6 +6,11 @@ const faqSchema = z.object({
   answer: z.string(),
 });
 
+const galleryImageSchema = z.object({
+  src: z.string(),
+  alt: z.string(),
+});
+
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
@@ -16,8 +21,10 @@ const blog = defineCollection({
     dateModified: z.coerce.date().optional(),
     category: z.string(),
     featuredImage: z.string().optional(),
+    featuredImageAlt: z.string().optional(),
     ogImage: z.string().optional(),
     canonical: z.string().optional(),
+    galleryImages: z.array(galleryImageSchema).default([]),
     keywords: z.array(z.string()).default([]),
     /** บรรทัดเดียวหรือสั้น ๆ — แสดงเหนือเนื้อหาเพื่อ AEO / อ่านไว */
     summary: z.string().optional(),
@@ -47,6 +54,8 @@ const models = defineCollection({
     /** ถ้ามี จะใช้เป็น H1 แทนรูปแบบดีฟอลต์ */
     h1: z.string().optional(),
     featuredImage: z.string().optional(),
+    featuredImageAlt: z.string().optional(),
+    galleryImages: z.array(galleryImageSchema).default([]),
     popularModels: z.array(z.string()).default([]),
     keywords: z.array(z.string()).default([]),
     faqs: z.array(faqSchema).default([]),
@@ -64,6 +73,8 @@ const conditions = defineCollection({
     seoTitle: z.string().optional(),
     h1: z.string().optional(),
     featuredImage: z.string().optional(),
+    featuredImageAlt: z.string().optional(),
+    galleryImages: z.array(galleryImageSchema).default([]),
     whatWeBuy: z.array(z.string()).default([]),
     keywords: z.array(z.string()).default([]),
     faqs: z.array(faqSchema).default([]),
@@ -84,6 +95,8 @@ const locations = defineCollection({
     h1: z.string().optional(),
     region: z.string().optional(),
     featuredImage: z.string().optional(),
+    featuredImageAlt: z.string().optional(),
+    galleryImages: z.array(galleryImageSchema).default([]),
     subAreas: z.array(z.string()).default([]),
     meetingOptions: z.array(z.string()).default([]),
     highlights: z.array(z.string()).default([]),
@@ -99,4 +112,3 @@ export const collections = {
   conditions,
   locations,
 };
-
