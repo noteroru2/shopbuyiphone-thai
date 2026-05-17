@@ -3,27 +3,27 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
+const removeSourceFiles = process.argv.includes('--delete-source');
 
 const rasterFiles = [
-  'public/images/gallery/banners/banner-counter-showcase.webp',
-  'public/images/gallery/banners/banner-hero-gold.webp',
-  'public/images/gallery/banners/banner-premium-line.webp',
-  'public/images/gallery/real-phones/iphone-orange-back.webp',
-  'public/images/gallery/real-phones/iphone-orange-box.webp',
-  'public/images/gallery/real-phones/iphone-orange-front.webp',
-  'public/images/gallery/real-phones/iphone15-black-back.webp',
-  'public/images/gallery/real-phones/iphone15-black-front.webp',
-  'public/images/hero-webuy-campaign.webp',
+  'public/images/gallery/banners/banner-counter-showcase.png',
+  'public/images/gallery/banners/banner-hero-gold.png',
+  'public/images/gallery/banners/banner-premium-line.png',
+  'public/images/gallery/real-phones/iphone-orange-back.jpg',
+  'public/images/gallery/real-phones/iphone-orange-box.jpg',
+  'public/images/gallery/real-phones/iphone-orange-front.jpg',
+  'public/images/gallery/real-phones/iphone15-black-back.jpg',
+  'public/images/gallery/real-phones/iphone15-black-front.jpg',
+  'public/images/hero-webuy-campaign.png',
 ];
 
-const textRoots = ['src', 'public', 'scripts'];
+const textRoots = ['src', 'public'];
 
 const replacements = new Map(
   rasterFiles.map((relativePath) => {
     const normalized = relativePath.replaceAll('\\', '/');
     const publicPath = normalized.replace(/^public/, '');
     const webpPublicPath = publicPath.replace(/\.(png|jpe?g)$/i, '.webp');
-
     return [publicPath, webpPublicPath];
   }),
 );
@@ -39,12 +39,20 @@ async function convertOne(relativePath) {
   const sourcePath = path.join(root, relativePath);
   const targetPath = sourcePath.replace(/\.(png|jpe?g)$/i, '.webp');
 
+  if (!fs.existsSync(sourcePath)) {
+    return {
+      sourcePath,
+      targetPath,
+      skipped: fs.existsSync(targetPath),
+    };
+  }
+
   const image = sharp(sourcePath);
   const metadata = await image.metadata();
-  const target = image.rotate();
+  const pipeline = image.rotate();
 
   if ((metadata.width ?? 0) >= 1800 || (metadata.height ?? 0) >= 1800) {
-    target.resize({
+    pipeline.resize({
       width: 1600,
       height: 1600,
       fit: 'inside',
@@ -52,15 +60,21 @@ async function convertOne(relativePath) {
     });
   }
 
-  await target.webp({ quality: 78, effort: 6 }).toFile(targetPath);
+  await pipeline.webp({ quality: 78, effort: 6 }).toFile(targetPath);
 
   const before = fs.statSync(sourcePath).size;
   const after = fs.statSync(targetPath).size;
+
+  if (removeSourceFiles) {
+    fs.unlinkSync(sourcePath);
+  }
+
   return {
     sourcePath,
     targetPath,
     before,
     after,
+    skipped: false,
   };
 }
 
@@ -99,20 +113,18 @@ async function run() {
 
   const changedFiles = updateTextReferences();
 
-  for (const { sourcePath } of conversions) {
-    fs.unlinkSync(sourcePath);
-  }
-
   console.log(
     JSON.stringify(
       {
-        converted: conversions.map(({ sourcePath, targetPath, before, after }) => ({
+        removeSourceFiles,
+        changedFiles,
+        converted: conversions.map(({ sourcePath, targetPath, before, after, skipped }) => ({
           sourcePath: sourcePath.replaceAll('\\', '/'),
           targetPath: targetPath.replaceAll('\\', '/'),
-          before,
-          after,
+          before: before ?? null,
+          after: after ?? null,
+          skipped,
         })),
-        changedFiles,
       },
       null,
       2,
