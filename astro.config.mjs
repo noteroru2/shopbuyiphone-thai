@@ -7,17 +7,23 @@ import sitemap from '@astrojs/sitemap';
 
 import mdx from '@astrojs/mdx';
 
+import cloudflare from '@astrojs/cloudflare';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ร้านรับซื้อไอโฟน.com/',
   trailingSlash: 'always',
+
   devToolbar: {
     enabled: false,
   },
+
   integrations: [sitemap(), mdx()],
 
   vite: {
     cacheDir: '.cache/vite',
     plugins: [tailwindcss()],
   },
+
+  adapter: cloudflare(),
 });
