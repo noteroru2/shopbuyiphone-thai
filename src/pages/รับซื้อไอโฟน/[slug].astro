@@ -10,6 +10,7 @@ import ProcessSteps from '../../components/ProcessSteps.astro';
 import PriceFactors from '../../components/PriceFactors.astro';
 import ContentProse from '../../components/ContentProse.astro';
 import ContentImageShowcase from '../../components/ContentImageShowcase.astro';
+import ModelPricingTable from '../../components/ModelPricingTable.astro';
 import { getCollection, render } from 'astro:content';
 import { absoluteUrl, SITE } from '../../lib/seo';
 
@@ -423,6 +424,12 @@ const faqSectionLead =
             </h2>
             <p class="mt-3 text-base leading-relaxed text-off-white/95">{aeo.a}</p>
           </section>
+        ) : null
+      }
+
+      {
+        kind === 'model' ? (
+          <ModelPricingTable slug={slug} modelName={entry.data.title} />
         ) : null
       }
 

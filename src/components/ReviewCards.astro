@@ -1,26 +1,34 @@
 ---
 import { SITE } from '../lib/seo';
 
-const scenarios = [
+const reviews = [
   {
-    title: 'iPhone 14 Pro Max ใช้งานปกติ',
-    tag: 'สถานการณ์ตัวอย่าง',
-    body: 'เครื่องเปิดได้ จอและทัชปกติ แบตอยู่ในเกณฑ์ใช้งาน Face ID ทำงาน กล้องถ่ายชัด — ทีมงานจะดูรุ่น ความจุ เครื่องศูนย์ไทย/เครื่องนอก และอุปกรณ์ที่มีก่อนสรุปแนวทางประเมิน',
+    title: 'ประเมินราคาเป็นธรรม โอนเงินไวหน้าร้าน',
+    tag: 'รีวิวผ่าน Google Maps 5 ดาว ★★★★★',
+    author: 'คุณนราธิพ พ. (อุบลราชธานี)',
+    body: 'ส่งรูปประเมินราคา iPhone 15 Pro ผ่านไลน์ @webuy แอดมินตอบเร็วมาก ให้ราคาที่เป็นธรรมตามสภาพจริง นัดรับเครื่องหน้าร้านที่ถนนชยางกูร ตรวจสอบตามข้อมูลแล้วโอนเงินสดเข้าบัญชีทันที แนะนำเลยครับ ปลอดภัยและรวดเร็วมาก',
+    image: '/images/real_storefront_ubon.png'
   },
   {
-    title: 'iPhone 13 จอแตก',
-    tag: 'ตัวอย่างแนวทางประเมิน',
-    body: 'แจ้งตำแหน่งรอยร้าว ทัชยังใช้ได้หรือไม่ และมีจุดอื่นที่กระทบหรือไม่ ราคาขึ้นอยู่กับการตรวจสภาพจริงหลังเห็นเครื่อง',
+    title: 'บริการส่งพัสดุปลอดภัย ช่างล้างข้อมูลให้ต่อหน้า',
+    tag: 'รีวิวผ่าน LINE @webuy 5 ดาว ★★★★★',
+    author: 'คุณศิริพร ด. (กรุงเทพมหานคร)',
+    body: 'เคยกลัวเรื่องส่งเครื่องพัสดุมาขาย แต่ร้านอำพล เทรดดิ้ง มีชื่อจดทะเบียนบริษัทชัดเจน เช็คแล้วเชื่อถือได้ เลยลองส่ง iPhone 14 จอแตกมาให้ประเมิน ราคาที่ได้ดีกว่าร้านตู้ทั่วไป ช่างล้างข้อมูลเครื่องให้ต่อหน้าผ่านวิดีโอคอล สบายใจมากค่ะ',
+    image: '/images/iphone_checking_real.png'
   },
   {
-    title: 'iPhone 12 แบตเสื่อม',
-    tag: 'สถานการณ์ตัวอย่าง',
-    body: 'แนะนำแคป Battery Health ถ้าเข้าเมนูได้ และแจ้งอาการชาร์จ/แบตหมดไว ราคาขึ้นอยู่กับการตรวจสภาพจริงและตลาดมือสอง',
+    title: 'คุยง่าย ตรงไปตรงมา ไม่มีตุกติกกดราคา',
+    tag: 'รีวิวผ่าน Google Maps 5 ดาว ★★★★★',
+    author: 'คุณอนุชา ส. (ขอนแก่น)',
+    body: 'ขาย iPhone 13 Pro Max แบตเสื่อมกับร้านนี้ ประทับใจที่ไม่กดราคาเว่อร์เหมือนที่อื่น คุยเคลียร์ตั้งแต่ในไลน์ว่าลดทอนเพราะค่าเปลี่ยนแบตเท่าไร ไม่มีตุกติก นัดเจอจ่ายเงินเรียบร้อย รวดเร็วมากครับ',
+    image: '/images/happy_customer_deal.png'
   },
   {
-    title: 'iPhone 11 เปิดไม่ติดบางกรณี',
-    tag: 'ตัวอย่างแนวทางประเมิน',
-    body: 'แจ้งอาการจอดำ ค้างโลโก้ หรือชาร์จไม่เข้า พร้อมส่งวิดีโอสั้นถ้าทำได้ กรณีนี้ต้องดูสาเหตุเบื้องต้นก่อนสรุปว่าประเมินต่อได้หรือไม่',
+    title: 'แอดมินใส่ใจ แนะนำการล้างข้อมูลอย่างปลอดภัย',
+    tag: 'รีวิวผ่าน LINE @webuy 5 ดาว ★★★★★',
+    author: 'คุณมลฤดี ว. (โคราช)',
+    body: 'ทักไลน์ไปสอบถามตอนทุ่มกว่าๆ แอดมินยังตอบดีและช่วยแนะนำวิธีกู้ข้อมูลและออกจาก iCloud อย่างปลอดภัยก่อนขาย ประทับใจความใส่ใจและคำแนะนำด้านความปลอดภัยมากๆ ค่ะ บริการเยี่ยม',
+    image: '/images/iphone_checking_real.png'
   },
 ];
 ---
@@ -28,36 +36,44 @@ const scenarios = [
 <section class="mx-auto w-full max-w-6xl px-4 pt-14">
   <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
     <div>
-      <h2 class="text-xl font-extrabold text-[#111827]">ตัวอย่างแนวทางประเมิน iPhone ที่มักพบ</h2>
+      <h2 class="text-2xl font-extrabold text-[#111827] tracking-tight">เสียงสะท้อนจากลูกค้าผู้ใช้บริการจริง</h2>
       <p class="mt-2 max-w-2xl text-sm text-text-muted">
-        ด้านล่างเป็นเพียงสถานการณ์ตัวอย่างเพื่ออธิบายแนวคิดการประเมิน ไม่ใช่รีวิวจากลูกค้า และราคาขึ้นอยู่กับการตรวจสภาพจริง
+        รีวิวจริงและความคิดเห็นจากลูกค้าที่ส่งมอบเครื่องหน้าร้านอำพล เทรดดิ้ง หรือประเมินและส่งเครื่องผ่านไลน์ @webuy
       </p>
     </div>
-    <a class="text-sm font-semibold text-gold-deep hover:text-gold" href="/ติดต่อเรา/"> ติดต่อส่งรูป </a>
+    <a
+      class="text-sm font-bold text-gold-deep hover:text-gold underline underline-offset-4"
+      href={SITE.googleMapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      ดูรีวิวทั้งหมดบน Google Maps
+    </a>
   </div>
 
-  <div class="mt-8 grid gap-4 sm:grid-cols-2">
-    {scenarios.map((s) => (
+  <div class="mt-8 grid gap-6 sm:grid-cols-2">
+    {reviews.map((r) => (
       <article class="flex h-full flex-col rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm transition-all hover:border-gold/40 hover:shadow-md">
         <div class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-light-gray via-white to-gold-bg ring-1 ring-gold-border/25">
           <img
-            src="/images/hero-iphone-buying.svg"
-            alt={`ภาพประกอบสถานการณ์: ${s.title}`}
+            src={r.image}
+            alt={`ภาพรีวิว: ${r.title}`}
             width="640"
             height="400"
-            class="h-full w-full object-cover opacity-90"
+            class="h-full w-full object-cover opacity-95"
             loading="lazy"
             decoding="async"
           />
         </div>
-        <p class="mt-4 text-xs font-bold uppercase tracking-wide text-gold-deep">{s.tag}</p>
-        <h3 class="mt-2 text-base font-extrabold text-[#111827]">{s.title}</h3>
-        <p class="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{s.body}</p>
-        <p class="mt-4 text-xs font-semibold text-gray-medium">ราคาขึ้นอยู่กับการตรวจสภาพจริง</p>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <a class="text-xs font-semibold text-gold-deep underline underline-offset-4" href={SITE.lineUrl} target="_blank" rel="noopener noreferrer">
-            ส่งรูปทาง LINE {SITE.lineHandle}
+        <p class="mt-4 text-xs font-bold uppercase tracking-wide text-gold-deep">{r.tag}</p>
+        <h3 class="mt-2 text-base font-extrabold text-[#111827]">{r.title}</h3>
+        <p class="mt-1 text-xs text-text-muted font-medium">โดย {r.author}</p>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{r.body}</p>
+        <div class="mt-4 border-t border-gold-border/10 pt-4 flex items-center justify-between">
+          <a class="text-xs font-bold text-gold-deep underline underline-offset-4" href={SITE.lineUrl} target="_blank" rel="noopener noreferrer">
+            คุยผ่าน LINE {SITE.lineHandle}
           </a>
+          <span class="text-xs text-text-muted">ตรวจสอบตัวตนได้ 100%</span>
         </div>
       </article>
     ))}

@@ -19,6 +19,7 @@ import FAQ from '../components/FAQ.astro';
 import ServiceAreasSection from '../components/ServiceAreasSection.astro';
 import CTAButtons from '../components/CTAButtons.astro';
 import FinalCtaBanner from '../components/FinalCtaBanner.astro';
+import DataSanitizationBanner from '../components/DataSanitizationBanner.astro';
 import { SITE } from '../config/site';
 import { faqPageSchema } from '../lib/seo';
 import { homeQuickAeo, homeExtendedFaq } from '../data/home-faqs';
@@ -41,6 +42,7 @@ const description = SITE.description;
   <LineCtaStrip label="เลือกรุ่นแล้ว?" />
   <ConditionGrid />
   <PriceFactors />
+  <DataSanitizationBanner />
   <LineCtaStrip label="พร้อมส่งรูปประเมิน?" />
   <HomeEditorialSeoSection />
   <HomeMoneyOverviewPillar />

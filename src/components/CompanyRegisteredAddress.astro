@@ -12,6 +12,9 @@ const lineClass = variant === 'dark' ? 'text-muted-light' : 'text-text-muted';
 ---
 
 <div class:list={['text-sm leading-relaxed not-italic', className]}>
-  <p class:list={['font-semibold', nameClass]}>{SITE.companyLegalName}</p>
+  <p class:list={['font-semibold text-base', nameClass]}>{SITE.companyLegalName}</p>
   <p class:list={['mt-1', lineClass]}>{SITE.companyAddressDisplay}</p>
+  <p class:list={['mt-1.5 text-xs font-mono opacity-85', lineClass]}>
+    เลขทะเบียนนิติบุคคล: {SITE.companyRegistrationNumber} | {SITE.oldGoodsLicenseNumber}
+  </p>
 </div>
