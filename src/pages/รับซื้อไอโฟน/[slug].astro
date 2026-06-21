@@ -70,11 +70,22 @@ const ogImage = entry.data.featuredImage ? absoluteUrl(entry.data.featuredImage)
 const featuredImageAlt = entry.data.featuredImageAlt ?? entry.data.title;
 const faqs = entry.data.faqs ?? [];
 
+/** Round 1 weak specialist pages — cross-link cluster */
+const ROUND1_SPECIALIST_LINKS: { label: string; href: string }[] = [
+  { label: 'ไอโฟนติด iCloud ขายได้ไหม', href: '/รับซื้อไอโฟน/ติด-icloud/' },
+  { label: 'รับซื้อไอโฟน Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+  { label: 'รับซื้อไอโฟนจอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+  { label: 'เช็คราคาไอโฟนมือสอง', href: '/เช็คราคาไอโฟนมือสอง/' },
+];
+
+const ROUND1_CONDITION_SLUGS = new Set(['ติด-icloud', 'face-id-เสีย', 'จอแตก']);
+
 const internalLinks = [
   { label: 'หน้าแรก', href: '/' },
   { label: 'รับซื้อไอโฟน', href: '/รับซื้อไอโฟน/' },
   { label: 'รับซื้อ iPhone', href: '/รับซื้อ-iphone/' },
   { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/' },
+  { label: 'เช็คราคาไอโฟนมือสอง', href: '/เช็คราคาไอโฟนมือสอง/' },
   { label: 'เช็คราคาไอโฟนก่อนขาย', href: '/เช็คราคาไอโฟน/' },
   { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/' },
   { label: 'พื้นที่ให้บริการ', href: '/พื้นที่ให้บริการ/' },
@@ -327,6 +338,16 @@ if (kind === 'location') {
     { label: 'แบตเสื่อม', href: '/รับซื้อไอโฟน/แบตเสื่อม/' },
     { label: 'เครื่องศูนย์ไทย', href: '/รับซื้อไอโฟน/เครื่องศูนย์ไทย/' },
   ];
+} else if (ROUND1_CONDITION_SLUGS.has(slug)) {
+  extraRelated = ROUND1_SPECIALIST_LINKS.filter((l) => !l.href.endsWith(`/${slug}/`));
+  extraRelated.push(
+    ...CONDITION_SLUGS.filter((s) => s !== slug && !ROUND1_CONDITION_SLUGS.has(s))
+      .slice(0, 4)
+      .map((s) => ({
+        label: s,
+        href: `/รับซื้อไอโฟน/${s}/`,
+      })),
+  );
 } else {
   const conditionLinkLabel: Record<string, string> = {
     'จอแตก': 'สภาพจอแตก',
@@ -382,8 +403,8 @@ const faqSectionLead =
     description={description}
     badges={heroBadges}
     variant="dark"
-    tertiaryText="เช็คราคาไอโฟนก่อนขาย"
-    tertiaryHref="/เช็คราคาไอโฟน/"
+    tertiaryText="เช็คราคาไอโฟนมือสอง"
+    tertiaryHref="/เช็คราคาไอโฟนมือสอง/"
   />
 
   <ContentImageShowcase
@@ -560,11 +581,25 @@ const faqSectionLead =
                   <li>อุปกรณ์ที่มี (สายชาร์จ/หัวแปลง/กล่อง)</li>
                 </ul>
               </div>
+            ) : slug === 'ติด-icloud' ? (
+              <div>
+                <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                  ต้องเป็นผู้ใช้ที่มีสิทธิ์ในตัวเครื่อง และสามารถออกจาก Apple ID รวมถึงปิด Find My ได้ก่อนโอนกรรมสิทธิ์
+                  เราไม่รับเครื่องที่มีปัญหากรรมสิทธิ์ — แนะนำแจ้งสถานะบัญชีตรง ๆ พร้อมหลักฐานที่เหมาะสมก่อนประเมิน
+                </p>
+                <p class="mt-3 text-sm leading-relaxed text-text-muted">
+                  ดูเงื่อนไขเพิ่มที่{' '}
+                  <a class="font-semibold underline" href="/เช็คราคาไอโฟนมือสอง/">
+                    เช็คราคาไอโฟนมือสอง
+                  </a>{' '}
+                  เมื่อบัญชีพร้อมแล้ว
+                </p>
+              </div>
             ) : (
               <div>
                 <p class="mt-3 text-sm leading-relaxed text-text-muted">
-                  ขายได้ครับ โดยเราจะดู “รุ่น/ความจุ + อาการ + สภาพรวม” เพื่อประเมินว่ารับซื้อได้ในเงื่อนไขไหน แนะนำส่งรูป/วิดีโอสั้น ๆ
-                  ให้เห็นอาการชัด เพื่อช่วยให้ประเมินใกล้เคียงขึ้น
+                  หลายกรณีประเมินได้ โดยเราจะดู “รุ่น/ความจุ + อาการ + สภาพรวม” เพื่อประเมินตามเงื่อนไขที่เหมาะสม
+                  แนะนำส่งรูป/วิดีโอสั้น ๆ ให้เห็นอาการชัด เพื่อช่วยให้ประเมินใกล้เคียงขึ้น
                 </p>
                 <p class="mt-4 text-sm font-semibold text-text-dark">สาเหตุที่พบบ่อย (เพื่อช่วยบอกอาการ)</p>
                 <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm text-text-muted">

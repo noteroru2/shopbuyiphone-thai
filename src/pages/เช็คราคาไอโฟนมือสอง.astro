@@ -1,0 +1,421 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PriceFactors from '../components/PriceFactors.astro';
+import FAQ from '../components/FAQ.astro';
+import CTAButtons from '../components/CTAButtons.astro';
+import PageHero from '../components/PageHero.astro';
+import LineCTA from '../components/LineCTA.astro';
+import AnswerBox from '../components/AnswerBox.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import FinalCtaBanner from '../components/FinalCtaBanner.astro';
+import { SITE } from '../config/site';
+import { absoluteUrl } from '../lib/seo';
+import { howToSchema } from '../lib/schema';
+
+const title = 'เช็คราคาไอโฟนมือสอง ประเมินฟรี | ร้านรับซื้อไอโฟน.com';
+const description =
+  'เช็คราคาไอโฟนมือสองก่อนขาย ส่งรูป iPhone พร้อมรุ่น ความจุ และสภาพจริง ประเมินเบื้องต้นฟรีผ่านไลน์ @webuy ทั้งเครื่องศูนย์ไทย เครื่องนอก และเครื่องที่มีอาการบางอย่าง';
+const canonical = absoluteUrl('/เช็คราคาไอโฟนมือสอง/');
+
+const breadcrumbs = [
+  { name: 'หน้าแรก', url: absoluteUrl('/') },
+  { name: 'เช็คราคาไอโฟนมือสอง', url: canonical },
+];
+
+const faqs = [
+  {
+    question: 'เช็คราคาไอโฟนมือสองต้องส่งอะไรบ้าง',
+    answer:
+      'แนะนำส่งรูปหน้าจอ About (รุ่น/ความจุ) รูปเครื่องหลายมุม แจ้งเครื่องศูนย์ไทยหรือเครื่องนอก สภาพจอ แบต และอาการตรง ๆ ถ้ามี ผ่าน LINE @webuy — ทีมงานช่วยประเมินเบื้องต้นฟรี',
+  },
+  {
+    question: 'เช็คราคาไอโฟนมือสองที่มีอาการเสียได้ไหม',
+    answer:
+      'ได้ครับ ในหลายกรณี เช่น จอแตก Face ID เสีย หรือแบตเสื่อม แนะนำส่งรูปและวิดีโอสั้นให้เห็นอาการชัด ดูแนวทางเพิ่มที่หน้าเฉพาะทางด้านล่าง',
+  },
+  {
+    question: 'ราคาที่ประเมินจากรูปต่างจากราคาจริงไหม',
+    answer:
+      'อาจปรับเล็กน้อยเมื่อเห็นเครื่องจริง หากมีรอยหรืออาการที่ไม่ปรากฏในรูป เราพยายามประเมินให้ใกล้เคียงด้วยข้อมูลที่ครบตั้งแต่ต้น',
+  },
+  {
+    question: 'เช็คราคาแล้วไม่ขายได้ไหม',
+    answer:
+      'ได้ครับ การประเมินเป็นบริการฟรี ไม่มีข้อผูกมัด คุณสามารถใช้กรอบราคาเพื่อเปรียบเทียบก่อนตัดสินใจ',
+  },
+  {
+    question: 'เครื่องศูนย์ไทยกับเครื่องนอก เช็คราคาต่างกันไหม',
+    answer:
+      'กรอบราคาเบื้องต้นอาจต่างกันตามตลาดมือสองของแต่ละโมเดล แนะนำแจ้งแหล่งเครื่องตั้งแต่ต้นและส่งรูป About ถ้าเปิดได้',
+  },
+  {
+    question: 'ไอโฟนติด iCloud เช็คราคาได้ไหม',
+    answer:
+      'ต้องตรวจเงื่อนไขความเป็นเจ้าของก่อน — ต้องเป็นผู้ใช้ที่มีสิทธิ์และออกจาก Apple ID ได้ก่อนโอนกรรมสิทธิ์ เราไม่รับเครื่องที่มีปัญหากรรมสิทธิ์ ดูรายละเอียดที่หน้าไอโฟนติด iCloud',
+  },
+];
+
+const relatedLinks = [
+  { label: 'ไอโฟนติด iCloud ขายได้ไหม', href: '/รับซื้อไอโฟน/ติด-icloud/' },
+  { label: 'รับซื้อไอโฟน Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+  { label: 'รับซื้อไอโฟนจอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+  { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+  { label: 'รับซื้อไอโฟนมือสอง', href: '/รับซื้อไอโฟนมือสอง/' },
+  { label: 'รับซื้อไอโฟน', href: '/รับซื้อไอโฟน/' },
+  { label: 'ตีราคาไอโฟน', href: '/ตีราคาไอโฟน/' },
+  { label: 'ขายไอโฟน', href: '/ขายไอโฟน/' },
+];
+
+const checkPriceHowToSteps = [
+  {
+    name: 'ยืนยันรุ่นและความจุ',
+    text: 'เปิด Settings → General → About แล้วถ่ายรูปหน้าจอ หรือแจ้งรุ่นและความจุในข้อความ',
+  },
+  {
+    name: 'ถ่ายรูป iPhone มือสองหลายมุม',
+    text: 'ด้านหน้า ด้านหลัง ขอบเครื่อง กล้อง และอุปกรณ์ที่มี',
+  },
+  {
+    name: 'แจ้งสภาพและอาการตรง ๆ',
+    text: 'รอยใช้งาน จอแตก แบตเสื่อม Face ID เสีย หรือติดบัญชีผู้ใช้ (ถ้ามี)',
+  },
+  {
+    name: 'แอด LINE @webuy ส่งข้อมูล',
+    text: 'ส่งรูปและข้อความครบเพื่อรับกรอบราคาเบื้องต้นฟรี',
+  },
+  {
+    name: 'พิจารณาและตัดสินใจขั้นต่อไป',
+    text: 'เมื่อได้กรอบราคาแล้ว ค่อยนัดรับหรือส่งเครื่องตามที่ตกลงกัน',
+  },
+];
+
+const extraSchemas = [
+  howToSchema({
+    name: 'วิธีเช็คราคาไอโฟนมือสองผ่าน LINE @webuy',
+    description: 'ขั้นตอนเตรียมข้อมูล ถ่ายรูป แจ้งสภาพ และส่งไลน์ประเมินฟรี',
+    url: canonical,
+    steps: checkPriceHowToSteps,
+  }),
+];
+
+const pageContentUpdated = new Date('2026-06-21');
+---
+
+<ServiceLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  breadcrumbs={breadcrumbs}
+  serviceName="เช็คราคาไอโฟนมือสอง"
+  faqs={faqs}
+  extraSchemas={extraSchemas}
+>
+  <PageHero
+    eyebrow="เช็คราคาไอโฟนมือสอง"
+    title="เช็คราคาไอโฟนมือสอง ประเมินฟรี"
+    description={description}
+    badges={['ส่งรูปผ่าน LINE @webuy', 'ประเมินตามสภาพจริง', 'ไม่มีข้อผูกมัด']}
+    tertiaryText="หน้ารวมรับซื้อไอโฟนมือสอง"
+    tertiaryHref="/รับซื้อไอโฟนมือสอง/"
+    primaryCtaHref={SITE.lineUrl}
+    secondaryCtaHref={`tel:${SITE.telephone}`}
+    microcopy="ส่งรูป iPhone 3–5 รูปผ่านไลน์ @webuy พร้อมรุ่น ความจุ และสภาพ — ประเมินเบื้องต้นฟรี"
+    variant="dark"
+  />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-6">
+    <div class="rounded-2xl border border-gold-border/30 bg-section-warm px-4 py-3 sm:px-5">
+      <p class="text-xs font-semibold uppercase tracking-wide text-gold-deep">สรุปเร็ว (AEO)</p>
+      <p class="mt-2 text-sm font-medium leading-relaxed text-text-dark">
+        เช็คราคาไอโฟนมือสอง = ส่งรุ่น/ความจุ + รูปหลายมุม + แจ้งสภาพตรง ๆ → แอดไลน์ @webuy → ได้กรอบราคาเบื้องต้นฟรี → ค่อยตัดสินใจขาย
+      </p>
+      <p class="mt-2 text-xs text-gray-medium">
+        อัปเดตเนื้อหาหน้านี้ล่าสุด: {pageContentUpdated.toLocaleDateString('th-TH', { dateStyle: 'medium' })}
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <h2 class="text-2xl font-bold tracking-tight text-text-dark sm:text-3xl">ทำไมควรเช็คราคาไอโฟนมือสองก่อนขาย</h2>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      ตลาดมือสองของ iPhone เปลี่ยนแปลงตามรุ่น ความจุ สภาพ และช่วงเวลา การ<strong>เช็คราคาไอโฟนมือสอง</strong>ก่อนตัดสินใจช่วยให้คุณเห็นกรอบราคาที่สมเหตุสมผลจากข้อมูลจริงของเครื่อง
+      ไม่ต้องเดาหรือเปรียบเทียบแบบกว้าง ๆ จากโพสต์ทั่วไป
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      วิธีที่เร็วและตรงที่สุดคือส่งรูป iPhone พร้อมรุ่น ความจุ และสภาพผ่านไลน์ <strong>@webuy</strong>
+      ทีมงานจะช่วยประเมินเบื้องต้นฟรี ไม่มีค่าใช้จ่ายและไม่ผูกมัดให้ขาย
+    </p>
+    <p class="mt-4 text-base leading-relaxed text-text-muted">
+      หน้านี้เน้น intent การเช็คราคาเครื่องมือสองโดยเฉพาะ หากต้องการอ่านภาพรวมการประเมินทั่วไป ดูที่
+      <a class="font-medium text-gold-deep underline underline-offset-4 hover:text-gold" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
+      {' '}หรือ
+      <a class="font-medium text-gold-deep underline underline-offset-4 hover:text-gold" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
+      {' '}สำหรับปัจจัยที่มีผลต่อราคาโดยละเอียด
+    </p>
+  </section>
+
+  <AnswerBox
+    question="เช็คราคาไอโฟนมือสองต้องส่งอะไรบ้าง?"
+    answer="ส่งรูปหน้าจอ About แสดงรุ่นและความจุ รูปเครื่องหลายมุม แจ้งเครื่องศูนย์ไทยหรือเครื่องนอก สภาพจอ แบต และอาการตรง ๆ ผ่านไลน์ @webuy เพื่อให้ทีมงานช่วยประเมินกรอบราคาเบื้องต้นก่อนตัดสินใจขาย"
+    ctaText="แอดไลน์ @webuy"
+    ctaHref={SITE.lineUrl}
+  />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-10">
+    <h2 class="text-xl font-extrabold text-text-dark">ปัจจัยที่มีผลต่อราคาไอโฟนมือสอง</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      เราไม่แสดงราคาตายตัวบนหน้าเว็บ เพราะแต่ละเครื่องมีสภาพต่างกัน ปัจจัยหลักที่ใช้ประเมินมีดังนี้
+    </p>
+    <ul class="mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-text-muted">
+      <li><strong>รุ่นและความจุ</strong> — รุ่นใหม่กว่าหรือความจุสูงกว่ามักมีกรอบราคาต่างจากรุ่นเก่า</li>
+      <li><strong>สภาพจอและกรอบ</strong> — รอยใช้งาน จอแตก จอเป็นเส้น หรือทัชเสีย</li>
+      <li><strong>Battery Health</strong> — สุขภาพแบตและอาการชาร์จ</li>
+      <li><strong>Face ID และกล้อง</strong> — ทำงานปกติหรือมีปัญหา</li>
+      <li><strong>เครื่องศูนย์ไทยหรือเครื่องนอก</strong> — มีผลต่อความต้องการในตลาด</li>
+      <li><strong>อุปกรณ์ที่มี</strong> — สายชาร์จ กล่อง ใบเสร็จ (ถ้ามี)</li>
+      <li><strong>บัญชีผู้ใช้</strong> — ต้องออกจาก Apple ID และปิด Find My ได้ก่อนขาย</li>
+    </ul>
+    <p class="mt-4 text-sm text-text-muted">
+      อ่านเพิ่ม: <a class="underline" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
+      {' · '}
+      <a class="underline" href="/รับซื้อไอโฟนมือสอง/">รับซื้อไอโฟนมือสอง</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">เช็คราคาไอโฟนมือสองที่มีอาการเฉพาะ</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        หลายคนมี iPhone มือสองที่ยังใช้งานได้บางส่วน แต่มีอาการที่กระทบราคา แนะนำอ่านหน้าเฉพาะทางแล้วส่งรูปตามแนวทางนั้น
+        เพื่อให้ประเมินใกล้เคียงขึ้น
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <a
+          class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-4 text-sm font-semibold text-text-dark hover:border-gold/40 hover:bg-gold-bg"
+          href="/รับซื้อไอโฟน/จอแตก/"
+        >
+          รับซื้อไอโฟนจอแตก
+          <span class="mt-1 block text-xs font-normal text-text-muted">จอร้าว เป็นเส้น ทัชเสีย</span>
+        </a>
+        <a
+          class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-4 text-sm font-semibold text-text-dark hover:border-gold/40 hover:bg-gold-bg"
+          href="/รับซื้อไอโฟน/face-id-เสีย/"
+        >
+          รับซื้อไอโฟน Face ID เสีย
+          <span class="mt-1 block text-xs font-normal text-text-muted">สแกนใบหน้าไม่ได้ TrueDepth</span>
+        </a>
+        <a
+          class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-4 text-sm font-semibold text-text-dark hover:border-gold/40 hover:bg-gold-bg"
+          href="/รับซื้อไอโฟน/ติด-icloud/"
+        >
+          ไอโฟนติด iCloud ขายได้ไหม
+          <span class="mt-1 block text-xs font-normal text-text-muted">ตรวจเงื่อนไขก่อนประเมิน</span>
+        </a>
+      </div>
+      <p class="mt-4 text-sm leading-relaxed text-text-muted">
+        กรณีอื่น เช่น แบตเสื่อม เปิดไม่ติด หรือฝาหลังแตก ดูได้จาก
+        <a class="underline" href="/รับซื้อไอโฟน/">ฮับรับซื้อไอโฟน</a>
+      </p>
+    </div>
+  </section>
+
+  <div class="mx-auto w-full max-w-[1180px] px-4 pt-10">
+    <LineCTA variant="compact" />
+  </div>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">ขั้นตอนเช็คราคาไอโฟนมือสองผ่าน LINE</h2>
+    <ol class="mt-4 list-decimal space-y-3 pl-5 text-base leading-relaxed text-text-muted">
+      <li>เปิดเครื่องดูรุ่นและความจุจากเมนู About แล้วถ่ายรูปหน้าจอ</li>
+      <li>ถ่ายรูป iPhone ด้านหน้า ด้านหลัง ขอบเครื่อง และกล้อง</li>
+      <li>แจ้งเครื่องศูนย์ไทยหรือเครื่องนอก สภาพจอ แบต และอาการ (ถ้ามี)</li>
+      <li>แอดไลน์ <strong>@webuy</strong> ส่งรูปและข้อความ</li>
+      <li>รับกรอบราคาเบื้องต้น แล้วตัดสินใจนัดรับหรือส่งเครื่อง</li>
+    </ol>
+    <p class="mt-4 text-sm text-text-muted">
+      ก่อนส่งมอบ แนะนำสำรองข้อมูล ออกจาก Apple ID ปิด Find My และล้างข้อมูลตามขั้นตอนของระบบ
+      อ่านคู่มือ <a class="underline" href="/blog/ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร/">ก่อนขายไอโฟนต้องล้างข้อมูลอย่างไร</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ตัวอย่างข้อความเช็คราคาไอโฟนมือสอง (คัดลอกได้)</h2>
+      <div class="mt-4 grid gap-4 lg:grid-cols-2">
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-4 text-sm leading-relaxed text-text-dark">
+          ขอเช็คราคาไอโฟนมือสองครับ
+          <br />รุ่น ______ ความจุ ______ GB
+          <br />เครื่องศูนย์ไทย / เครื่องนอก: ______
+          <br />สภาพ: ใช้งานปกติ มีรอยเล็กน้อย
+          <br />Battery Health: ______% (ถ้าทราบ)
+          <br />อุปกรณ์: มีสายชาร์จ / มีกล่อง
+        </div>
+        <div class="rounded-2xl border border-gold-border/25 bg-white p-4 text-sm leading-relaxed text-text-dark">
+          ขอเช็คราคาไอโฟนมือสองตามสภาพครับ
+          <br />รุ่น ______ (แนบรูป About)
+          <br />อาการ: จอแตก / Face ID เสีย / แบตเสื่อม
+          <br />แนบรูปและวิดีโออาการ 5–10 วินาที
+          <br />อยู่โซน ______
+        </div>
+      </div>
+      <div class="mt-5">
+        <CTAButtons />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">เครื่องศูนย์ไทย vs เครื่องนอก ตอนเช็คราคา</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      เมื่อเช็คราคาไอโฟนมือสอง ควรแจ้งแหล่งเครื่องตั้งแต่ต้น เพราะโมเดลและตลาดมือสองอาจต่างกัน
+      ส่งรูปหน้าจอ About หรือรูปใต้เครื่อง (ถ้าเปิดได้) ช่วยยืนยันข้อมูลได้เร็วขึ้น
+    </p>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      อ่านเพิ่ม:
+      <a class="underline" href="/รับซื้อไอโฟน/เครื่องศูนย์ไทย/">เครื่องศูนย์ไทย</a>
+      {' · '}
+      <a class="underline" href="/รับซื้อไอโฟน/เครื่องนอก/">เครื่องนอก</a>
+      {' · '}
+      <a class="underline" href="/blog/เครื่องศูนย์ไทยกับเครื่องนอกต่างกันยังไงตอนขาย/">บทความเปรียบเทียบ</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-amber-500/30 bg-section-warm p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ข้อควรทราบเรื่องบัญชีผู้ใช้ (iCloud)</h2>
+      <p class="mt-3 text-base leading-relaxed text-text-muted">
+        หาก iPhone ยังติดบัญชี Apple ID หรือ Find My ต้องจัดการให้ถูกต้องก่อนขาย
+        เราไม่รับเครื่องที่มีปัญหากรรมสิทธิ์ และไม่สนับสนุนการปลดล็อกที่ไม่ถูกต้อง
+      </p>
+      <p class="mt-3 text-sm text-text-muted">
+        อ่านเงื่อนไขเต็มที่
+        <a class="font-semibold underline" href="/รับซื้อไอโฟน/ติด-icloud/">ไอโฟนติด iCloud ขายได้ไหม</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">เช็คราคาไอโฟนมือสอง vs เช็คราคาไอโฟนทั่วไป</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      หน้า <a class="underline" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a> ครอบคลุมการประเมินก่อนขายโดยรวม
+      ส่วนหน้านี้เน้น intent ของคนที่มี <strong>iPhone มือสอง</strong> และต้องการดูกรอบราคาตามสภาพจริงของเครื่อง
+      ทั้งสองหน้าใช้ช่องทางเดียวกัน — แอดไลน์ @webuy ส่งรูปประเมินฟรี
+    </p>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      หากต้องการเข้าใจปัจจัยราคาเชิงลึก อ่าน <a class="underline" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
+      หรือดูรุ่นที่สนใจจาก <a class="underline" href="/รับซื้อไอโฟน/">ฮับรับซื้อไอโฟน</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">เช็คราคาไอโฟนมือสองจากทุกพื้นที่</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      ไม่ว่าคุณจะอยู่กรุงเทพ ปริมณฑล หรือภาคอีสาน สามารถเริ่มเช็คราคาผ่าน LINE @webuy ได้ก่อน
+      จากนั้นค่อยสอบถามวิธีนัดรับหรือส่งเครื่องตามพื้นที่ที่สะดวก
+    </p>
+    <p class="mt-3 text-sm text-text-muted">
+      ดูพื้นที่ให้บริการ:
+      <a class="underline" href="/พื้นที่ให้บริการ/">รายการพื้นที่</a>
+      {' · '}
+      <a class="underline" href="/รับซื้อไอโฟน/กรุงเทพ/">กรุงเทพ</a>
+      {' · '}
+      <a class="underline" href="/รับซื้อไอโฟน/ภาคอีสาน/">ภาคอีสาน</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <div class="rounded-3xl border border-gold-border/25 bg-white p-6 shadow-sm sm:p-8">
+      <h2 class="text-xl font-extrabold text-text-dark">ข้อผิดพลาดที่ทำให้ประเมินไม่ตรง</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-base leading-relaxed text-text-muted">
+        <li>ไม่แจ้งอาการเสีย เช่น จอแตกหรือ Face ID เสีย แล้วค่อยบอกตอนหน้างาน</li>
+        <li>ส่งรูปไม่ชัดหรือมืดเกินไป จนมองไม่เห็นรอย</li>
+        <li>ไม่บอกว่าเครื่องศูนย์ไทยหรือเครื่องนอก</li>
+        <li>ลืมแจ้งเรื่องบัญชีผู้ใช้หรือ Find My ก่อนนัด</li>
+        <li>ใช้รูปเก่าจากตอนซื้อมา แทนรูปสภาพปัจจุบัน</li>
+      </ul>
+      <p class="mt-4 text-sm text-text-muted">
+        แจ้งตรงตั้งแต่ต้นช่วยให้ทั้งสองฝ่ายประหยัดเวลา และได้กรอบราคาที่ใช้ตัดสินใจได้จริง
+      </p>
+      <p class="mt-3 text-sm text-text-muted">
+        หากเครื่องมีหลายอาการพร้อมกัน เช่น จอแตกและ Face ID เสีย แนะนำส่งรูปและคลิปแยกตามอาการในแชทเดียว
+        ทีมงานจะพิจารณารวมตามสภาพจริง — ไม่มีการสัญญาราคาล่วงหน้าโดยไม่เห็นข้อมูลครบ
+      </p>
+    </div>
+  </section>
+
+  <div class="mx-auto w-full max-w-[1180px] px-4 pt-10">
+    <LineCTA variant="dark" />
+  </div>
+
+  <PriceFactors />
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">ทำไมต้องส่งรูป ไม่ใช่แค่บอกรุ่น</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      การบอกแค่รุ่นอย่างเดียวมักไม่พอสำหรับตลาดมือสอง เพราะ iPhone รุ่นเดียวกันอาจมีสภาพต่างกันมาก
+      รูปช่วยให้เห็นรอยใช้งาน สภาพจอ กล้อง ขอบเครื่อง และอุปกรณ์ที่มี — ซึ่งล้วนมีผลต่อกรอบราคาเบื้องต้น
+    </p>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      ถ้าไม่แน่ใจว่าจะถ่ายอะไร เริ่มจาก 3 รูป: หน้าจอ About, ด้านหลังเครื่อง, และมุมที่มีรอยชัดที่สุด
+      ทีมงานจะบอกเพิ่มว่าควรถ่ายตรงไหนเพื่อให้ประเมินใกล้เคียงขึ้น
+    </p>
+    <p class="mt-3 text-sm text-text-muted">
+      คู่มือถ่ายรูป:
+      <a class="underline" href="/blog/ส่งรูปประเมินราคาไอโฟนผ่านไลน์/">ส่งรูปประเมินราคาไอโฟนผ่าน LINE</a>
+      {' · '}
+      <a class="underline" href="/blog/วิธีดูรุ่น-iphone-ก่อนส่งประเมินราคา/">วิธีดูรุ่น iPhone</a>
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">เช็คราคาไอโฟนมือสองรุ่นยอดนิยม</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      ไม่ว่าจะเป็น iPhone รุ่นใหม่หรือรุ่นที่ใช้งานมาหลายปี หลักการเช็คราคาเหมือนกัน — ส่งรุ่น ความจุ รูปหลายมุม และสภาพตรง ๆ
+      หากต้องการดูหน้ารุ่นเฉพาะ สามารถเริ่มจากลิงก์ด้านล่างแล้วส่งรูปมาที่ LINE @webuy ได้เลย
+    </p>
+    <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg" href="/รับซื้อไอโฟน/iphone-16/">iPhone 16</a>
+      <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg" href="/รับซื้อไอโฟน/iphone-15/">iPhone 15</a>
+      <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg" href="/รับซื้อไอโฟน/iphone-14/">iPhone 14</a>
+      <a class="rounded-2xl border border-gold-border/25 bg-section-warm px-4 py-3 text-sm font-semibold text-text-dark hover:bg-gold-bg" href="/รับซื้อไอโฟน/iphone-13/">iPhone 13</a>
+    </div>
+    <p class="mt-4 text-sm text-text-muted">
+      เครื่องมีอาการเฉพาะ? ดูหน้า
+      <a class="underline" href="/รับซื้อไอโฟน/จอแตก/">จอแตก</a>,
+      <a class="underline" href="/รับซื้อไอโฟน/face-id-เสีย/">Face ID เสีย</a>,
+      หรือ
+      <a class="underline" href="/รับซื้อไอโฟน/ติด-icloud/">ติด iCloud</a>
+      ก่อนส่งประเมิน
+    </p>
+  </section>
+
+  <section class="mx-auto w-full max-w-6xl px-4 pt-12">
+    <h2 class="text-xl font-extrabold text-text-dark">สรุป</h2>
+    <p class="mt-3 text-base leading-relaxed text-text-muted">
+      <strong>เช็คราคาไอโฟนมือสอง</strong> เริ่มจากส่งรุ่น ความจุ รูปหลายมุม และสภาพตรง ๆ ผ่านไลน์ @webuy
+      คุณจะได้กรอบราคาเบื้องต้นฟรีเพื่อตัดสินใจขาย ไม่มีราคาตายตัวบนหน้าเว็บ — ประเมินตามสภาพจริงและตลาด ณ ช่วงนั้น
+    </p>
+    <p class="mt-3 text-sm text-text-muted">
+      พร้อมเช็คราคา แอดไลน์ <strong>@webuy</strong> หรือโทร <strong>0642579353</strong>
+    </p>
+    <p class="mt-3 text-sm text-text-muted">
+      ไม่ว่าจะเป็นเครื่องใช้งานปกติหรือมีอาการบางอย่าง การส่งรูปและข้อมูลครบตั้งแต่แรกช่วยให้ได้คำตอบที่ชัดและตัดสินใจขายได้สะดวกขึ้น
+    </p>
+  </section>
+
+  <FAQ faqs={faqs} title="คำถามที่พบบ่อย — เช็คราคาไอโฟนมือสอง" />
+
+  <RelatedLinks title="ลิงก์หน้าเฉพาะทางและหน้าที่เกี่ยวข้อง" links={relatedLinks} />
+
+  <FinalCtaBanner subtitle="ส่งรูป iPhone มือสองผ่านไลน์ @webuy — ประเมินราคาเบื้องต้นฟรี ไม่ต้องกรอกฟอร์ม">
+    <CTAButtons
+      tone="dark"
+      size="lg"
+      secondaryCompact
+      primaryText={`แอดไลน์ ${SITE.lineHandle} ส่งรูปประเมินราคา`}
+      primaryHref={SITE.lineUrl}
+      secondaryText="โทร"
+      secondaryHref={`tel:${SITE.telephone}`}
+    />
+  </FinalCtaBanner>
+</ServiceLayout>
