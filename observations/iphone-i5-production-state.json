@@ -1,0 +1,21 @@
+{
+  "gate": "IPHONE_I5",
+  "behaviorSourceSha": "3ccbb0b886394098cd1e13c1c888cf2abaffa0e7",
+  "baseline": {
+    "latestFinalizedDate": "2026-09-06",
+    "clicks": 72,
+    "impressions": 1808,
+    "ctr": 0.0398,
+    "position": 10.766
+  },
+  "productionPassDate": null,
+  "observationClockActive": false,
+  "firstReviewFinalizedDate": null,
+  "primaryDecisionFinalizedDate": null,
+  "freezePolicy": {
+    "i1Targets": true,
+    "i2CtrWinners": true,
+    "modelFamily": true,
+    "schemaOutput": true
+  }
+}
