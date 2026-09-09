@@ -1,0 +1,71 @@
+{
+  "batch": "IPHONE_I0",
+  "site": "https://xn--c3c1abc0aub6fa0bi9d0h0a0eh.com/",
+  "displayDomain": "ร้านรับซื้อไอโฟน.com",
+  "repo": "noteroru2/shopbuyiphone-thai",
+  "sourceSha": "fe1a3bef54dbfed84afbe115ae5322b94ea0b4f6",
+  "capturedDate": "2026-09-09",
+  "latestFinalizedGscDate": "2026-09-06",
+  "sitewide28d": {
+    "current": {
+      "from": "2026-08-10",
+      "to": "2026-09-06",
+      "clicks": 72,
+      "impressions": 1808,
+      "ctr": 0.0398,
+      "position": 10.766
+    },
+    "previous": {
+      "from": "2026-07-13",
+      "to": "2026-08-09",
+      "clicks": 32,
+      "impressions": 1297,
+      "ctr": 0.0247,
+      "position": 11.4549
+    }
+  },
+  "priorityPages": [
+    {"path":"/รับซื้อไอโฟน/อุดรธานี/","classification":"PROTECT_AND_PUSH","clicks":4,"impressions":34,"ctr":0.1176,"position":7.4412},
+    {"path":"/รับซื้อไอโฟน/อุบลราชธานี/","classification":"PAGE_ONE_PUSH","clicks":4,"impressions":31,"ctr":0.129,"position":11.8065},
+    {"path":"/รับซื้อไอโฟน/face-id-เสีย/","classification":"PROTECT_RECOVER_CAREFULLY","clicks":4,"impressions":49,"ctr":0.0816,"position":9.7347},
+    {"path":"/รับซื้อไอโฟน/นนทบุรี/","classification":"PAGE_ONE_PUSH","clicks":3,"impressions":27,"ctr":0.1111,"position":10.1481},
+    {"path":"/รับซื้อไอโฟน/สุรินทร์-สังขะ/","classification":"PROTECT","clicks":3,"impressions":16,"ctr":0.1875,"position":9.75},
+    {"path":"/blog/iphone-15-cracked-screen/","classification":"PROTECT_AND_PUSH","clicks":3,"impressions":47,"ctr":0.0638,"position":7.234},
+    {"path":"/รับซื้อไอโฟน/สกลนคร-พังโคน/","classification":"PROTECT_AND_PUSH","clicks":2,"impressions":21,"ctr":0.0952,"position":6.5714},
+    {"path":"/รับซื้อไอโฟน/เครื่องนอก/","classification":"PROTECT_AND_PUSH","clicks":2,"impressions":26,"ctr":0.0769,"position":8.0769},
+    {"path":"/blog/ไอโฟนจอแตกขายได้ไหม/","classification":"PAGE_ONE_PUSH","clicks":2,"impressions":31,"ctr":0.0645,"position":11.9677},
+    {"path":"/blog/iphone-15-plus-thai-vs-import/","classification":"PROTECT","clicks":2,"impressions":49,"ctr":0.0408,"position":5.8776},
+    {"path":"/รับซื้อไอโฟน/กาฬสินธุ์-เขาวง/","classification":"CTR_PUSH","clicks":1,"impressions":28,"ctr":0.0357,"position":8.25},
+    {"path":"/รับซื้อไอโฟน/ปทุมธานี/","classification":"CTR_PUSH","clicks":1,"impressions":26,"ctr":0.0385,"position":9.1923},
+    {"path":"/blog/ไอโฟนเปิดไม่ติดขายได้ไหม/","classification":"CTR_PUSH","clicks":1,"impressions":41,"ctr":0.0244,"position":8.4878},
+    {"path":"/blog/iphone-15-pro-max-thai-vs-import/","classification":"CTR_PUSH","clicks":1,"impressions":57,"ctr":0.0175,"position":5.8596},
+    {"path":"/blog/iphone-14-thai-vs-import/","classification":"CTR_PUSH","clicks":0,"impressions":64,"ctr":0,"position":7.5938},
+    {"path":"/blog/iphone-16-battery-health/","classification":"CTR_PUSH","clicks":0,"impressions":45,"ctr":0,"position":7.5778},
+    {"path":"/blog/iphone-16-pro-max-battery-health/","classification":"CTR_PUSH","clicks":0,"impressions":42,"ctr":0,"position":6.0238},
+    {"path":"/รับซื้อไอโฟน/ศรีสะเกษ-เมืองศรีสะเกษ/","classification":"CTR_PUSH","clicks":0,"impressions":23,"ctr":0,"position":7.2609},
+    {"path":"/รับซื้อไอโฟน/นครพนม-ศรีสงคราม/","classification":"CTR_PUSH","clicks":0,"impressions":20,"ctr":0,"position":6.25},
+    {"path":"/รับซื้อไอโฟน/ขอนแก่น/","classification":"PAGE_ONE_PUSH","clicks":1,"impressions":22,"ctr":0.0455,"position":14.4545}
+  ],
+  "modelHubs": [
+    {"path":"/รับซื้อไอโฟน/iphone-11/","clicks":0,"impressions":17,"position":25.2941,"classification":"HOLD"},
+    {"path":"/รับซื้อไอโฟน/iphone-12/","clicks":0,"impressions":18,"position":32.8889,"classification":"HOLD"},
+    {"path":"/รับซื้อไอโฟน/iphone-13/","clicks":0,"impressions":16,"position":27.0625,"classification":"HOLD"},
+    {"path":"/รับซื้อไอโฟน/iphone-14/","clicks":0,"impressions":20,"position":39.4,"classification":"HOLD"},
+    {"path":"/รับซื้อไอโฟน/iphone-15/","clicks":0,"impressions":18,"position":32.7778,"classification":"HOLD"},
+    {"path":"/รับซื้อไอโฟน/iphone-16/","clicks":0,"impressions":19,"position":41.4211,"classification":"HOLD"}
+  ],
+  "ownershipFindings": {
+    "homepage": "HOLD_GENERIC_OWNER_WEAK",
+    "localFamily": "DISTRIBUTED_LOCAL_OWNERSHIP",
+    "conditionAndBlogFamily": "PROVEN_LONGTAIL_OWNERSHIP",
+    "modelFamily": "HOLD_LOW_VISIBILITY",
+    "confirmedCannibalization": false,
+    "confirmedConsolidationTargets": []
+  },
+  "guardrails": [
+    "Do not consolidate local province/district pages into one generic near-me page without query-to-page evidence.",
+    "Do not mass-rewrite model hubs in I1; they are materially farther from page one than local/condition winners.",
+    "Protect existing top-10 informational and local pages before changing titles, H1s, canonicals or URL ownership.",
+    "Treat sparse/anonymized GSC query rows as insufficient evidence for destructive cannibalization cleanup."
+  ]
+}
