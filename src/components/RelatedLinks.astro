@@ -7,10 +7,127 @@ interface Props {
 }
 
 const { title = 'ลิงก์ที่เกี่ยวข้อง', links } = Astro.props;
+
+let pathname = Astro.url.pathname;
+try {
+  pathname = decodeURIComponent(pathname);
+} catch {
+  // Keep the original pathname if a malformed escape sequence is ever encountered.
+}
+
+type PageOneSupport = {
+  heading: string;
+  body: string;
+  links: RelatedLink[];
+};
+
+const PAGE_ONE_SUPPORT: Record<string, PageOneSupport> = {
+  '/รับซื้อไอโฟน/อุบลราชธานี/': {
+    heading: 'ขาย iPhone ในอุบลราชธานี เช็กสภาพก่อนประเมินได้',
+    body:
+      'ถ้าเครื่องมีจอร้าว Face ID มีปัญหา หรือเป็นเครื่องนอก ยังส่งรูปเพื่อประเมินเบื้องต้นได้ในหลายกรณี แจ้งรุ่น ความจุ สุขภาพแบต และอาการจริงให้ครบ จะช่วยให้คุยราคาและวิธีนัดหรือส่งเครื่องได้ตรงขึ้น',
+    links: [
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+      { label: 'จอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+      { label: 'เครื่องนอก', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/นนทบุรี/': {
+    heading: 'ขาย iPhone ในนนทบุรี ส่งรูปเช็กสภาพก่อนนัดได้',
+    body:
+      'คนอยู่แคราย ปากเกร็ด บางใหญ่ หรือโซนใกล้เคียงสามารถเริ่มจากส่งรูปเครื่องและจุดตำหนิก่อน หากจอแตก Face ID เสีย หรือเป็นเครื่องนอก ให้แจ้งตรง ๆ เพื่อประเมินจากสภาพจริงก่อนคุยเรื่องนัดหรือขนส่ง',
+    links: [
+      { label: 'จอแตกขายได้ไหม', href: '/รับซื้อไอโฟน/จอแตก/' },
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/อุดรธานี/': {
+    heading: 'ขาย iPhone ในอุดรธานี เริ่มจากรุ่น ความจุ และสภาพจริง',
+    body:
+      'ไม่ว่าจะอยู่เมืองอุดร กุมภวาปี บ้านดุง หรืออำเภอใกล้เคียง แนะนำส่งรูปหลายมุมพร้อม Battery Health และอาการก่อน หากมีรอย จอแตก Face ID เสีย หรือเป็นเครื่องนอกก็แจ้งได้ เพื่อให้ประเมินเบื้องต้นก่อนเลือกวิธีนัดหรือส่งเครื่อง',
+    links: [
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+      { label: 'เครื่องนอก', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/ขอนแก่น/': {
+    heading: 'ขาย iPhone ในขอนแก่น ส่งข้อมูลให้ครบก่อนเช็กราคา',
+    body:
+      'การแจ้งรุ่น ความจุ สุขภาพแบต สภาพจอ กล้อง Face ID และอุปกรณ์ที่มี ช่วยให้ประเมินเบื้องต้นได้แม่นขึ้น หากเครื่องมีตำหนิหรือเป็นเครื่องนอกยังสามารถส่งรูปให้ทีมงานช่วยดูตามสภาพจริงได้',
+    links: [
+      { label: 'จอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+      { label: 'เครื่องนอก', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+      { label: 'รับซื้อไอโฟนอุดรธานี', href: '/รับซื้อไอโฟน/อุดรธานี/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/face-id-เสีย/': {
+    heading: 'iPhone Face ID เสียยังส่งประเมินได้ในหลายกรณี',
+    body:
+      'ราคาจะขึ้นกับรุ่น ความจุ สภาพจอ กล้อง TrueDepth อาการร่วม และประวัติการซ่อม แนะนำส่งรูปหน้าจอ ขอบเครื่อง กล้องหน้า และคลิปสั้นที่เห็นอาการ เพื่อให้ประเมินจากข้อมูลจริงก่อนตัดสินใจขาย',
+    links: [
+      { label: 'ไอโฟนจอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+      { label: 'ไอโฟนเครื่องนอก', href: '/รับซื้อไอโฟน/เครื่องนอก/' },
+      { label: 'เช็คราคาไอโฟนมือสอง', href: '/เช็คราคาไอโฟนมือสอง/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/เครื่องนอก/': {
+    heading: 'iPhone เครื่องนอกขายได้ไหม ต้องแจ้งอะไรบ้าง',
+    body:
+      'หลายรุ่นยังประเมินได้ โดยควรแจ้งประเทศหรือโมเดลเครื่องถ้าทราบ พร้อมรุ่น ความจุ สุขภาพแบต และสภาพใช้งานจริง เครื่องนอกบางรุ่นมีรายละเอียดซิมหรือเครือข่ายต่างจากเครื่องศูนย์ไทย จึงควรส่งรูปหน้า About ประกอบ',
+    links: [
+      { label: 'เครื่องศูนย์ไทย', href: '/รับซื้อไอโฟน/เครื่องศูนย์ไทย/' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+      { label: 'จอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+    ],
+  },
+  '/รับซื้อไอโฟน/จอแตก/': {
+    heading: 'iPhone จอแตกยังประเมินได้ ต้องดูมากกว่ารอยกระจก',
+    body:
+      'นอกจากรอยแตก ควรแจ้งว่าทัชยังใช้ได้หรือไม่ จอเป็นเส้นหรือมีจุดดำหรือไม่ และ Face ID ยังทำงานหรือเปล่า เพราะอาการร่วมมีผลต่อการประเมิน ส่งรูปจอเปิดติดและรูปมุมรอยแตกชัด ๆ จะช่วยให้คุยรายละเอียดได้เร็วขึ้น',
+    links: [
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+      { label: 'ไอโฟนจอแตกขายได้ไหม', href: '/blog/ไอโฟนจอแตกขายได้ไหม/' },
+      { label: 'เช็คราคาไอโฟนมือสอง', href: '/เช็คราคาไอโฟนมือสอง/' },
+    ],
+  },
+  '/blog/ไอโฟนจอแตกขายได้ไหม/': {
+    heading: 'ถ้าต้องการขายจริง ให้แยกอาการจอออกจากสภาพส่วนอื่น',
+    body:
+      'ก่อนขอประเมิน ควรเช็กว่าทัช กล้อง Face ID และการเปิดเครื่องยังทำงานหรือไม่ แล้วส่งรูปจอพร้อมรุ่นและความจุ วิธีนี้ช่วยให้ประเมินจากสภาพจริงแทนการดูเฉพาะรอยแตกอย่างเดียว',
+    links: [
+      { label: 'รับซื้อไอโฟนจอแตก', href: '/รับซื้อไอโฟน/จอแตก/' },
+      { label: 'Face ID เสีย', href: '/รับซื้อไอโฟน/face-id-เสีย/' },
+      { label: 'เช็คราคาไอโฟน', href: '/เช็คราคาไอโฟน/' },
+    ],
+  },
+};
+
+const pageOneSupport = PAGE_ONE_SUPPORT[pathname];
 ---
 
 <section class="mx-auto w-full max-w-[1180px] px-4 py-10" aria-labelledby="related-links-heading">
   <div class="rounded-2xl border border-gold-border/20 bg-white/90 p-6 shadow-sm sm:p-8">
+    {
+      pageOneSupport ? (
+        <div class="mb-7 rounded-2xl border border-gold-border/25 bg-section-warm p-5 sm:p-6" data-iphone-i1="PAGE_ONE_PUSH">
+          <h2 class="text-lg font-bold tracking-tight text-text-dark sm:text-xl">{pageOneSupport.heading}</h2>
+          <p class="mt-3 max-w-4xl text-sm leading-relaxed text-text-muted sm:text-base">{pageOneSupport.body}</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {pageOneSupport.links.map((l) => (
+              <a
+                href={l.href}
+                class="inline-flex items-center rounded-full border border-gold-border/35 bg-white px-3.5 py-2 text-sm font-semibold text-gold-deep transition hover:border-gold-border hover:text-gold"
+              >
+                {l.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      ) : null
+    }
+
     <h2 id="related-links-heading" class="border-l-2 border-gold pl-4 text-lg font-bold tracking-tight text-text-dark sm:text-xl">
       {title}
     </h2>
