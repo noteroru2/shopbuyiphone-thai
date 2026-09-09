@@ -27,7 +27,36 @@ function normalizeCanonical(value: string) {
   return absoluteUrl(path.endsWith('/') ? path : `${path}/`);
 }
 
-const canonical = post.data.canonical ? normalizeCanonical(post.data.canonical) : absoluteUrl(`/blog/${toSlug(post)}/`);
+const slug = toSlug(post);
+const canonical = post.data.canonical ? normalizeCanonical(post.data.canonical) : absoluteUrl(`/blog/${slug}/`);
+
+const CTR_SNIPPET_OVERRIDES: Record<string, { title: string; description: string }> = {
+  'iphone-14-thai-vs-import': {
+    title: 'iPhone 14 เครื่องไทย vs เครื่องนอก ตอนขายต่างกันไหม?',
+    description:
+      'ขาย iPhone 14 เครื่องไทยหรือเครื่องนอกควรแจ้งอะไรบ้าง เช็กโมเดล ความจุ เครือข่าย และสภาพก่อนประเมิน พร้อมส่งรูปทาง LINE เพื่อเช็กราคาเบื้องต้น',
+  },
+  'iphone-15-pro-max-thai-vs-import': {
+    title: 'iPhone 15 Pro Max เครื่องไทย vs เครื่องนอก ตอนขายต่างกันไหม?',
+    description:
+      'ก่อนขาย iPhone 15 Pro Max เช็กว่าเป็นเครื่องไทยหรือเครื่องนอก พร้อมรุ่น ความจุ สภาพ และการใช้งานเครือข่าย เพื่อช่วยให้ประเมินราคาได้ตรงขึ้น',
+  },
+  'iphone-16-battery-health': {
+    title: 'iPhone 16 แบตเสื่อมขายได้ไหม? เช็ก Battery Health ก่อนประเมิน',
+    description:
+      'iPhone 16 แบตเสื่อมยังประเมินได้ในหลายกรณี ดู Battery Health อาการแบตหมดไว เครื่องร้อน และสภาพจริง ส่งรูปเมนูแบตเพื่อเช็กราคาเบื้องต้น',
+  },
+  'iphone-16-pro-max-battery-health': {
+    title: 'iPhone 16 Pro Max แบตเสื่อมขายได้ไหม? เช็ก Battery Health',
+    description:
+      'เช็ก iPhone 16 Pro Max แบตเสื่อมก่อนขาย ดู Battery Health อาการหมดไว เครื่องร้อน และสภาพเครื่องจริง พร้อมส่งรูปเพื่อประเมินราคาเบื้องต้น',
+  },
+};
+
+const ctrSnippet = CTR_SNIPPET_OVERRIDES[slug];
+const seoTitle = ctrSnippet?.title ?? post.data.title;
+const seoDescription = ctrSnippet?.description ?? post.data.description;
+
 const breadcrumbs = [
   { name: 'หน้าแรก', url: absoluteUrl('/') },
   { name: 'บทความ', url: absoluteUrl('/blog/') },
@@ -39,7 +68,7 @@ const schemas = [
   ...(post.data.faqs?.length ? [faqPageSchema(post.data.faqs)] : []),
   blogPostingSchema({
     headline: post.data.title,
-    description: post.data.description,
+    description: seoDescription,
     url: canonical,
     datePublished: isoDate(post.data.date),
     dateModified: post.data.dateModified ? isoDate(post.data.dateModified) : undefined,
@@ -56,8 +85,8 @@ const featuredImageAlt = post.data.featuredImageAlt ?? post.data.title;
 ---
 
 <BaseLayout
-  title={`${post.data.title} | ร้านรับซื้อไอโฟน.com`}
-  description={post.data.description}
+  title={`${seoTitle} | ร้านรับซื้อไอโฟน.com`}
+  description={seoDescription}
   canonical={canonical}
   ogImage={post.data.ogImage ? absoluteUrl(post.data.ogImage) : post.data.featuredImage ? absoluteUrl(post.data.featuredImage) : undefined}
   schemas={schemas}
