@@ -4,6 +4,8 @@ export type FaqItem = { question: string; answer: string };
 import { SITE } from '../config/site';
 export { SITE };
 
+const MAIN_ORG_ID = 'https://amphon.co.th/#organization';
+
 export function absoluteUrl(pathname: string) {
   const base = SITE.url.replace(/\/$/, '');
   const path = pathname.startsWith('/') ? pathname : `/${pathname}`;
@@ -65,7 +67,8 @@ export function localBusinessSchema(opts?: { description?: string }) {
     areaServed: SITE.areaServed,
     description,
     hasMap: SITE.googleMapsUrl,
-    sameAs: [SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
+    sameAs: [SITE.url, 'https://amphon.co.th/', 'https://webuy.in.th/', 'https://amphontd.com/', SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
+    parentOrganization: { '@id': MAIN_ORG_ID },
     termsOfService: absoluteUrl('/เงื่อนไขการให้บริการ/'),
   };
 }
