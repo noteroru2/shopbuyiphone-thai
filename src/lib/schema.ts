@@ -1,7 +1,7 @@
 import { SITE } from '../config/site';
+import { absoluteUrl, businessOpeningHoursSpecificationJsonLd, companyPostalAddressJsonLd, schemaAbsoluteUrl } from './seo';
 
 const MAIN_ORG_ID = 'https://amphon.co.th/#organization';
-import { absoluteUrl, businessOpeningHoursSpecificationJsonLd, companyPostalAddressJsonLd, schemaAbsoluteUrl } from './seo';
 
 export function organizationSchema() {
   return {
