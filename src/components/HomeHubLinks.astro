@@ -1,32 +1,25 @@
 ---
+const sitelinkCandidates = [
+  { href: '/รับซื้อไอโฟน/', label: 'รับซื้อไอโฟน' },
+  { href: '/เช็คราคาไอโฟน/', label: 'เช็คราคาไอโฟน' },
+  { href: '/ขายไอโฟน/', label: 'ขายไอโฟนมือสอง' },
+  { href: '/รับซื้อไอโฟน/จอแตก/', label: 'ไอโฟนจอแตก' },
+  { href: '/รับซื้อไอโฟน/แบตเสื่อม/', label: 'ไอโฟนแบตเสื่อม' },
+  { href: '/พื้นที่ให้บริการ/', label: 'พื้นที่ให้บริการ' },
+];
 ---
 
-<section class="border-t border-gold-border/15 bg-section-warm py-8 sm:py-10" aria-label="ลิงก์หน้าสำคัญ">
+<nav class="border-t border-gold-border/15 bg-section-warm py-8 sm:py-10" aria-label="บริการหลัก">
   <div class="mx-auto max-w-[1080px] px-4">
-    <div
-      class="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 rounded-2xl border border-gold-border/30 bg-white px-4 py-5 text-sm text-text-muted shadow-sm sm:justify-start"
-    >
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/รับซื้อไอโฟน/">รับซื้อไอโฟน</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/เช็คราคาไอโฟน/">เช็คราคาไอโฟน</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/ขายไอโฟน/">ขายไอโฟน</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/ตีราคาไอโฟน/">ตีราคาไอโฟน</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/รับซื้อ-iphone/">รับซื้อ iPhone</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/รับซื้อไอโฟนมือสอง/">รับซื้อไอโฟนมือสอง</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/พื้นที่ให้บริการ/">พื้นที่ให้บริการ</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/blog/">บทความ</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/คำถามที่พบบ่อย/">คำถามที่พบบ่อย</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/วิธีขายไอโฟน/">วิธีขายไอโฟน</a>
-      <span class="text-gold-border/50" aria-hidden="true">·</span>
-      <a class="font-medium text-text-dark hover:text-gold-deep" href="/เกี่ยวกับเรา/">เกี่ยวกับเรา</a>
+    <div class="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-gold-border/30 bg-white px-4 py-5 text-sm shadow-sm sm:justify-start">
+      {sitelinkCandidates.map((item) => (
+        <a
+          class="rounded-full border border-gold-border/30 bg-section-warm px-4 py-2 font-semibold text-text-dark transition-colors hover:border-gold/40 hover:bg-gold-bg hover:text-gold-deep"
+          href={item.href}
+        >
+          {item.label}
+        </a>
+      ))}
     </div>
   </div>
-</section>
+</nav>
