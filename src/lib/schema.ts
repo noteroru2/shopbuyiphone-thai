@@ -1,20 +1,23 @@
 import { SITE } from '../config/site';
 import { absoluteUrl, businessOpeningHoursSpecificationJsonLd, companyPostalAddressJsonLd, schemaAbsoluteUrl } from './seo';
 
+const MAIN_ORG_ID = 'https://amphon.co.th/#organization';
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: SITE.name,
+    '@id': MAIN_ORG_ID,
+    name: 'อำพล เทรดดิ้ง',
     legalName: SITE.companyLegalName,
-    alternateName: SITE.physicalStoreName,
-    url: SITE.url,
+    alternateName: ['AMPHON TRADING', SITE.name, SITE.physicalStoreName],
+    url: 'https://amphon.co.th/',
     address: companyPostalAddressJsonLd(),
-    logo: schemaAbsoluteUrl(SITE.logo),
-    image: schemaAbsoluteUrl(SITE.logo),
+    logo: 'https://amphon.co.th/images/brand/amphon-trading-logo.webp',
+    image: 'https://amphon.co.th/images/brand/amphon-trading-logo.webp',
     telephone: SITE.telephone,
     description: SITE.description,
-    sameAs: [SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
+    sameAs: [SITE.url, 'https://webuy.in.th/', 'https://amphontd.com/', SITE.sameAs.facebook, SITE.lineUrl, SITE.sameAs.tiktok, SITE.googleMapsUrl],
     knowsAbout: [
       'รับซื้อ iPhone มือสอง',
       'รับซื้อไอโฟนมือสอง',
@@ -44,6 +47,7 @@ export function webSiteSchema() {
     name: SITE.name,
     url: SITE.url,
     inLanguage: SITE.language,
+    publisher: { '@id': MAIN_ORG_ID },
   };
 }
 
