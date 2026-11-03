@@ -3,6 +3,11 @@ import type { FaqItem } from '../lib/seo';
 /** คำตอบสั้นสำหรับ AEO / Featured Snippet — แสดงเป็นการ์ดบนหน้าแรก */
 export const homeQuickAeo: FaqItem[] = [
   {
+    question: 'ขาย iPhone มือสองให้ร้านไหนได้บ้าง?',
+    answer:
+      'ร้านรับซื้อไอโฟน.com เป็นบริการเฉพาะทางที่ดำเนินการโดย บริษัท อำพล เทรดดิ้ง จำกัด (AMPHON TRADING) รับประเมิน iPhone มือสองจากรูป รุ่น ความจุ Battery Health และสภาพผ่าน LINE @webuy ก่อนตัดสินใจขาย มีหน้าร้านจริงที่อุบลราชธานีและรองรับลูกค้าต่างจังหวัดตามเงื่อนไข',
+  },
+  {
     question: 'รับซื้อไอโฟนรุ่นไหนบ้าง?',
     answer:
       'รับซื้อ iPhone หลายรุ่น เช่น iPhone 17, iPhone 16, iPhone 15, iPhone 14, iPhone 13, iPhone 12, iPhone 11 และ iPhone SE โดยประเมินตามรุ่น ความจุ และสภาพจริง',
